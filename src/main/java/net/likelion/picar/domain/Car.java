@@ -1,19 +1,17 @@
 package net.likelion.picar.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.GenerationType;
 
 @Entity
 @Getter
 @NoArgsConstructor
 @AllArgsConstructor // 모든 필드를 초기화하는 전체 생성자 생성
 @Builder // Car.builder().brand("현대").price(1000)... 이렇게 유연한 객체 생성 방식 지원
+
 public class Car {
     @Id //가장 가까운 필드가 id임을 선언
     @GeneratedValue(strategy = GenerationType.IDENTITY) // 이 필드 값을 DB가 자동으로 생성. id가 1,2,3,4.. 이렇게 자동으로 생성
@@ -28,4 +26,8 @@ public class Car {
     private int maintenanceCost;   // 예상 연간 유지비 -> 만원단위
     private String size;           // 크기
     private String purposeTag;     // 이용 목적
+
+    @ManyToOne // Car : Dealer = N : 1 그래서 ManyOoOne
+    @JoinColumn(name = "dealer_id") // 이 필드를 외래키로 쓰겠다는 뜻. db테이블에서 외래키 컬럼 이름을 dealer_id로 하겠다는 뜻. 원래 자동으로 dealer_id로 함
+    private Dealer dealer; // @JoinColumn 어노테이션을 썼으면 바로 아래에 외래키의 대상이 될 엔터티를 명시해야됨 왼쪽에 쓴 것 처럼
 }
