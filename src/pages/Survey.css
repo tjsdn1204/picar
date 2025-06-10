@@ -1,0 +1,145 @@
+/* 1rem : 16px로 고려 */
+
+/* Survey 컨테이너 */
+.survey {
+  max-width: 375px; /* max-w-md */
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+}
+
+/* Header */
+.survey-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: white;
+}
+
+.survey-arrow-left {
+  cursor: pointer;
+  width: 1.75rem; /*28px*/
+  height: 1.75rem;
+}
+
+.survey-title {
+  font-size: 1.125rem; /*18px*/
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: -2.5%;
+}
+
+.survey-header-temp {
+    width: 1.75rem; /*28px*/
+    height: 1.75rem;
+}
+
+/* Progress Bar */
+.survey-progress-bar {
+  padding: 0.5rem 1.25rem 1.75rem 1.25rem; /* 8px 20px 28px 20px*/
+}
+
+.survey-progress-bar-background {
+  width: 100%;
+  background-color: #0000000F;
+  border-radius: 9999px; /* 완전한 캡슐형 */
+  height: 0.375rem; /* 6px */
+}
+
+.survey-progress {
+  background: linear-gradient(90deg, #CBFF69 0%, #2DC5F4 100%);
+  height: 0.375rem; /* 6px */
+  border-radius: 9999px; /* 완전한 캡슐형 */
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* transition-all duration-500 ease-out */
+}
+
+/* Content */
+.survey-contents {
+  padding: 0 1.25rem; /*20px*/ 
+}
+
+.survey-contents-title {
+  font-size: 1.625rem; /* 26px */
+  font-weight: 700; 
+  margin-bottom: 0.5rem; /* 8px */
+  line-height: 130%;
+  letter-spacing: -2.5%;
+  white-space: pre-line;
+}
+
+.survey-contents-subtitle {
+  color: #505050;
+  font-weight: 400;
+  size: 1rem; /*16px*/
+  margin-bottom: 3.25rem; /* 52px */
+  line-height: 130%;
+  letter-spacing: -2.5%;
+}
+
+/* Options Grid */
+.survey-contents-grid {
+  display: grid;
+  gap: 0.5rem; /* 8px */
+  grid-template-columns: repeat(2, 1fr); /* 기본 2열 */
+  margin-bottom: 2rem;
+}
+
+/* Option Button */
+.survey-contents-button {
+  padding: 1rem; /* 16px */
+  border-radius: 0.75rem; /* 12px */
+  border: 0.0625rem solid #0000001F; /* 1px */
+  text-align: center;
+  background-color: #00000008;
+  color: #505050; 
+  cursor: pointer;
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  letter-spacing: -2.5%;
+  white-space: pre-line;
+}
+
+.survey-contents-button.selected {
+  border-color: #95E700; /* Lime Dark */
+  background-color: #0000000D; /* bg-green-50 */
+  color: #303030; 
+  font-weight: 800;
+  padding: 1rem;
+}
+
+/* Next Button */
+.survey-next-button {
+  width: 100%; /* w-full */
+  background-color: #22c55e; /* bg-green-500 */
+  color: white;
+  padding: 1rem 0; /* py-4 */
+  border-radius: 0.5rem; /* rounded-lg */
+  font-weight: 500; /* font-medium */
+  transition: background-color 0.2s; /* transition-colors */
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.survey-next-button:hover {
+  background-color: #16a34a; /* hover:bg-green-600 */
+}
+
+/* Debug Info (기존 Tailwind 클래스 유지) */
+.p-4 {
+  padding: 1rem;
+}
+
+.mt-8 {
+  margin-top: 2rem;
+}
+
+.bg-gray-100 {
+  background-color: #f3f4f6;
+}
+
+.text-sm {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
