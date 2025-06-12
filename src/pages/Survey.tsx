@@ -28,6 +28,7 @@ const Survey = () => {
     const currentQuestion: SurveyQuestion = questionsData[currentStep];
     const progress: number = ((currentStep + 1) / questionsData.length) * 100;
 
+
     const handleAnswer = (optionId : string): void => {
         if (currentQuestion.multiple) {
             const currentAnswers = answers[currentQuestion.id] as string[] || [];
@@ -98,13 +99,12 @@ const Survey = () => {
                 </div>
             </div>
 
-            {/* Content */}
-            <div className="survey-contents">
+            <div className="survey-contents"> 
                 <h2 className="survey-contents-title">
-                {currentQuestion.title}
+                    {currentQuestion.title}
                 </h2>
                 <p className="survey-contents-subtitle">
-                {currentQuestion.subtitle}
+                    {currentQuestion.subtitle}
                 </p>
 
                 {/* Options Grid */}
@@ -121,23 +121,23 @@ const Survey = () => {
                 </div>
 
                 {/* Next Button */}
-                {canProceed() && (
                 <button
                     onClick={currentStep === questionsData.length - 1 ? handleComplete : goToNext}
                     type="button"
                     className="survey-next-button"
+                    disabled={!canProceed()}
                 >
-                    {currentStep === questionsData.length - 1 ? '완료' : '다음'}
+                    {canProceed() ? currentStep === questionsData.length - 1 ? '완료' : '다음 단계' : '선택 후 계속할 수 있어요'}
                 </button>
-                )}
             </div>
+            
 
-            {/* Debug Info */}
+            {/* Debug Info
             <div className="p-4 mt-8 bg-gray-100 text-sm">
                 <div>현재 단계: {currentStep + 1}/{questionsData.length}</div>
                 <div>진행률: {Math.round(progress)}%</div>
                 <div>선택된 답변: {JSON.stringify(answers, null, 2)}</div>
-            </div>
+            </div> */}
         </div>
     );
 }
