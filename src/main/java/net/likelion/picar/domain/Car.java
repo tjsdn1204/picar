@@ -26,6 +26,7 @@ public class Car {
     private int maintenanceCost;   // 예상 연간 유지비 -> 만원단위
     private String size;           // 크기
     private String purposeTag;     // 이용 목적
+    //family_structure는 ai의 판단용 정보일뿐, 차량 필드로 저장 불필요함
 
     @ManyToOne // Car : Dealer = N : 1 그래서 ManyOoOne
     @JoinColumn(name = "dealer_id") // 이 필드를 외래키로 쓰겠다는 뜻. db테이블에서 외래키 컬럼 이름을 dealer_id로 하겠다는 뜻. 원래 자동으로 dealer_id로 함
