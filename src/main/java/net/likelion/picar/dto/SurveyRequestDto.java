@@ -14,7 +14,7 @@ public class SurveyRequestDto {
     private String fuelType; // 연료 형태
     private String fuelPerformancePreference; // 성능 vs 기능 우선시 하는것
     private String carOrigin; // 국산차 vs 해외차
-    private int budgetRange; // 구입 예산 범위
-    private int maintenanceRange; // 유지비용 예산 범위
-    private int carSize; // 차량 크기
+    private String budgetRange; // 구입 예산 범위
+    private String maintenanceRange; // 유지비용 예산 범위
+    private String carSize; // 차량 크기
 }
