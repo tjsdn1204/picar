@@ -1,9 +1,20 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import './AiRecommendationLoading.css';
 import carImg from "../assets/Car_3D_Icon.svg";
 import lineImg from "../assets/Running_Effect.svg";
 
 const AiRecommendationLoading = () => {
+  const [dots, setDots] = useState(1);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setDots(prev => prev === 3 ? 1 : prev + 1);
+    }, 700);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
   return (
     <div className="ai-loading-container">
       {/* Main Content */}
@@ -52,7 +63,7 @@ const AiRecommendationLoading = () => {
         {/* Text Content */}
         <div className="ai-loading-text">
           <h2 className="ai-loading-title">
-            AI가 추천 차종을 생각하는 중...
+            AI가 추천 차종을 생각하는 중{".".repeat(dots)}
           </h2>
           <p className="ai-loading-subtitle">
             조금만 기다려주세요 AI가 힘내고 있어요...!

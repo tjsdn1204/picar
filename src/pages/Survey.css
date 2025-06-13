@@ -2,7 +2,7 @@
 
 /* Survey 컨테이너 */
 .survey {
-  max-width: 375px; /* max-w-md */
+  max-width: 375px;
   margin: 0 auto;
   background-color: white;
   min-height: 100vh;
@@ -56,7 +56,9 @@
 
 /* Content */
 .survey-contents {
+  flex: 1;
   padding: 0 1.25rem; /*20px*/ 
+  padding-bottom: 100px;
 }
 
 .survey-contents-title {
@@ -82,7 +84,6 @@
   display: grid;
   gap: 0.5rem; /* 8px */
   grid-template-columns: repeat(2, 1fr); /* 기본 2열 */
-  margin-bottom: 2rem;
 }
 
 /* Option Button */
@@ -97,7 +98,7 @@
   font-size: 1rem; /* 16px */
   font-weight: 600;
   letter-spacing: -2.5%;
-  white-space: pre-line;
+  white-space: nowrap;
 }
 
 .survey-contents-button.selected {
@@ -110,7 +111,15 @@
 
 /* Next Button */
 .survey-next-button {
+  
+  position: fixed;
+  bottom: 3.625rem; /*58px*/
+  left: 0;
+  right: 0;
   width: 100%;
+  max-width: 375px;
+  margin: 0 auto;
+
   height: 2.5rem; /* 40px */
   background-color: #95E700; /* Lime Dark */
   color: white;
@@ -123,11 +132,17 @@
 
   box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.20);
 
-  margin-top: 5rem; /*268px*/
+  z-index: 100;
 }
 
 .survey-next-button:disabled {
   background-color: #00000040;
+}
+
+@media (max-width: 768px) {
+    .survey {
+        max-width: 100%;
+  }
 }
 
 /* Debug Info */

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { ChevronLeft } from 'lucide-react';
 import "./Survey.css"
 
@@ -20,8 +20,12 @@ interface QuestionAnswers {
     [questionId: string]: string | string[];
 }
 
+interface SurveyProps {
+    onComplete: (answers: QuestionAnswers) => void; // 콜백 prop 추가
+}
 
-const Survey = () => {
+
+const Survey: React.FC<SurveyProps> = ({ onComplete }) => {
     const [currentStep, setCurrentStep] = useState<number>(0);
     const [answers, setAnswers] = useState<QuestionAnswers>({});
 
@@ -74,8 +78,7 @@ const Survey = () => {
     };
 
     const handleComplete = (): void => {
-        console.log('설문 완료!', answers);
-        // 여기서 결과 처리 또는 API 호출
+        onComplete(answers);
     };
 
     return (
@@ -98,7 +101,7 @@ const Survey = () => {
                 ></div>
                 </div>
             </div>
-
+            
             <div className="survey-contents"> 
                 <h2 className="survey-contents-title">
                     {currentQuestion.title}
@@ -145,7 +148,7 @@ const Survey = () => {
 
 const questionsData : SurveyQuestion[] = [
     {
-        id: 'family_structure',
+        id: 'familyType',
         title: '가구형태를 선택해주세요.',
         subtitle: '가구형태는 하나만 선택 가능해요.',
         options: [
@@ -159,7 +162,7 @@ const questionsData : SurveyQuestion[] = [
         multiple: false
     },
     {
-        id: 'main_purpose',
+        id: 'purpose',
         title: '차량 주사용 목적을 \n알려주세요.',
         subtitle: '다양한 항목을 선택 가능해요.',
         options: [
@@ -175,7 +178,7 @@ const questionsData : SurveyQuestion[] = [
         multiple: true 
     },
     {
-        id: 'fuel type',
+        id: 'fuelType',
         title: '선호하는 유종을 선택해주세요.',
         subtitle: '다양한 유종을 선택 가능해요.',
         options: [
@@ -187,20 +190,20 @@ const questionsData : SurveyQuestion[] = [
         multiple: true   
     },
     {
-        id: 'fuel_performance_preference',
+        id: 'fuelPerformancePreference',
         title: '연비와 성능, 어느 쪽을 더 \n중시하시나요?',
         subtitle: '연비 : 성능 으로, 하나만 선택할 수 있어요.',
         options: [
-            { id: 'fuel_only', label: '연비만 중시\n (10:0)' },
-            { id: 'fuel_mostly', label: '연비 약간 중시\n (7:3)' },
-            { id: 'balanced', label: '반반\n (5:5)' },
-            { id: 'performance_mostly', label: '성능 약간 중시\n (3:7)' },
-            { id: 'performance_only', label: '성능만 중시\n (0:10)' }
+            { id: 'fuel_only', label: '연비만 중시 (10:0)' },
+            { id: 'fuel_mostly', label: '연비 약간 중시 (7:3)' },
+            { id: 'balanced', label: '반반 (5:5)' },
+            { id: 'performance_mostly', label: '성능 약간 중시 (3:7)' },
+            { id: 'performance_only', label: '성능만 중시 (0:10)' }
         ],
         multiple: false   
     },
     {
-        id: 'car_origin',
+        id: 'carOrigin',
         title: '국산차와 수입차 중 어느 쪽을\n 선호하시나요?',
         subtitle: '하나만 선택해주세요.',
         options: [
@@ -210,24 +213,25 @@ const questionsData : SurveyQuestion[] = [
         multiple: false
     },
     {
-        id: 'budget_range',
+        id: 'budgetRange',
         title: '차량 구매 예산 범위를\n 알려주세요.',
         subtitle: '원하시는 예산대를 선택해주세요.',
         options: [
-            { id: 'under_1000', label: '1,000만원 이하' },
-            { id: '1000_2000', label: '1,000만원 \n~ 2,000만원' },
-            { id: '2000_3000', label: '2,000만원 \n~ 3,000만원' },
-            { id: '4000_5000', label: '4,000만원 \n~ 5,000만원' },
-            { id: '5000_6000', label: '5,000만원 \n~ 6,000만원' },
-            { id: '7000_8000', label: '7,000만원 \n~ 8,000만원' },
-            { id: '8000_9000', label: '8,000만원 \n~ 9,000만원' },
-            { id: '9000_10000', label: '9,000만원 \n~ 1억원' },
-            { id: 'over_10000', label: '1억원 이상' }
+            { id: 'under_1000', label: '1,000만 원 이하' },
+            { id: '1000_2000', label: '1,000만 원대' },
+            { id: '2000_3000', label: '2,000만 원대' },
+            { id: '4000_5000', label: '4,000만 원대' },
+            { id: '5000_6000', label: '5,000만 원대' },
+            { id: '7000_8000', label: '7,000만 원대' },
+            { id: '8000_9000', label: '8,000만 원대' },
+            { id: '9000_10000', label: '9,000만 원대' },
+            { id: '10000_20000', label: '1억 원대' },
+            { id: 'over_20000', label: '2억 원 이상' }
         ],
         multiple: false
     },
     {
-        id: 'maintenance_budget',
+        id: 'maintenanceRange',
         title: '연간 차량 유지비 예산은 \n얼마나 되시나요?',
         subtitle: '보험료, 유지보수비 등을 포함한 예산이에요.',
         options: [
@@ -242,7 +246,7 @@ const questionsData : SurveyQuestion[] = [
         multiple: false
     },
     {
-        id: 'car_size',
+        id: 'carSize',
         title: '선호하는 차량 크기를 \n선택해주세요.',
         subtitle: '용도에 맞는 차량 크기를 알려주세요.',
         options: [

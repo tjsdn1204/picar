@@ -5,8 +5,8 @@
     background: 
     linear-gradient(to bottom, 
       rgba(0,0,0,0.2) 0%, 
-      transparent 15%, 
-      transparent 85%, 
+      transparent 20%, 
+      transparent 80%, 
       rgba(0,0,0,0.2) 100%
     );
 
@@ -88,7 +88,27 @@
   font-size: 1.625rem; /*26px*/
   line-height: 130%;
   letter-spacing: -2.5%;
+
+  background: linear-gradient(90deg, #CBFF69 0%, #2DC5F4 100%);
+  background-clip: text;
+  color: transparent;
+
+  background-size: 200% 100%;
+    animation: gradientMove 5s ease-in-out infinite;
 }
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
 
 .ai-loading-subtitle {
   font-size: 1rem;
