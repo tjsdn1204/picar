@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './AiRecommendationLoading.css';
-import carImg from "../assets/Car_3D_Icon.svg";
-import lineImg from "../assets/Running_Effect.svg";
+import './style.css';
+import carImg from "../../assets/Car_3D_Icon.svg";
+import lineImg from "../../assets/Running_Effect.svg";
 
-const AiRecommendationLoading = () => {
+const Layout = () => {
   const [dots, setDots] = useState(1);
 
   useEffect(() => {
@@ -74,4 +74,4 @@ const AiRecommendationLoading = () => {
   );
 };
 
-export default AiRecommendationLoading;
+export default Layout;

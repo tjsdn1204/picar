@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Survey from './Survey.tsx';
-import AiRecommendationLoading from './AiRecommendationLoading.tsx';
-import SurveyComplete from './SurveyComplete.tsx';
+import Survey from '../pages/Survey.tsx';
+import AiRecommendationLoading from '../../AiRecommendation/pages/AiRecommendationLoading.tsx';
+import SurveyComplete from '../../SurveyComplete/pages/SurveyComplete.tsx';
 
 // API 타입 정의
 interface SurveyControllerAPI {
