@@ -9,6 +9,11 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
     return `평균 유지비: 월 ${price.toLocaleString()}만원`;
   };
 
+  const formatdisplacement = (displacement: string): string => {
+    const intDisplacement = parseInt(displacement);
+    return `${intDisplacement.toLocaleString()}cc`;
+  };
+
   const handleViewDetails = () => {
     onViewDetails(car.model);
   }
@@ -28,7 +33,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
             <div className="car-info">
                 <ul className="car-specs">
                     <li>{car.year}년 출시</li>
-                    <li>배기량: {car.engine}</li>
+                    <li>배기량: {car.displacement}</li>
                     <li>유종: {car.fuelType}</li>
                     <li>{formatPrice(car.averagePrice)}</li>
                 </ul>

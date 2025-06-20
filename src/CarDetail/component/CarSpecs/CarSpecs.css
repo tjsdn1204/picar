@@ -1,3 +1,7 @@
+.car-specs {
+  margin-bottom: 2rem;
+}
+
 .specs-grid-columns {
   display: grid;
   grid-template-columns: 1fr 1fr; /* 2열 동일한 크기 */

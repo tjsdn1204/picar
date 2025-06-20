@@ -4,7 +4,7 @@ export interface CarInfo {
   id: string;
   model: string;
   year: number;
-  engine: string;
+  displacement: string;
   fuelType: string;
   averagePrice: number;
   image: string;

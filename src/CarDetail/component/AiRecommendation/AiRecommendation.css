@@ -1,0 +1,128 @@
+.ai-recommendation {
+    padding: 1rem;
+    background-color: #F3F3F5;
+    border-radius: 0.75rem;
+
+    margin-bottom: 2rem;
+}
+
+.ai-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.ai-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.ai-title {
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 144%; 
+    letter-spacing: -2.2%;
+
+    margin: 0;
+}
+
+.ai-reasons {
+    cursor: pointer;
+    position: relative;
+}
+
+/* 접힌 상태 */
+.ai-reasons.collapsed {
+    height: 14.25rem; /* 228px */
+    overflow: hidden;
+}
+
+/* 펼쳐진 상태 */
+.ai-reasons.expanded {
+    height: auto;
+    overflow: visible;
+
+    padding-bottom: 2rem;
+}
+
+.ai-reason-item {
+    display: flex;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.ai-reason-item:last-of-type {
+    margin-bottom: 1rem; /* 마지막 아이템과 indicator 사이 공간 */
+}
+
+.reason-number {
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 144%;
+    letter-spacing: -0.01925rem;
+}
+
+.reason-content {
+    flex: 1;
+}
+
+.reason-title {
+    color: #000;
+    font-size: 0.875rem;
+    font-weight: 700;
+    line-height: 144%;
+    letter-spacing: -0.01925rem;
+
+    margin: 0;
+}
+
+/* ul li 스타일 */
+.reason-descriptions {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: -1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+}
+
+.reason-description {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 144%;
+    letter-spacing: -2.2%;
+
+    margin: 0;
+    position: relative;
+    padding-left: 1rem; /* 점 공간 확보 */
+}
+
+/* 점 스타일 (Result 화면과 동일) */
+.reason-description::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #666;
+    font-weight: bold;
+}
+
+/* 펼치기/접기 표시 */
+.ai-expand-indicator {
+    position: absolute;
+    bottom: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #f8f9fa;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.expand-dots {
+    font-size: 0.875rem;
+    font-weight: 500;
+    user-select: none;
+}
