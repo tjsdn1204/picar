@@ -1,0 +1,39 @@
+.result {
+  max-width: 375px;
+  margin: 0 auto;
+  background-color: white;
+  min-height: 100vh;
+  padding: 0 1rem; /* 0 16px */
+
+  position: relative;
+  padding-bottom: 120px
+}
+
+/* result header */
+
+.results-main-title {
+    font-size: 1.5rem; /*24px*/
+    font-weight: 700;
+    color: #95E700;
+    line-height: 130%;
+    letter-spacing: -2.5%;
+
+    margin: 0.75rem 0;
+}
+
+.result-subtitle {
+    font-size: 1rem; /*16px*/
+    font-weight: 400;
+    color: #505050;
+    line-height: 140%;
+    letter-spacing: -2.5%;
+
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+@media (max-width: 768px) {
+    .result {
+        max-width: 100%;
+  }
+}

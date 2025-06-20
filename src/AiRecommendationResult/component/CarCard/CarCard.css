@@ -1,0 +1,108 @@
+/* src/components/results/CarCard.css */
+.car-card {
+    margin-bottom: 0.5rem;
+}
+
+.car-card-container {
+    display: flex;
+    flex-direction: row;
+
+    background-color: #F3F3F3;
+    border-radius: 12px;
+
+    padding: 1.25rem 1rem;
+}
+
+.car-image-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.car-model {
+    font-size: 1.25rem; /*20px*/
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -0.5px;
+
+    align-self: flex-start;
+    margin: 0 0 0.625rem 0;
+}
+
+
+.car-seperate-line {
+    width: 0.125rem; /*2px*/
+    height: 6rem; /*96px*/
+    background: #D9D9D9;
+
+    margin: 0 0.5rem 0 0.5rem; 
+}
+
+.car-info {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.car-specs {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  white-space: nowrap;
+}
+
+.car-specs li {
+    font-size: 0.875rem; /*14px*/
+    position: relative;
+    padding-left: 1rem;
+
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -2%;
+}
+
+.car-specs li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+}
+
+.car-image {
+    width: 9.5rem;
+    height: 4.5rem;
+    object-fit: contain;
+}
+
+.car-details-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0;
+
+    background: white;
+    border: none;
+    
+    cursor: pointer;
+
+    font-size: 0.8125rem; /* 16px */
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -2.2%;
+}
+/* 
+.car-details-button:hover {
+  background: #f9fafb;
+  border-color: #d1d5db;
+} */
+/* 
+.car-details-button:active {
+  transform: translateY(1px);
+} */
