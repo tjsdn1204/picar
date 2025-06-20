@@ -1,54 +1,26 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Survey from '../pages/Survey.tsx';
-import AiRecommendationLoading from '../../AiRecommendation/pages/AiRecommendationLoading.tsx';
+import AiRecommendationLoading from '../../AiRecommendationLoading/pages/AiRecommendationLoading.tsx';
 import SurveyComplete from '../../SurveyComplete/pages/SurveyComplete.tsx';
-
-// API 타입 정의
-interface SurveyControllerAPI {
-  success: boolean;
-  recommendations: any; // GPT 결과 데이터
-  error?: string;
-}
-
-interface QuestionAnswers {
-  [questionId: string]: string | string[];
-}
+import { surveyAPI, type QuestionAnswers } from '../../global/api/Axios.ts';
 
 const SurveyController = () => {
-  const [currentPhase, setCurrentPhase] = useState<'survey' | 'complete' | 'loading'>('survey');
+  const [currentPhase, setCurrentPhase] = useState<'survey' | 'complete' | 'loading' >('survey');
   const [error, setError] = useState<string | null>(null);
   const navigate = useNavigate();
 
-  // 백엔드 API 호출 함수 - 임시
-  const submitSurveyData = async (answers: QuestionAnswers): Promise<SurveyControllerAPI> => {
-    const response = await fetch('/api/survey/submit', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ answers }),
-    });
-
-    if (!response.ok) {
-      throw new Error('설문 제출에 실패했습니다.');
-    }
-
-    return response.json();
-  };
-
   const handleSurveyComplete = async (answers: QuestionAnswers) => {
     try {
-      // 1단계: 조사완료 화면 표시
       setCurrentPhase('complete');
-      
+
       // 1.5초 후 로딩 화면으로 전환
       setTimeout(async () => {
         setCurrentPhase('loading');
         
         try {
           // 백엔드에 데이터 전송 + GPT 처리
-          const result = await submitSurveyData(answers);
+          const result = await surveyAPI.submitSurvey(answers);
           
           if (result.success) {
             // 결과 페이지로 이동
@@ -84,11 +56,12 @@ const SurveyController = () => {
   // 조건부 렌더링
   if (error) {
     return (
-      <div className="error-container">
-        <h2>오류가 발생했습니다</h2>
-        <p>{error}</p>
-        <button onClick={handleRetry}>다시 시도</button>
-      </div>
+      <AiRecommendationLoading />
+      // <div className="error-container">
+      //   <h2>오류가 발생했습니다</h2>
+      //   <p>{error}</p>
+      //   <button onClick={handleRetry}>다시 시도</button>
+      // </div>
     );
   }
 
