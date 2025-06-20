@@ -29,7 +29,7 @@ const SurveyController = () => {
               answers: JSON.stringify(answers)
             });
             
-            navigate(`/results?${queryParams.toString()}`);
+            navigate(`/recommendation?${queryParams.toString()}`);
           } else {
             setError(result.error || '처리 중 오류가 발생했습니다.');
             setCurrentPhase('survey'); // 에러 시 설문으로 돌아감
