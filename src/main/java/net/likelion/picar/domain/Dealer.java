@@ -26,4 +26,6 @@ public class Dealer {
     @OneToMany(mappedBy = "dealer", cascade = CascadeType.ALL, orphanRemoval = true) // 딜러 : 차 = 1 : N
     private List<Car> carList = new ArrayList<>();
 
+    private String imageUrl;
+
 }
