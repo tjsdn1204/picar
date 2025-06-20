@@ -16,7 +16,7 @@
 .dealer-card {
   background-color: #F3F3F5;
   border-radius: 0.75rem;
-  padding: 1.37rem 0.625rem 0.25rem 0.625rem;
+  padding: 1.38rem 0.625rem 0.25rem 0.625rem;
 
   display: flex;
   align-items: center;
@@ -27,6 +27,8 @@
   height: 9rem;
   border-radius: 0.75rem;
   margin-right: 1.31rem;
+
+  margin-top: -1.13rem;
 }
 
 .dealer-img {
