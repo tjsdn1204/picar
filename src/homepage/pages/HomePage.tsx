@@ -9,11 +9,6 @@ import Footer from '../layout/Footer';
 const HomePage: React.FC = () => {
   return (
     <div className="home-container">
-      {/* 로고 */}
-      <img src="/icons/Picar_Logo_Max.svg" alt="픽카 로고" className="site-logo" />
-
-      {/* 상단 검색창 */}
-      <NavBar />
 
       {/* 추천 카드 */}
       <LifeStyleRecommendation />

@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Layout from '../homepage/layout/Layout';
 import HomePage from '../homepage/pages/HomePage';
+import DealerListPage from '../dealerlist/pages/DealerListPage';
 
 const Router: React.FC = () => {
   return (
@@ -9,6 +10,7 @@ const Router: React.FC = () => {
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/dealerlist" element={<DealerListPage />} />
           {/* 추후 다른 페이지는 여기 추가 */}
         </Route>
       </Routes>

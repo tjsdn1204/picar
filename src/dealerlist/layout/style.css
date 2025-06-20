@@ -1,0 +1,24 @@
+.dealerlist-navbar {
+  display: flex;
+  width: 375px;
+  height: 54px;
+  padding: 13px 20px 12px 11px;
+  gap: 244px;
+  align-items: flex-start;
+  background: #fff;
+  position: absolute;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.back-icon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+}
