@@ -1,57 +1,54 @@
-// src/dealerlist/components/DealerCard.tsx
 import React from 'react';
 import './style.css';
 
-type DealerCardProps = {
+interface DealerCardProps {
   name: string;
   rating: number;
   reviews: number;
-  image: string;
   profile: string;
-  price: number;
+  image: string;
   year: string;
   distance: string;
   comment: string;
-};
+  price: number;
+}
 
 export default function DealerCard({
   name,
   rating,
   reviews,
-  image,
   profile,
-  price,
+  image,
   year,
   distance,
   comment,
+  price,
 }: DealerCardProps) {
   return (
     <div className="dealer-card">
-      <div className="dealer-info">
+      <div className="dealer-left">
         <div className="dealer-top">
-          <img src={profile} alt="프로필" className="dealer-profile" />
-          <div className="dealer-name-box">
-            <span className="dealer-name">{name}</span>
-            <span className="dealer-rating">⭐ {rating}({reviews} 후기)</span>
+          <img src={profile} className="profile" alt="프로필" />
+          <div className="name-rating">
+            <div className="name">{name}</div>
+            <div className="rating">⭐ {rating} ({reviews} 후기)</div>
           </div>
-          <img src="/icons/heart.svg" alt="찜" className="dealer-heart" />
+          <img src="/icons/heart.svg" className="heart" alt="하트" />
         </div>
 
-        <ul className="dealer-spec">
-          <li>{year} / {distance}</li>
-          <li>{comment}</li>
-        </ul>
+        <div className="info">
+          <div>{year} / {distance}</div>
+          <div>{comment}</div>
+        </div>
 
-        <div className="dealer-price">
-          <span className="price-arrow">→</span>
-          <span className="price">{price.toLocaleString()}<span className="unit">만원</span></span>
+        <div className="price">
+          → <span>{price.toLocaleString()}<span className="unit">만원</span></span>
         </div>
       </div>
 
-      <img src={image} alt="차량 이미지" className="dealer-car-img" />
-      
-      <div className="dealer-detail">
-        자세히 보기 <span className="arrow">{'>'}</span>
+      <div className="dealer-right">
+        <img src={image} className="car-image" alt="차량" />
+        <div className="detail">자세히 보기 &gt;</div>
       </div>
     </div>
   );

@@ -1,24 +1,34 @@
 .dealerlist-navbar {
+  position: relative;
   display: flex;
-  width: 375px;
+  align-items: center;
+  justify-content: center; /* ✅ 텍스트 중앙 정렬 */
   height: 54px;
-  padding: 13px 20px 12px 11px;
-  gap: 244px;
-  align-items: flex-start;
   background: #fff;
-  position: absolute;
-  font-family: 'Pretendard', sans-serif;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
+/* 뒤로가기 버튼은 왼쪽 상단에 고정 */
 .back-icon {
+  position: absolute;
+  left: 20px;
   width: 24px;
   height: 24px;
-  object-fit: contain;
   cursor: pointer;
 }
 
-.title {
-  font-size: 16px;
+/* 중앙 텍스트 */
+.dealerlist-title {
+  font-size: 18px;         /* ✅ 글자 크기 수정 */
   font-weight: 600;
   color: #111111;
+}
+
+.layout-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #fff;         /* ✅ 반드시 흰색으로 설정 */
+  min-height: 100vh;
+  width: 100%;
 }

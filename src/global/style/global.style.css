@@ -46,3 +46,15 @@ img {
   max-width: 100%;
   display: block;
 }
+
+#root {
+  display: flex;
+  justify-content: center;
+  background-color: #fff;
+}
+
+.app-wrapper {
+  width: 375px;
+  min-height: 100vh;
+  background-color: #fff;
+}

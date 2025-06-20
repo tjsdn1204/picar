@@ -45,15 +45,17 @@ export default function DealerListPage() {
   ];
 
   return (
-    <div className="dealerlist-page-wrapper">
-      <NavBar />
-      <div className="dealerlist-page-content">
-        <Header modelName={modelName} />
+    <div className="app-wrapper">
+      <div className="dealerlist-page-wrapper">
+        <NavBar />
+        <div className="dealerlist-page-content">
+          <Header modelName={modelName} />
 
-        <div className="dealerlist-card-list">
-          {dealerList.map((dealer, index) => (
-            <DealerCard key={index} {...dealer} />
-          ))}
+          <div className="dealerlist-card-list">
+            {dealerList.map((dealer, index) => (
+              <DealerCard key={index} {...dealer} />
+            ))}
+          </div>
         </div>
       </div>
     </div>

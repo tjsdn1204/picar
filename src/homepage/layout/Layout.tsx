@@ -1,3 +1,4 @@
+// src/homepage/layout/Layout.tsx
 import React from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
@@ -7,16 +8,17 @@ import './style.css';
 const Layout: React.FC = () => {
   const location = useLocation();
 
-  // 특정 경로에서 Footer 또는 NavBar 숨기기
-  const hideFooterRoutes = ['/login'];
-  const hideNavBarRoutes = ['/dealerlist']; // dealerlist에서는 NavBar 없음
-  const shouldShowFooter = !hideFooterRoutes.includes(location.pathname);
+  // 특정 페이지에서는 NavBar 숨기기
+  const hideNavBarRoutes = ['/dealerlist']; // ✅ 이걸 꼭 포함해야 함!
   const shouldShowNavBar = !hideNavBarRoutes.includes(location.pathname);
+
+  const hideFooterRoutes = ['/dealerdetail'];
+  const shouldShowFooter = !hideFooterRoutes.includes(location.pathname);
 
   return (
     <div className="layout-wrapper">
       <div className="layout-inner">
-        <NavBar />
+        {shouldShowNavBar && <NavBar />} {/* 👈 homepage NavBar 조건부로 보여줌 */}
         <main className="layout-content">
           <Outlet />
         </main>

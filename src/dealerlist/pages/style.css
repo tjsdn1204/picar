@@ -1,9 +1,10 @@
 .dealerlist-page-wrapper {
-  background: #f9f9f9;
+  background: #fff;
   min-height: 100vh;
-  padding-top: 54px; /* NavBar 높이 고려 */
+  width: 100%;
+  padding: 24px 20px;
+  box-sizing: border-box;
 }
-
 .dealerlist-page-content {
   display: flex;
   flex-direction: column;
@@ -13,6 +14,7 @@
 .dealerlist-card-list {
   display: flex;
   flex-direction: column;
+  align-items: center;  /* ✅ 이거 꼭 필요함 */
   gap: 16px;
   margin-top: 24px;
 }
