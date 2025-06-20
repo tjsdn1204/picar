@@ -1,0 +1,15 @@
+.car-detail {
+    max-width: 375px;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 100vh;
+    padding: 0 1rem; /* 0 16px */
+
+    position: relative;
+}
+
+@media (max-width: 768px) {
+    .car-detail {
+        max-width: 100%;
+  }
+}
