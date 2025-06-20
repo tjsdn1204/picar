@@ -26,7 +26,7 @@ export const surveyAPI = {
   // AI 추천 (첫 번째 설문 제출)
   submitSurvey: async (answers: QuestionAnswers): Promise<SurveyResponse> => {
     try {
-        const response = await api.post('/survey/submit', { answers });
+        const response = await api.post('/api/survey', { answers });
 
         return response.data;
     } catch (error) {
@@ -40,7 +40,7 @@ export const surveyAPI = {
   // AI 재추천
   retryRecommendation: async (answers: QuestionAnswers): Promise<SurveyResponse> => {
     try {
-        const response = await api.post('/survey/retry', { answers });
+        const response = await api.post('/api/survey', { answers });
         return response.data;
     } catch(error) {
         if (axios.isAxiosError(error)) {
