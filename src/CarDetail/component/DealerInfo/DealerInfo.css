@@ -1,7 +1,9 @@
 /* CarDetail/components/DealerInfo/DealerInfo.css */
 .dealer-info { 
   margin-left: 0.5rem;
-  margin-right: 0.5tre
+  margin-right: 0.5rem;
+  
+  margin-bottom: 3rem;
 }
 
 .dealer-section-title {
