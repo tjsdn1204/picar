@@ -1,4 +1,5 @@
 import React from "react";
+import type { ProgressBarProps } from '../../types/surveyType';
 import "./ProgressBar.css"
 
 const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => {

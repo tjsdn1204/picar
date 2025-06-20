@@ -1,6 +1,7 @@
 import React from "react";
-import {ReactComponent as LeftArrow} from "../../assets/left_arrow.svg"
-import "./Header.css"
+import {ReactComponent as LeftArrow} from "../../assets/left_arrow.svg";
+import type { HeaderProps } from "../types/surveyType";
+import "./Header.css";
 
 const Header: React.FC<HeaderProps> = ({ title, goToPrevious = () => {} }) => {
     return (

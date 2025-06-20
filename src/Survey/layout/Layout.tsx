@@ -1,12 +1,18 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import Header from "./Header.tsx"
 import ProgressBar from '../components/ProgressBar/ProgressBar.tsx';
 import { questionsData } from "../../global/data/QuestionData.ts";
+import type { SurveyProps } from '../types/surveyType';
+import type { QuestionAnswers } from '../types/surveyType';
 import "./style.css";
+
+
 
 const Layout: React.FC<SurveyProps> = ({ onComplete }) => {
     const [currentStep, setCurrentStep] = useState<number>(0);
     const [answers, setAnswers] = useState<QuestionAnswers>({});
+    const navigate = useNavigate();
 
     const currentQuestion = questionsData[currentStep];
     const progress: number = ((currentStep + 1) / questionsData.length) * 100;
@@ -45,6 +51,9 @@ const Layout: React.FC<SurveyProps> = ({ onComplete }) => {
     const goToPrevious = (): void => {
         if (currentStep > 0) {
             setCurrentStep(prev => prev - 1);
+        }
+        else {
+            navigate('/');
         }
     };
 

@@ -1,6 +1,6 @@
 /* Progress Bar */
 .survey-progress-bar {
-  padding: 0.5rem 1.25rem 1.75rem 1.25rem; /* 8px 20px 28px 20px*/
+  padding: 0.5rem 0rem 1.75rem 0rem; /* 8px 20px 28px 20px*/
   z-index: -100;
 }
 

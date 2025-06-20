@@ -1,5 +1,5 @@
-import Header from "../../Survey/layout/Header.tsx"
-import ProgressBar from '../../Survey/components/ProgressBar/ProgressBar.tsx';
+import Header from "../layout/Header.tsx"
+import ProgressBar from '../components/progressBar/ProgressBar.tsx';
 import './style.css';
 
 const Layout = () => {
