@@ -2,50 +2,88 @@ package net.likelion.picar.config;
 
 import lombok.RequiredArgsConstructor;
 import net.likelion.picar.domain.Car;
+import net.likelion.picar.domain.Dealer;
 import net.likelion.picar.repository.CarRepository;
+import net.likelion.picar.repository.DealerRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
+
+import java.util.*;
 
 @Component
 @RequiredArgsConstructor
 public class DataInitializer implements ApplicationRunner {
 
     private final CarRepository carRepository;
+    private final DealerRepository dealerRepository;
 
     @Override
     public void run(ApplicationArguments args) {
-        if (carRepository.count() == 0) {
-            carRepository.save(Car.builder().model("AVANTE_AD").origin("Domestic").fuelType("Gasoline").size("Small_Midsize").seatingCapacity(5).priceMin(0).priceMax(10000000).maintenanceCostMin(2000000).maintenanceCostMax(2500000).build());
-            carRepository.save(Car.builder().model("Sonata_LF").origin("Domestic").fuelType("LPG").size("Standard_Midsize").seatingCapacity(5).priceMin(0).priceMax(10000000).maintenanceCostMin(2000000).maintenanceCostMax(2500000).build());
-            carRepository.save(Car.builder().model("Q50").origin("Imported").fuelType("Diesel").size("Standard_Midsize").seatingCapacity(5).priceMin(0).priceMax(10000000).maintenanceCostMin(1500000).maintenanceCostMax(2000000).build());
-            carRepository.save(Car.builder().model("Morning_JA").origin("Domestic").fuelType("LPG").size("Mini").seatingCapacity(5).priceMin(0).priceMax(10000000).maintenanceCostMin(1000000).maintenanceCostMax(1500000).build());
-            carRepository.save(Car.builder().model("K7").origin("Domestic").fuelType("Gasoline").size("Large").seatingCapacity(5).priceMin(10000000).priceMax(20000000).maintenanceCostMin(3000000).maintenanceCostMax(4000000).build());
-            carRepository.save(Car.builder().model("Niro").origin("Domestic").fuelType("Electric").size("Small_Midsize").seatingCapacity(5).priceMin(10000000).priceMax(20000000).maintenanceCostMin(1000000).maintenanceCostMax(1500000).build());
-            carRepository.save(Car.builder().model("The_New_Carnival").origin("Domestic").fuelType("Diesel").size("Full-size").seatingCapacity(9).priceMin(10000000).priceMax(20000000).maintenanceCostMin(2500000).maintenanceCostMax(3000000).build());
-            carRepository.save(Car.builder().model("The_New_Lay").origin("Domestic").fuelType("Gasoline").size("Mini").seatingCapacity(4).priceMin(10000000).priceMax(20000000).maintenanceCostMin(2000000).maintenanceCostMax(2500000).build());
-            carRepository.save(Car.builder().model("Cooper_5-Door").origin("Imported").fuelType("Gasoline").size("Compact").seatingCapacity(5).priceMin(20000000).priceMax(20000000).maintenanceCostMin(1000000).maintenanceCostMax(1500000).build());
-            carRepository.save(Car.builder().model("K7_Premier").origin("Domestic").fuelType("Gasoline").size("Large").seatingCapacity(5).priceMin(20000000).priceMax(30000000).maintenanceCostMin(2500000).maintenanceCostMax(3000000).build());
-            carRepository.save(Car.builder().model("Palisade").origin("Domestic").fuelType("Diesel").size("Full-size").seatingCapacity(7).priceMin(20000000).priceMax(30000000).maintenanceCostMin(3000000).maintenanceCostMax(4000000).build());
-            carRepository.save(Car.builder().model("GLS").origin("Imported").fuelType("Diesel").size("Full-size").seatingCapacity(7).priceMin(40000000).priceMax(50000000).maintenanceCostMin(2500000).maintenanceCostMax(3000000).build());
-            carRepository.save(Car.builder().model("The_New_K9").origin("Domestic").fuelType("Gasoline").size("Full-size").seatingCapacity(5).priceMin(40000000).priceMax(50000000).maintenanceCostMin(2000000).maintenanceCostMax(2500000).build());
-            carRepository.save(Car.builder().model("Range_Rover_Velar").origin("Imported").fuelType("Diesel").size("Large").seatingCapacity(5).priceMin(40000000).priceMax(50000000).maintenanceCostMin(1500000).maintenanceCostMax(2000000).build());
-            carRepository.save(Car.builder().model("Genesis_G80").origin("Domestic").fuelType("Gasoline").size("Large").seatingCapacity(5).priceMin(50000000).priceMax(60000000).maintenanceCostMin(2000000).maintenanceCostMax(2500000).build());
-            carRepository.save(Car.builder().model("Levante").origin("Imported").fuelType("Gasoline").size("Large").seatingCapacity(5).priceMin(50000000).priceMax(60000000).maintenanceCostMin(5000000).maintenanceCostMax(null).build());
-            carRepository.save(Car.builder().model("Bronco_U725").origin("Imported").fuelType("Gasoline").size("Full-size").seatingCapacity(5).priceMin(50000000).priceMax(60000000).maintenanceCostMin(3000000).maintenanceCostMax(4000000).build());
-            carRepository.save(Car.builder().model("Genesis_GV70").origin("Domestic").fuelType("Gasoline").size("Standard_Midsize").seatingCapacity(5).priceMin(50000000).priceMax(60000000).maintenanceCostMin(2500000).maintenanceCostMax(3000000).build());
-            carRepository.save(Car.builder().model("New_5_Series_G60").origin("Imported").fuelType("Electric").size("Standard_Midsize").seatingCapacity(5).priceMin(70000000).priceMax(80000000).maintenanceCostMin(1500000).maintenanceCostMax(2000000).build());
-            carRepository.save(Car.builder().model("Genesis_GV80_Coupe").origin("Domestic").fuelType("Gasoline").size("Large").seatingCapacity(5).priceMin(70000000).priceMax(80000000).maintenanceCostMin(3000000).maintenanceCostMax(4000000).build());
-            carRepository.save(Car.builder().model("EQS_V297").origin("Imported").fuelType("Electric").size("Full-size").seatingCapacity(5).priceMin(70000000).priceMax(80000000).maintenanceCostMin(2500000).maintenanceCostMax(3000000).build());
-            carRepository.save(Car.builder().model("X5_G05").origin("Imported").fuelType("Electric").size("Full-size").seatingCapacity(5).priceMin(80000000).priceMax(90000000).maintenanceCostMin(2500000).maintenanceCostMax(3000000).build());
-            carRepository.save(Car.builder().model("Genesis_G90_R34").origin("Domestic").fuelType("Gasoline").size("Full-size").seatingCapacity(5).priceMin(80000000).priceMax(90000000).maintenanceCostMin(2000000).maintenanceCostMax(2500000).build());
-            carRepository.save(Car.builder().model("Model_X").origin("Imported").fuelType("Electric").size("Full-size").seatingCapacity(5).priceMin(80000000).priceMax(90000000).maintenanceCostMin(2500000).maintenanceCostMax(3000000).build());
-            carRepository.save(Car.builder().model("i30_PD").origin("Domestic").fuelType("Gasoline").size("Small_Midsize").seatingCapacity(5).priceMin(90000000).priceMax(100000000).maintenanceCostMin(1500000).maintenanceCostMax(2000000).build());
-            carRepository.save(Car.builder().model("Santa_Fe").origin("Domestic").fuelType("Diesel").size("Standard_Midsize").seatingCapacity(5).priceMin(90000000).priceMax(100000000).maintenanceCostMin(1000000).maintenanceCostMax(1500000).build());
-            carRepository.save(Car.builder().model("e-tron_GT").origin("Imported").fuelType("Electric").size("Full-size").seatingCapacity(5).priceMin(90000000).priceMax(100000000).maintenanceCostMin(2000000).maintenanceCostMax(2500000).build());
-            carRepository.save(Car.builder().model("S-Class_W223").origin("Imported").fuelType("Diesel").size("Full-size").seatingCapacity(5).priceMin(100000000).priceMax(null).maintenanceCostMin(1000000).maintenanceCostMax(1500000).build());
-            carRepository.save(Car.builder().model("M4_Coupe_G82").origin("Imported").fuelType("Gasoline").size("Small_Midsize").seatingCapacity(4).priceMin(100000000).priceMax(null).maintenanceCostMin(3000000).maintenanceCostMax(4000000).build());
-            carRepository.save(Car.builder().model("SM6").origin("Domestic").fuelType("Diesel").size("Small_Midsize").seatingCapacity(5).priceMin(100000000).priceMax(null).maintenanceCostMin(1000000).maintenanceCostMax(1500000).build());
+        if (dealerRepository.count() == 0 && carRepository.count() == 0) {
+            // 딜러 저장
+            Dealer d1 = dealerRepository.save(Dealer.builder().name("최지원").affiliation("멋사중고차").build());
+            Dealer d2 = dealerRepository.save(Dealer.builder().name("이상민").affiliation("ICT모터스").build());
+            Dealer d3 = dealerRepository.save(Dealer.builder().name("이수빈").affiliation("드림오토").build());
+            Dealer d4 = dealerRepository.save(Dealer.builder().name("김현준").affiliation("청년카딜러스").build());
+            Dealer d5 = dealerRepository.save(Dealer.builder().name("박민수").affiliation("에이스카").build());
+
+            Map<Long, Dealer> dealerMap = new HashMap<>();
+            dealerMap.put(d1.getId(), d1);
+            dealerMap.put(d2.getId(), d2);
+            dealerMap.put(d3.getId(), d3);
+            dealerMap.put(d4.getId(), d4);
+            dealerMap.put(d5.getId(), d5);
+
+            // 차량 데이터 저장
+            Object[][] carData = {
+                    {"Hyundai", "AVANTE_AD", "Domestic", "Gasoline", "Small_Midsize", 5, 0, 10000000, 2000000, 2500000, d1.getId()},
+                    {"Hyundai", "Sonata_LF", "Domestic", "LPG", "Standard_Midsize", 5, 0, 10000000, 2000000, 2500000, d1.getId()},
+                    {"Infiniti", "Q50", "Imported", "Diesel", "Standard_Midsize", 5, 0, 10000000, 1500000, 2000000, d1.getId()},
+                    {"Kia", "Morning_JA", "Domestic", "LPG", "Mini", 5, 0, 10000000, 1000000, 1500000, d2.getId()},
+                    {"Kia", "K7", "Domestic", "Gasoline", "Large", 5, 10000000, 20000000, 3000000, 4000000, d2.getId()},
+                    {"Kia", "Niro", "Domestic", "Electric", "Small_Midsize", 5, 10000000, 20000000, 1000000, 1500000, d2.getId()},
+                    {"Kia", "The_New_Carnival", "Domestic", "Diesel", "Full-size", 9, 10000000, 20000000, 2500000, 3000000, d2.getId()},
+                    {"Kia", "The_New_Lay", "Domestic", "Gasoline", "Mini", 4, 10000000, 20000000, 2000000, 2500000, d2.getId()},
+                    {"MINI", "Cooper_5-Door", "Imported", "Gasoline", "Compact", 5, 20000000, 20000000, 1000000, 1500000, d4.getId()},
+                    {"Kia", "K7_Premier", "Domestic", "Gasoline", "Large", 5, 20000000, 30000000, 2500000, 3000000, d2.getId()},
+                    {"Hyundai", "Palisade", "Domestic", "Diesel", "Full-size", 7, 20000000, 30000000, 3000000, 4000000, d1.getId()},
+                    {"Mercedes-Benz", "GLS", "Imported", "Diesel", "Full-size", 7, 40000000, 50000000, 2500000, 3000000, d5.getId()},
+                    {"Kia", "The_New_K9", "Domestic", "Gasoline", "Full-size", 5, 40000000, 50000000, 2000000, 2500000, d2.getId()},
+                    {"Land_Rover", "Range_Rover_Velar", "Imported", "Diesel", "Large", 5, 40000000, 50000000, 1500000, 2000000, d4.getId()},
+                    {"Genesis", "Genesis_G80", "Domestic", "Gasoline", "Large", 5, 50000000, 60000000, 2000000, 2500000, d3.getId()},
+                    {"Maserati", "Levante", "Imported", "Gasoline", "Large", 5, 50000000, 60000000, 5000000, 6000000, d5.getId()},
+                    {"Ford", "Bronco_U725", "Imported", "Gasoline", "Full-size", 5, 50000000, 60000000, 3000000, 4000000, d2.getId()},
+                    {"Genesis", "Genesis_GV70", "Domestic", "Gasoline", "Standard_Midsize", 5, 50000000, 60000000, 2500000, 3000000, d3.getId()},
+                    {"BMW", "New_5_Series_G60", "Imported", "Electric", "Standard_Midsize", 5, 70000000, 80000000, 1500000, 2000000, d4.getId()},
+                    {"Genesis", "Genesis_GV80_Coupe", "Domestic", "Gasoline", "Large", 5, 70000000, 80000000, 3000000, 4000000, d3.getId()},
+                    {"Mercedes-Benz", "EQS_V297", "Imported", "Electric", "Full-size", 5, 70000000, 80000000, 2500000, 3000000, d5.getId()},
+                    {"BMW", "X5_G05", "Imported", "Electric", "Full-size", 5, 80000000, 90000000, 2500000, 3000000, d4.getId()},
+                    {"Genesis", "Genesis_G90_R34", "Domestic", "Gasoline", "Full-size", 5, 80000000, 90000000, 2000000, 2500000, d3.getId()},
+                    {"Tesla", "Model_X", "Imported", "Electric", "Full-size", 5, 80000000, 90000000, 2500000, 3000000, d1.getId()},
+                    {"Hyundai", "i30_PD", "Domestic", "Gasoline", "Small_Midsize", 5, 90000000, 100000000, 1500000, 2000000, d1.getId()},
+                    {"Hyundai", "Santa_Fe", "Domestic", "Diesel", "Standard_Midsize", 5, 90000000, 100000000, 1000000, 1500000, d1.getId()},
+                    {"Audi", "e-tron_GT", "Imported", "Electric", "Full-size", 5, 90000000, 100000000, 2000000, 2500000, d5.getId()},
+                    {"Mercedes-Benz", "S-Class_W223", "Imported", "Diesel", "Full-size", 5, 100000000, 110000000, 1000000, 1500000, d5.getId()},
+                    {"BMW", "M4_Coupe_G82", "Imported", "Gasoline", "Small_Midsize", 4, 100000000, 110000000, 3000000, 4000000, d4.getId()},
+                    {"Renault_Korea", "SM6", "Domestic", "Diesel", "Small_Midsize", 5, 100000000, 110000000, 1000000, 1500000, d3.getId()}
+            };
+
+            for (Object[] row : carData) {
+                carRepository.save(Car.builder()
+                        .brand((String) row[0])
+                        .model((String) row[1])
+                        .origin((String) row[2])
+                        .fuelType((String) row[3])
+                        .size((String) row[4])
+                        .seatingCapacity((Integer) row[5])
+                        .priceMin((Integer) row[6])
+                        .priceMax((Integer) row[7])
+                        .maintenanceCostMin((Integer) row[8])
+                        .maintenanceCostMax((Integer) row[9])
+                        .dealer(dealerMap.get((Long) row[10]))
+                        .build());
+            }
         }
     }
 }
