@@ -3,7 +3,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import Header from '../layout/Header.tsx';
 import Footer from '../layout/Footer.tsx';
 import CarCard from '../component/CarCard/CarCard.tsx';
-import img from "../../assets/test/BMW_320d.png"
+import img from "../../assets/test/BMW_320d.png" // Test용 사진
 import AiRecommendationLoading from '../../AiRecommendationLoading/pages/AiRecommendationLoading.tsx';
 import { surveyAPI, type QuestionAnswers } from '../../global/api/Axios.ts';
 
@@ -65,7 +65,15 @@ const Layout: React.FC = () => {
         }
     };
 
-    const onViewDetails = () => {};
+    const onViewDetails = (model: string) => {
+        const queryParams = new URLSearchParams({
+              model: JSON.stringify(model)
+        });
+        
+        // [] 대신 검색 결과창
+        navigate(`/[]?${queryParams.toString()}`);
+    };
+
     const goToPrevious = () => { navigate('/survey') };
 
 

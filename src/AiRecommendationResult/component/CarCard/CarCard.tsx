@@ -9,6 +9,10 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
     return `평균 유지비: 월 ${price.toLocaleString()}만원`;
   };
 
+  const handleViewDetails = () => {
+    onViewDetails(car.model);
+  }
+
   return (
     <div className="car-card">
         <div className="car-card-container">
@@ -33,7 +37,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
       <div className="car-card-button-container">
         <button 
             className="car-details-button"
-            onClick={() => onViewDetails(car.model)}
+            onClick={handleViewDetails}
             type="button">
             <span>{car.model}을 보유중인 딜러</span>
             <RightArrow />
