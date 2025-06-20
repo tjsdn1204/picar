@@ -1,0 +1,29 @@
+.verified-banner {
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+
+    padding: 0 1.25rem;
+    width: 100%;
+    height: 2rem;
+    background: linear-gradient(90deg, rgba(149, 231, 0, 0.90) 0%, rgba(45, 197, 244, 0.90) 100%);
+}
+
+.verified-banner-title {
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -2.5%;
+}
+
+.verified-banner-description {
+    color: #FFF;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -2.5%;
+
+    margin-left: 0.75rem; /*12px*/
+}
