@@ -1,21 +1,13 @@
-// DealerDetailPage.tsx
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import axios from 'axios';
+import { dealerAPI } from '../../global/api/Axios';
+import { DealerItem } from '../../global/api/Axios';
+
+
 import NavBar from '../layout/NavBar';
-import Footer from '../layout/Footer';
 import DealerProfileCard from '../components/DealerProfileCard';
 import CarListSlider from '../components/CarListSlider';
 import DealerLocation from '../components/DealerLocation';
-
-interface DealerType {
-  name: string;
-  company: string;
-  score: number;
-  totalScore: number;
-  rankPercent: string;
-  profileImage: string;
-}
 
 interface CarItem {
   image: string;
@@ -25,37 +17,54 @@ interface CarItem {
 
 const DealerDetailPage: React.FC = () => {
   const { id } = useParams();
-  const [dealer, setDealer] = useState<DealerType | null>(null);
+  const [dealer, setDealer] = useState<DealerItem | null>(null); // ✅ 타입 통일
   const [cars, setCars] = useState<CarItem[]>([]);
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    axios.get(`/api/dealers/${id}`)
-      .then((res) => setDealer(res.data as DealerType))
-      .catch((err) => console.error(err));
+    if (!id) return;
 
-    axios.get(`/api/dealers/${id}/cars`)
-      .then((res) => setCars(res.data as CarItem[]))
-      .catch((err) => console.error(err));
+    const fetchData = async () => {
+      const dealerRes = await dealerAPI.getDealerById(id);
+      if (dealerRes.success && dealerRes.data) {
+        setDealer(dealerRes.data); // ✅ 바로 할당
+      } else {
+        setError(dealerRes.error || '딜러 정보를 불러올 수 없습니다.');
+      }
+
+      const carRes = await dealerAPI.getDealerCars(id);
+      if (carRes.success && carRes.data) {
+        const mapped = carRes.data.map((car: any) => ({
+          image: car.carImage,
+          title: car.modelName,
+          price: car.cost,
+        }));
+        setCars(mapped);
+      }
+    };
+
+    fetchData();
   }, [id]);
+
+  if (error) return <div>{error}</div>;
+  if (!dealer) return <div>로딩 중...</div>;
 
   return (
     <div className="app-wrapper">
       <NavBar title="딜러 상세" />
       <main>
-        {dealer && (
-          <DealerProfileCard
-            name={dealer.name}
-            company={dealer.company}
-            score={dealer.score}
-            totalScore={dealer.totalScore}
-            rankPercent={dealer.rankPercent}
-            profileImage={dealer.profileImage}
-          />
-        )}
+        <DealerProfileCard
+          name={dealer.name}
+          company={dealer.affiliation}
+          score={4.7}
+          totalScore={5}
+          rankPercent="상위 5%"
+          profileImage={dealer.dealerImg} // ✅ 필드 그대로 사용
+        />
 
         {cars.length > 0 && <CarListSlider carList={cars} />}
 
-        {dealer && <DealerLocation address="경기 의왕시 계주구 율도로 123" />} {/* 주소는 예시 */}
+        <DealerLocation address="경기도 의왕시 계주구 율도로 123" />
       </main>
     </div>
   );
