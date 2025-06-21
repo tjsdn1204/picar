@@ -55,17 +55,17 @@ const Layout: React.FC = () => {
                             const apiCarData = result.data[0];
                             return {
                                 model: `${apiCarData.brand} ${apiCarData.model}`, // 브랜드 + 모델이 전체 모델
-                                releaseDate: 2022, // 출시연도 필요함 - 백에서 추가하면 apiCarData.releaseDate 
-                                displacement: "1998", // 배기량 - 하드 코딩
+                                releaseDate: apiCarData.modelYear, // 출시연도
+                                displacement: apiCarData.engineDisplacement, // 배기량
                                 fuelType: apiCarData.fuelType, // 유종
-                                averageMaintenancePrice: Math.round(apiCarData.priceMin / 10000), // - 백에서 추가하면 (apiCarData.maintenanceCostMin + apiCarData.maintenanceCostMax) / 2
-                                image: img // 임시 이미지 - 백에서 추가하면 apiCarData.img
+                                averageMaintenancePrice: Math.round((apiCarData.maintenanceCostMin + apiCarData.maintenanceCostMax)/2), // 평균 유지비용
+                                image: apiCarData.carImg // 차량 이미지
                             };
                         } else {
                             // API 데이터가 없으면 기본 데이터 사용
                             return {
                                 model: model,
-                                releaseDate: 2022,
+                                releaseDate: 2025,
                                 displacement: "1998",
                                 fuelType: "가솔린",
                                 averagePrice: 50,
@@ -77,7 +77,7 @@ const Layout: React.FC = () => {
                         // 에러 시 기본 데이터 반환
                         return {
                             model: model,
-                            releaseDate: 2022,
+                            releaseDate: 2025,
                             displacement: "1998",
                             fuelType: "가솔린",
                             averagePrice: 50,
@@ -93,7 +93,7 @@ const Layout: React.FC = () => {
                 // 전체 실패 시 기본 데이터 사용
                 const defaultCarData = recommendations.map((model, index) => ({
                     model: model,
-                    releaseDate: 2022,
+                    releaseDate: 2025,
                     displacement: "1998",
                     fuelType: "가솔린",
                     averagePrice: 50,
@@ -139,8 +139,7 @@ const Layout: React.FC = () => {
               model: model
         });
         
-        // [] 대신 검색 결과창
-        navigate(`/dealerList/${queryParams.toString()}`);
+        navigate(`/dealerlist?${queryParams.toString()}`);
     };
 
     const goToPrevious = () => { navigate('/survey') };
@@ -173,13 +172,13 @@ const Layout: React.FC = () => {
 
 
 // test용 data
-const car: CarCardProps["car"] = {
-    model: "BMW 320d",
-    releaseDate: 2019,
-    displacement: "1999",
-    fuelType: "디젤",
-    averageMaintenancePrice: 74,
-    image: img
-}
+// const car: CarCardProps["car"] = {
+//     model: "BMW 320d",
+//     releaseDate: 2019,
+//     displacement: "1999",
+//     fuelType: "디젤",
+//     averageMaintenancePrice: 74,
+//     image: img
+// }
 
 export default Layout;

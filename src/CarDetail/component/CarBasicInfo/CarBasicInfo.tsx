@@ -2,11 +2,20 @@ import "./CarBasicInfo.css"
 import { type CarBasicInfoProps } from "../../types/carType";
 
 const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
-    const {id, model, subModel, year, month, releaseDate, mileage, price} = carInfo;
+    const {id, brand, model, modelYear, releaseDate, mileage, price} = carInfo;
 
     const formatDate = (date: string): string => {
         date = date.substring(date.length-2, date.length);
         return date;
+    }
+
+    const formatReleseDate = (releaseDate: string): string => {
+        const date: Date = new Date(releaseDate);
+        const year: string = String(date.getFullYear()).slice(2);
+        const month: string = String(date.getMonth() + 1).padStart(2, '0');
+
+        const formattedReleaseDate = `${year}/${month}`;
+        return formattedReleaseDate;
     }
 
     const formatMileage = (km: number): string => {
@@ -21,12 +30,12 @@ const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
     return (
         <div className="car-basic-info">
             <div className="car-title-section">
-                <h1 className="car-model">{model}</h1>
-                <h2 className="car-sub-model">{subModel}</h2>
+                <h1 className="car-model">{brand}</h1>
+                <h2 className="car-sub-model">{model}</h2>
             </div>
 
             <div className="car-details">
-                <span className="car-year">{formatDate(year)} / {formatDate(month)}({formatDate(releaseDate)}식) · {formatMileage(mileage)}</span>
+                <span className="car-year">{formatReleseDate(releaseDate)}({formatDate(modelYear)}식) · {formatMileage(mileage)}</span>
             </div>
 
             <div className="car-price-section">

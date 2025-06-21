@@ -244,8 +244,7 @@ export const dealerAPI = {
 
 // 타입 정의
 
-// SurveyAPI
-
+// surveyAPI
 export interface QuestionAnswers {
     [questionId: string]: string | string[];
 }
@@ -272,6 +271,10 @@ export interface CarDetailResponse {
     priceMax: number;
     dealerName: string;
     dealerAffiliation: string;
+    dealerId: number; // dealerId 추가
+    position: string; // 딜러 직급 추가 
+    dealerImg: string; // 딜러 사진 추가
+    carImg: string; // 차량 사진 추가
 }
 
 export interface CarDetailAPIResponse {
@@ -282,13 +285,26 @@ export interface CarDetailAPIResponse {
 
 //    getCarsByModel
 export interface CarModelItem {
+    id: 1;            // 차량 id 추가
     brand: string;
     model: string;
-    fuelType: string;
+    modelYear: number; // 출시 연도 추가
+    releaseDate: number; // 연식 추가
     origin: string;
-    priceMin: number;
-    priceMax: number;
+    fuelType: string; 
+    engineDisplacement: number; // 배기량 추가
+    mileage: number; // 주행거리 추가
+    size: string; // 크기 추가
+    seatingCapacity: number; // 차량 좌석 추가
+    priceMin: number; // 최소 가격 추가
+    priceMax: number; // 최대 가격 추가
+    maintenanceCostMin: number; // 최소 유지비 추가
+    maintenanceCostMax: number; // 최대 유지비 추가 
     dealerName: string;
+    dealerId: number; // 해당 차량을 보유 중인 딜러 id 추가
+    position: string; // 딜러 직급 추가  
+    dealerImg: string; // 딜러 사진 추가
+    carImg: string; // 차량 사진 추가
 }
 
 export interface CarModelListResponse {
@@ -303,6 +319,8 @@ export interface DealerItem {
     id: number;
     name: string;
     affiliation: string;
+    position: string; // 딜러 직급 추가
+    dealerImg: string; // 딜러 이미지 추가
 }
 
 export interface DealerListResponse {
@@ -316,6 +334,8 @@ export interface DealerDetail {
     id: number;
     name: string;
     affiliation: string;
+    position: string;  // 딜러 직급 추가
+    dealerImg: string; // 딜러 이미지 추가
 }
 
 export interface DealerDetailResponse {
@@ -326,12 +346,24 @@ export interface DealerDetailResponse {
 
 //        getDealerCars
 export interface DealerCarItem {
+    id: 1;            // 차량 id 추가
     brand: string;
     model: string;
-    fuelType: string;
+    modelYear: number; // 출시 연도 추가
+    releaseDate: number; // 연식 추가
     origin: string;
-    priceMin: number;
-    priceMax: number;
+    fuelType: string; 
+    engineDisplacement: number; // 배기량 추가
+    mileage: number; // 주행거리 추가
+    size: string; // 크기 추가
+    seatingCapacity: number; // 차량 좌석 추가
+    priceMin: number; // 최소 가격 추가
+    priceMax: number; // 최대 가격 추가
+    maintenanceCostMin: number; // 최소 유지비 추가
+    maintenanceCostMax: number; // 최대 유지비 추가 
+    specialNote: string; // 특징 추가 A / B <- 이렇게 구성되어있음 
+    dealerName: string;
+    dealerId: number; // 해당 차량을 보유 중인 딜러 id 추가
 }
 
 export interface DealerCarsResponse {

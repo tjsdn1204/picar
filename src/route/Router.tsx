@@ -32,7 +32,7 @@ const Router: React.FC = () => {
         </Route>
         <Route path="/survey" element={<SurveyController />}/>
         <Route path="/recommendation" element={<Recommendation />}/>
-        <Route path="/detail/:id" element={<CarDetail />}/>
+        <Route path="/detail" element={<CarDetail />}/>
         <Route path="/loading" element={<Loading />}/>
         <Route path="/complete" element={<SurveyComplete />}/>
       </Routes>
