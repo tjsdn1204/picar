@@ -4,15 +4,13 @@ import lombok.RequiredArgsConstructor;
 import net.likelion.picar.domain.Car;
 import net.likelion.picar.repository.CarRepository;
 import org.springframework.web.bind.annotation.*;
+import net.likelion.picar.dto.CarResponseDto;
+import net.likelion.picar.service.CarService;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import net.likelion.picar.dto.CarDetailResponseDto;
 
 import java.util.List;
-
-@RestController
-@RequiredArgsConstructor
-@RequestMapping("/cars")
-public class CarController {
-
-    private final CarRepository carRepository;
 
     /**
      * [GET] /cars
@@ -58,8 +56,23 @@ public class CarController {
      *   차량에는 이미지 URL과 연결된 딜러 정보까지 포함됩니다.
      *   프론트엔드는 이 API를 통해 차량 목록 페이지나 추천 결과를 구성할 수 있습니다.
      */
-    @GetMapping
-    public List<Car> getAllCars() {
-        return carRepository.findAll();
+@RestController
+@RequestMapping("/api/cars")
+@RequiredArgsConstructor
+public class CarController {
+
+    private final CarService carService;
+
+    // 모델명으로 차량들 조회
+    @GetMapping("/model/{modelName}")
+    public ResponseEntity<List<CarResponseDto>> getCarsByModel(@PathVariable String modelName) {
+        List<CarResponseDto> cars = carService.getCarsByModel(modelName);
+        return ResponseEntity.ok(cars);
+    }
+
+    // id로 특정 차 정보 조회
+    @GetMapping("/{carId}")
+    public ResponseEntity<CarDetailResponseDto> getCarDetail(@PathVariable Long carId) {
+        return ResponseEntity.ok(carService.getCarDetailById(carId));
     }
 }
