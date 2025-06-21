@@ -12,4 +12,5 @@ public class DealerResponseDto {
     private String name;
     private String affiliation;
     private String position;
+    private String imagePath;
 }

@@ -3,6 +3,8 @@ package net.likelion.picar.dto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
 @AllArgsConstructor
 public class CarResponseDto {
@@ -25,4 +27,6 @@ public class CarResponseDto {
     private String dealerName;
     private Long dealerId;
     private String position;
+    private List<String> imagePaths; // 차량 이미지
+    private String dealerImagePath; // 딜러 이미지
 }
