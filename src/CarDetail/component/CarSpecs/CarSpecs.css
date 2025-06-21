@@ -1,0 +1,39 @@
+.car-specs {
+  margin-bottom: 2rem;
+}
+
+.specs-grid-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* 2열 동일한 크기 */
+  gap: 2.875rem; /*46px*/
+}
+
+.specs-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem; /* 행 사이 간격 */
+}
+
+.spec-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 0.25rem;
+}
+
+.spec-label {
+    color: rgba(0, 0, 0, 0.50);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 150%;
+    letter-spacing: -2.5%;
+}
+
+.spec-value {
+    color: rgba(0, 0, 0, 0.75);
+    text-align: right;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -2.5%;
+}

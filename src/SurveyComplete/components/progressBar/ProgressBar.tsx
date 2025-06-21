@@ -1,0 +1,9 @@
+import OriginProgressBar from "../../../Survey/components/ProgressBar/ProgressBar.tsx"
+
+const ProgressBar = ({ progress }) => {
+    return (
+        <OriginProgressBar progress={progress} />
+    );
+}
+
+export default ProgressBar;

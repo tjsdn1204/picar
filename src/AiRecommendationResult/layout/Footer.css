@@ -1,0 +1,57 @@
+.retry-section {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 1rem;
+  z-index: 100;
+  max-width: 375px;  /* Results 페이지와 동일 */
+  margin: 0 auto;
+
+  border-radius: 20px 20px 0 0;
+}
+
+.retry-question {
+    font-weight: 400;
+    font-size: 0.75rem;
+    line-height: 100%;
+    letter-spacing: -2.5%;
+    text-align: center;
+
+  font-size: 0.875rem;
+  color: #6b7280;
+  margin: 0 0 1rem 0;
+}
+
+.retry-button {
+  width: 100%;
+  
+  border: none;
+  border-radius: 8px;
+  padding: 1.06rem 0rem;
+  
+  color: white;
+  cursor: pointer;
+  box-shadow: 0px 2px 6px 0px rgba(0, 0, 0, 0.20);
+
+  font-weight: 600;
+  font-size: 1.06rem; /* 15px */
+  line-height: 100%;
+  letter-spacing: -2.5%;
+  text-align: center;
+  text-shadow: 0px 0px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 9999px;
+
+  background-color: #95E700;
+}
+
+/* .retry-button:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.retry-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+} */

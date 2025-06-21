@@ -8,6 +8,12 @@ import HomePage from '../homepage/pages/HomePage';
 import DealerListPage from '../dealerlist/pages/DealerListPage';
 import DealerDetailPage from '../dealerdetail/pages/DealerDetailPage';
 
+import SurveyController from "../Survey/container/SurveyController.tsx";
+import Recommendation from "../AiRecommendationResult/pages/AiRecommendationResult.tsx";
+import Loading from "../AiRecommendationLoading/pages/AiRecommendationLoading.tsx"
+import CarDetail from "../CarDetail/pages/CarDetail.tsx";
+import SurveyComplete from "../SurveyComplete/pages/SurveyComplete.tsx";
+
 const Router: React.FC = () => {
   return (
     <BrowserRouter>
@@ -24,6 +30,12 @@ const Router: React.FC = () => {
         <Route element={<DealerLayout />}>
           <Route path="/dealerdetail/:id" element={<DealerDetailPage />} />
         </Route>
+        <Route path="/" element={<CarDetail />}/>
+        <Route path="/survey" element={<SurveyController />}/>
+        <Route path="/recommendation" element={<Recommendation />}/>
+        <Route path="/detail/:id" element={<CarDetail />}/>
+        <Route path="/loading" element={<Loading />}/>
+        <Route path="/complete" element={<SurveyComplete />}/>
       </Routes>
     </BrowserRouter>
   );
