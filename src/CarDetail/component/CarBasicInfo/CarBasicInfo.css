@@ -8,11 +8,11 @@
     margin-bottom: 1rem;
 }
 
-.car-title-section {
+.car-basic-info-title-section {
   margin-bottom: 1rem;
 }
 
-.car-model {
+.car-basic-info-model {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 100%;
@@ -20,7 +20,7 @@
   margin: 0;
 }
 
-.car-sub-model {
+.car-basic-info-sub-model {
   font-size: 1.5rem;
   font-weight: 600;
   line-height: 100%;
@@ -28,24 +28,24 @@
   margin: 0;
 }
 
-.car-details {
+.car-basic-info-details {
   margin-bottom: 1rem;
 }
 
-.car-year {
+.car-basic-info-year {
   font-size: 1rem;
   font-weight: 400;
   line-height: 150%;
   letter-spacing: -2.5%;
 }
 
-.car-price-section {
+.car-basic-info-price-section {
   display: flex;
   flex-direction: row;
   align-content: flex-end;
 }
 
-.car-price {
+.car-basic-info-price {
   color: #2DC5F4;
   font-size: 1.5rem;
   font-weight: 700;
@@ -55,7 +55,7 @@
   margin-right: 0.1rem;
 }
 
-.car-price-unit {
+.car-basic-info-price-unit {
   display: flex;
   align-items: end;
 

@@ -1,4 +1,3 @@
-// CarListSlider.tsx
 import React from 'react';
 import './style.css';
 import CarCard from './CarCard';
@@ -15,10 +14,14 @@ interface CarListSliderProps {
 
 const CarListSlider: React.FC<CarListSliderProps> = ({ carList }) => {
   return (
-    <div className="car-list-slider">
-      {carList.map((car, idx) => (
-        <CarCard key={idx} {...car} />
-      ))}
+    <div className="car-slider-wrapper">
+      <div className="car-slider-scroll">
+        {carList.map((car, idx) => (
+          <div className="car-card-wrapper" key={idx}>
+            <CarCard {...car} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

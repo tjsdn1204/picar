@@ -117,7 +117,7 @@ const Layout = () => {
             title: apiData.position, // 딜러 직급 
             company: apiData.dealerAffiliation || "딜러사", // 딜러 회사
             description: "", // 설명문
-            profileImage: getFullImgUrl(apiData.dealerImg), // 딜러 사진
+            profileImage: getFullImgUrl(apiData.dealerImagePath), // 딜러 사진
         };
 
         return { carImgs, carInfo, carSpecs, dealerInfo };
@@ -136,7 +136,7 @@ const Layout = () => {
       const queryParams = new URLSearchParams({
             model: carModel
       });
-      navigate(`/dealerlist?${queryParams.toString()}`); 
+      navigate(`/dealerlist?${queryParams.toString()}`);
     };
 
     const onCalc = (id: number): void => {
@@ -190,7 +190,7 @@ const carInfoSample: CarBasicInfoProps["carInfo"] = {
   brand: "Hyundai Sonata",
   model: "Smart 2.0",
   releaseDate: "2022-08-17",
-  modelYear: "2022",
+  modelYear: 2022,
   mileage: 35000,
   price: 18900000
 };

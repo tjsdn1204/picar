@@ -4,8 +4,8 @@ import { type CarBasicInfoProps } from "../../types/carType";
 const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
     const {id, brand, model, modelYear, releaseDate, mileage, price} = carInfo;
 
-    const formatDate = (date: string): string => {
-        date = date.substring(date.length-2, date.length);
+    const formatDate = (date: number): number => {
+        date %= 100;
         return date;
     }
 
@@ -29,18 +29,18 @@ const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
 
     return (
         <div className="car-basic-info">
-            <div className="car-title-section">
-                <h1 className="car-model">{brand}</h1>
-                <h2 className="car-sub-model">{model}</h2>
+            <div className="car-basic-info-title-section">
+                <h1 className="car-basic-info-model">{brand}</h1>
+                <h2 className="car-basic-info-sub-model">{model}</h2>
             </div>
 
-            <div className="car-details">
-                <span className="car-year">{formatReleseDate(releaseDate)}({formatDate(modelYear)}식) · {formatMileage(mileage)}</span>
+            <div className="car-basic-info-details">
+                <span className="car-basic-info-year">{formatReleseDate(releaseDate)}({formatDate(modelYear)}식) · {formatMileage(mileage)}</span>
             </div>
 
-            <div className="car-price-section">
-                <span className="car-price">{formatPrice(price)}</span>
-                <span className="car-price-unit">만원</span>
+            <div className="car-basic-info-price-section">
+                <span className="car-basic-info-price">{formatPrice(price)}</span>
+                <span className="car-basic-info-price-unit">만원</span>
             </div>
         </div>
     )

@@ -150,3 +150,28 @@
   color: #121212;
   margin: 0;
 }
+
+/* 차량 슬라이더 전체 영역 */
+.car-slider-wrapper {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 16px;
+}
+
+/* 가로 스크롤 영역 */
+.car-slider-scroll {
+  display: flex;
+  flex-direction: row;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+/* 각 차량 카드 감싸는 요소 */
+.car-card-wrapper {
+  flex: 0 0 auto;
+  scroll-snap-align: start;
+}

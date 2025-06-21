@@ -1,14 +1,24 @@
 .footer {
-  display: flex;
-  width: 375px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  width: 100%;
+  max-width: 375px;        /* 모바일 디자인 기준 */
   height: 82px;
   padding: 8px 16px 36px 16px;
+  margin: 0 auto;
+
+  display: flex;
   justify-content: space-between;
   align-items: center;
+
   background: #fff;
   border-top: 1.2px solid #e0e0e0;
-  border-right: 1.2px solid #e0e0e0;
   border-left: 1.2px solid #e0e0e0;
+  border-right: 1.2px solid #e0e0e0;
   border-radius: 12px 12px 0 0;
   box-sizing: border-box;
 }
@@ -28,38 +38,58 @@
 }
 
 .nav-bar {
-  position: absolute;
-  top: 0;
-  width: 375px;
-  height: 54px;
-  background: #fff;
   display: flex;
-  padding: 13px 20px 12px 11px;
-  justify-content: space-between;
-  box-sizing: border-box;
   align-items: center;
+  justify-content: space-between; /* ✅ 왼쪽 버튼 / 가운데 제목 / 오른쪽 공간 */
+  top: 0;
+  width: 100%;
+  max-width: 375px; /* 모바일 기준 */
+  height: 54px;
+  background-color: #fff;
+  padding: 0 16px;
+  box-sizing: border-box;
+  z-index: 1000;
 }
 
 .back-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   background: none;
   border: none;
   padding: 0;
-  width: 24px;
-  height: 24px;
+  cursor: pointer;
 }
 
-.back-button img {
-  width: 20px;
-  height: 20px;
-}
-
+/* 가운데 정렬되는 제목 */
 .nav-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
   font-size: 16px;
-  font-weight: 600;
-  color: #111111;
-  margin: 0;
+  font-weight: bold;
 }
 
+.nav-right-space {
+  width: 24px;  
+}
+
+.dealer-detail-main {
+  padding: 80px 20px 100px;   display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  min-height: 100vh;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.dealer-layout-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.dealer-main-content {
+  width: 100%;
+  max-width: 375px;  /* ✅ 모바일 크기 고정 */
+  padding: 0 20px;    /* 좌우 여백 */
+  box-sizing: border-box;
+}
