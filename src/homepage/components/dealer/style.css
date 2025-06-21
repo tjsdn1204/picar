@@ -4,7 +4,7 @@
   display: flex;
   overflow-x: auto;
   padding-left: 18px;
-  padding-right: 18px; /* ✅ 오른쪽 여백 복원 */
+  padding-right: 18px;
   scroll-padding-left: 18px;
   scroll-padding-right: 18px;
   gap: 12px;
@@ -54,7 +54,7 @@
   align-items: center;
   width: 120px;
   height: 200px;
-  background-color: #fff; /* 유지 */
+  background-color: #fff;
   border-radius: 12px;
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.06);
   overflow: hidden;
@@ -64,13 +64,10 @@
   justify-content: space-between;
 }
 
-
-
-
 .dealer-image-wrapper {
   width: 100%;
   height: 148px;
-  background-color: #fff; /* ✅ 빈 이미지일 때도 배경 보이게 */
+  background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -95,7 +92,9 @@
   color: #2DA8F4;
 }
 
- .dealer-info-block {
+/* ───────── 카드 하단 정보 ───────── */
+
+.dealer-info-block {
   background-color: #95E700;
   padding: 6px;
   width: 100%;
@@ -104,11 +103,10 @@
   gap: 2px;
   box-sizing: border-box;
   margin: 0;
-
-  border-bottom-left-radius: 12px;   /* ✅ 핵심! */
+  border-bottom-left-radius: 12px;
   border-bottom-right-radius: 12px;
+  color: white;
 }
-
 
 .dealer-name-line {
   display: flex;
@@ -120,21 +118,27 @@
 }
 
 .dealer-name-bold {
-  font-size: 12px;
-  font-weight: bold;
-  color: #000;
+  font-size: 20px; /* ⬆️ 기존 12px → 14px */
+  font-weight: 800;
+  color: white;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3); /* ✅ 그림자 효과 */
 }
 
 .dealer-position {
-  font-size: 10px;
-  font-weight: 500;
-  color: #000;
+  font-size: 12px; /* ⬆️ 기존 10px → 12px */
+  font-weight: 600;
+  color: white;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3);
 }
 
 .dealer-company {
-  font-size: 9.5px;
-  color: #333;
+  font-size: 16px; /* ⬆️ 기존 9.5px → 11px */
+  font-weight: 600;
+  color: white !important;
+  text-align: right;
+  align-self: flex-end;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-shadow: 0px 0px 2px rgba(0, 0, 0, 0.3); /* ✅ 그림자 효과 */
 }

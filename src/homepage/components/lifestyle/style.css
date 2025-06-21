@@ -12,6 +12,7 @@
   background: #f3f3f3;
   border-radius: 12px;
   box-sizing: border-box;
+  cursor: pointer;
 }
 
 /* 텍스트 영역 */
@@ -30,7 +31,7 @@
   margin: 0;
 }
 
-/* 하단 강조 문장 (AI 추천 받기 줄바꿈 방지용) */
+/* 하단 강조 문장 */
 .highlight-wrapper {
   display: inline-flex;
   align-items: center;
@@ -38,23 +39,17 @@
   gap: 4px;
   font-size: 16px;
   font-weight: 700;
-  color: #000000;
   margin: 0;
   line-height: 1.4;
 }
 
-/* 라임색 강조 */
-.highlight-lime {
-  background: linear-gradient(90deg, #95e700 0%, #95e700 100%);
+.highlight-gradient {
+  background: linear-gradient(90deg, #95e700 0%, #2dbff4 100%);
+  background-clip: text;              /* ✅ 표준 속성 추가 */
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
-
-/* 하늘색 강조 */
-.highlight-skyblue {
-  background: linear-gradient(90deg, #2dbff4 0%, #2dbff4 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: transparent;                /* ✅ fallback */
+  display: inline-block;
 }
 
 /* 화살표 아이콘 */

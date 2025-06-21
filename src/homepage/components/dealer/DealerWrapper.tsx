@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
 import DealerItem from './DealerItem';
-import { dealerAPI } from '../../../global/api/Axios';
+import { dealerAPI } from '../../../global/api/Axios'; // ✅ 실제 API 사용
 
 interface Dealer {
   id: string;
@@ -16,12 +16,13 @@ const DealerWrapper: React.FC = () => {
   const [dealers, setDealers] = useState<Dealer[]>([]);
 
   useEffect(() => {
+    // ✅ 실제 API 사용
     dealerAPI.getDealers().then((res) => {
       if (res.success && res.data) {
         const mapped = res.data.map((dealer: any) => ({
           id: String(dealer.id),
           name: dealer.name,
-          position: dealer.position, // ✅ 정상 필드명
+          position: dealer.position,
           company: dealer.affiliation,
           rating: 4.7,
           imageUrl: dealer.imagePath,
