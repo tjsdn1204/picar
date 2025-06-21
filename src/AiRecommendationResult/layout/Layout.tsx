@@ -139,8 +139,7 @@ const Layout: React.FC = () => {
               model: model
         });
         
-        // [] 대신 검색 결과창
-        navigate(`/dealerlist/${queryParams.toString()}`);
+        navigate(`/dealerlist?${queryParams.toString()}`);
     };
 
     const goToPrevious = () => { navigate('/survey') };
