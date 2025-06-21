@@ -1,5 +1,5 @@
-import { HeaderProps } from "../types/carType.ts";
-import Layout from "../layout/Layout.tsx"
+import { HeaderProps } from "../types/carType";
+import Layout from "../layout/Layout"
 
 const CarDetail: React.FC<HeaderProps> = () => {
   return (

@@ -1,5 +1,5 @@
 import {ReactComponent as VerifiedIcon} from "../../../assets/Verified.svg";
-import { type VerifiedBannerProps } from "../../types/CarType";
+import { type VerifiedBannerProps } from "../../types/carType";
 import "./VerifiedBanner.css"
 
 const VerifiedBanner: React.FC<VerifiedBannerProps> = ({description}) => {

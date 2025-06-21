@@ -33,19 +33,19 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
   }
 
   return (
-    <div className="car-card">
+    <div className="car-card-page">
         <div className="car-card-container">
-            <div className="car-image-container">
-                <h3 className="car-model">{model}</h3>
+            <div className="car-card-image-container">
+                <h3 className="car-card-model">{model}</h3>
                 <img 
                     src={image} 
                     alt={model}
-                    className="car-image"
+                    className="car-card-image"
                 />
             </div>
-            <div className="car-seperate-line"></div>
-            <div className="car-info">
-                <ul className="car-specs">
+            <div className="car-card-seperate-line"></div>
+            <div className="car-card-info">
+                <ul className="car-card-specs">
                     <li>{releaseDate}년 출시</li>
                     <li>배기량: {formatDisplacement(displacement)}</li>
                     <li>유종: {fuelType}</li>
@@ -55,7 +55,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
       </div>
       <div className="car-card-button-container">
         <button 
-            className="car-details-button"
+            className="car-card-details-button"
             onClick={handleViewDetails}
             type="button">
             <span>{model}을 보유중인 딜러</span>

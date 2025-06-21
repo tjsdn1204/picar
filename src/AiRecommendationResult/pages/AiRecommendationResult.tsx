@@ -1,4 +1,4 @@
-import Layout from "../layout/Layout.tsx"
+import Layout from "../layout/Layout"
 
 const AiRecommendationResult = ( ) => {
   return (

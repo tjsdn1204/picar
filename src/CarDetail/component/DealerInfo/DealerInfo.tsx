@@ -10,24 +10,24 @@ const DealerInfo: React.FC<DealerInfoProps> = ({ dealer, onDealerDetail }) => {
   }
 
   return (
-    <div className="dealer-info">
-      <h3 className="dealer-section-title">담당딜러</h3>
+    <div className="dealer-info-page">
+      <h3 className="dealer-info-section-title">담당딜러</h3>
       
-      <div className="dealer-card">
-        <div className="dealer-img-container">
+      <div className="dealer-info-card">
+        <div className="dealer-info-img-container">
             <img 
               src={profileImage} 
               alt={`${name} 프로필`}
-              className="dealer-img"/>
+              className="dealer-info-img"/>
         </div>
-        <div className="dealer-content">
-          <div className="dealer-name-section">
-            <span className="dealer-name">{name}</span>
-            <span className="dealer-title">{title}</span>
+        <div className="dealer-info-content">
+          <div className="dealer-info-name-section">
+            <span className="dealer-info-name">{name}</span>
+            <span className="dealer-info-title">{title}</span>
           </div>
-          <span className="dealer-company">{company}</span>
-          <span className="dealer-description">{description}</span>
-          <button className="dealer-more-btn" onClick={handleClick}>
+          <span className="dealer-info-company">{company}</span>
+          <span className="dealer-info-description">{description}</span>
+          <button className="dealer-info-more-btn" onClick={handleClick}>
             <span>자세히 보기</span>
             <div className="right-arrow"><RightArrow/></div>
           </button>

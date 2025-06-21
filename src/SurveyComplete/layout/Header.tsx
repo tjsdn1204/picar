@@ -1,4 +1,4 @@
-import OriginHeader from "../../Survey/layout/Header.tsx"
+import OriginHeader from "../../Survey/layout/Header"
 
 const Header = ({ title }) => {
     return (

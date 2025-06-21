@@ -1,4 +1,4 @@
-import OriginProgressBar from "../../../Survey/components/ProgressBar/ProgressBar.tsx"
+import OriginProgressBar from "../../../Survey/components/ProgressBar/ProgressBar"
 
 const ProgressBar = ({ progress }) => {
     return (

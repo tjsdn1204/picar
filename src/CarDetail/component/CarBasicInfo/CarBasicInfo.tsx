@@ -1,5 +1,5 @@
 import "./CarBasicInfo.css"
-import { type CarBasicInfoProps } from "../../types/CarType";
+import { type CarBasicInfoProps } from "../../types/carType";
 
 const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
     const {id, model, subModel, year, month, releaseDate, mileage, price} = carInfo;

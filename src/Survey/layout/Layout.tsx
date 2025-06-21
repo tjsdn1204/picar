@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Header from "./Header.tsx"
-import ProgressBar from '../components/ProgressBar/ProgressBar.tsx';
-import { questionsData } from "../../global/data/QuestionData.ts";
+import Header from "./Header"
+import ProgressBar from '../components/ProgressBar/ProgressBar';
+import { questionsData } from "../../global/data/QuestionData";
 import type { SurveyProps } from '../types/surveyType';
 import type { QuestionAnswers } from '../types/surveyType';
 import "./style.css";

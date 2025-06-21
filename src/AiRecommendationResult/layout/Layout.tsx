@@ -1,19 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import Header from '../layout/Header.tsx';
-import Footer from '../layout/Footer.tsx';
-import CarCard from '../component/CarCard/CarCard.tsx';
+import Header from '../layout/Header';
+import Footer from '../layout/Footer';
+import CarCard from '../component/CarCard/CarCard';
 import img from "../../assets/test/BMW_320d.png" // Test용 사진
-import AiRecommendationLoading from '../../AiRecommendationLoading/pages/AiRecommendationLoading.tsx';
-import { type CarCardProps } from '../types/resultType.ts';
-import { surveyAPI, carAPI, type QuestionAnswers } from '../../global/api/Axios.ts';
+import AiRecommendationLoading from '../../AiRecommendationLoading/pages/AiRecommendationLoading';
+import { type CarCardProps } from '../types/resultType';
+import { surveyAPI, carAPI, type QuestionAnswers } from '../../global/api/Axios';
 
 import "./style.css"
 
 const Layout: React.FC = () => {
     const [searchParams, setSearchParams] = useSearchParams();
     const [isRetrying, setIsRetrying] = useState(false);
-    const [carData, setCarData] = useState<any>(false); //추가
+    const [carData, setCarData] = useState<any[]>([]); //추가
     const [loading, setLoading] = useState(true); //추가
     const navigate = useNavigate();
 
@@ -34,17 +34,14 @@ const Layout: React.FC = () => {
         }
     } catch (error) {
         console.error('URL 파라미터 파싱 오류:', error);
-        navigate('/'); //오류나면 홈화면으로 가게끔
-        return null;
-    }
-
-    // 데이터가 없으면 홈으로 리다이렉트
-    if (!recommendations || recommendations.length === 0) {
-        navigate('/'); 
-        return null;
     }
 
     useEffect(() => {
+        if (recommendations.length === 0) {
+            navigate('/');
+            return;
+        }
+
         const fetchCarData = async () => {
             try {
                 setLoading(true);
@@ -147,8 +144,8 @@ const Layout: React.FC = () => {
     };
 
     const goToPrevious = () => { navigate('/survey') };
-    // const handleRetry = () => {};
-    // const onViewDetails = () => {};
+    //const handleRetry = () => {};
+    //const onViewDetails = () => {};
 
     if (isRetrying) {
         return <AiRecommendationLoading />;

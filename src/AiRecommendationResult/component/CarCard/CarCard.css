@@ -1,5 +1,4 @@
-/* src/components/results/CarCard.css */
-.car-card {
+.car-card-page {
     margin-bottom: 0.5rem;
 }
 
@@ -13,14 +12,14 @@
     padding: 1.25rem 1rem;
 }
 
-.car-image-container {
+.car-card-image-container {
     display: flex;
     flex-direction: column;
     align-items: center;
     flex: 1;
 }
 
-.car-model {
+.car-card-model {
     font-size: 1.25rem; /*20px*/
     font-weight: 700;
     line-height: 100%;
@@ -31,7 +30,7 @@
 }
 
 
-.car-seperate-line {
+.car-card-seperate-line {
     width: 0.125rem; /*2px*/
     height: 6rem; /*96px*/
     background: #D9D9D9;
@@ -39,13 +38,13 @@
     margin: 0 0.5rem 0 0.5rem; 
 }
 
-.car-info {
+.car-card-info {
   flex: 1;
   display: flex;
   justify-content: center;
 }
 
-.car-specs {
+.car-card-specs {
   list-style: none;
   padding: 0;
   margin: 0;
@@ -58,7 +57,7 @@
   white-space: nowrap;
 }
 
-.car-specs li {
+.car-card-specs li {
     font-size: 0.875rem; /*14px*/
     position: relative;
     padding-left: 1rem;
@@ -68,19 +67,19 @@
     letter-spacing: -2%;
 }
 
-.car-specs li::before {
+.car-card-specs li::before {
     content: '•';
     position: absolute;
     left: 0;
 }
 
-.car-image {
+.car-card-image {
     width: 9.5rem;
     height: 4.5rem;
     object-fit: contain;
 }
 
-.car-details-button {
+.car-card-details-button {
     width: 100%;
     display: flex;
     align-items: center;

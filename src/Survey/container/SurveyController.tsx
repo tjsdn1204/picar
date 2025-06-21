@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import Survey from '../pages/Survey.tsx';
-import AiRecommendationLoading from '../../AiRecommendationLoading/pages/AiRecommendationLoading.tsx';
-import SurveyComplete from '../../SurveyComplete/pages/SurveyComplete.tsx';
-import { surveyAPI, type QuestionAnswers } from '../../global/api/Axios.ts';
+import Survey from '../pages/Survey';
+import AiRecommendationLoading from '../../AiRecommendationLoading/pages/AiRecommendationLoading';
+import SurveyComplete from '../../SurveyComplete/pages/SurveyComplete';
+import { surveyAPI, type QuestionAnswers } from '../../global/api/Axios';
 
 const SurveyController = () => {
   const [currentPhase, setCurrentPhase] = useState<'survey' | 'complete' | 'loading' >('survey');

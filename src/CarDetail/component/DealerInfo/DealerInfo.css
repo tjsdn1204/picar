@@ -1,19 +1,18 @@
-/* CarDetail/components/DealerInfo/DealerInfo.css */
-.dealer-info { 
+.dealer-info-page { 
   margin-left: 0.5rem;
   margin-right: 0.5rem;
   
   margin-bottom: 3rem;
 }
 
-.dealer-section-title {
+.dealer-info-section-title {
   font-size: 1.25rem;
   font-weight: 700;
   line-height: 130%; /* 1.625rem */
   letter-spacing: -0.025rem;
 }
 
-.dealer-card {
+.dealer-info-card {
   background-color: #F3F3F5;
   border-radius: 0.75rem;
   padding: 1.38rem 0.625rem 0.25rem 0.625rem;
@@ -22,7 +21,7 @@
   align-items: center;
 }
 
-.dealer-img-container {
+.dealer-info-img-container {
   width: 7rem;
   height: 9rem;
   border-radius: 0.75rem;
@@ -31,27 +30,27 @@
   margin-top: -1.13rem;
 }
 
-.dealer-img {
+.dealer-info-img {
   width: 7rem;
   height: 9rem;
   border-radius: 0.75rem;
   object-fit: cover;
 }
 
-.dealer-content {
+.dealer-info-content {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.dealer-name-section {
+.dealer-info-name-section {
   display: flex;
   align-items: center;
   gap: 0.75rem;
   margin-bottom: 0.38rem;
 }
 
-.dealer-name {
+.dealer-info-name {
   color: #95E700;
   font-size: 1.25rem;
   font-weight: 700;
@@ -59,14 +58,14 @@
   letter-spacing: -0.0275rem;
 }
 
-.dealer-title {
+.dealer-info-title {
   font-size: 1rem;
   font-weight: 700;
   line-height: 150%; 
   letter-spacing: -0.022rem;
 }
 
-.dealer-company {
+.dealer-info-company {
   font-size: 0.75rem;
   font-weight: 700;
   line-height: 150%;
@@ -75,7 +74,7 @@
   margin-bottom: 0.75rem;
 }
 
-.dealer-description {
+.dealer-info-description {
   font-size: 0.75rem;
   font-weight: 400;
   line-height: 150%;
@@ -83,7 +82,7 @@
   white-space: pre-line;
 }
 
-.dealer-more-btn {
+.dealer-info-more-btn {
   display: flex;
   align-items: center;
   justify-content: end;

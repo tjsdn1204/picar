@@ -1,5 +1,5 @@
 // components/SurveyComplete.tsx
-import Layout from "../layout/Layout.tsx"
+import Layout from "../layout/Layout"
 
 const SurveyComplete = () => {
   return (

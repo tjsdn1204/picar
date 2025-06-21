@@ -1,5 +1,5 @@
-import Layout from "../layout/Layout.tsx";
-import type { SurveyProps } from "../types/surveyType.ts";
+import Layout from "../layout/Layout";
+import type { SurveyProps } from "../types/surveyType";
 
 const Survey: React.FC<SurveyProps> = ({ onComplete }) => {
     return (
