@@ -7,7 +7,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class UploadMetaDto {
-    private Long carId;
-    private Long dealerId;
-    private String fileName; // 파일 이름 (확장자 포함)
+    private String targetType;  // "car" 또는 "dealer"
+    private Long targetId;      // carId 또는 dealerId
+    private String fileName;    // "avante_ad.jpg"
+    private String imagePath;   // "/images/cars/avante_ad.jpg"
 }
