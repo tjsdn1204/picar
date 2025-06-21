@@ -13,7 +13,7 @@ const Footer: React.FC<FooterProps> = ({ navRef }) => {
   };
 
   const handleAiClick = () => {
-    window.location.href = '/survey'; // 또는 useNavigate 사용 가능
+    window.location.href = '/survey';
   };
 
   return (
@@ -28,9 +28,12 @@ const Footer: React.FC<FooterProps> = ({ navRef }) => {
         <span>검색</span>
       </button>
 
-      <button className="footer-item" onClick={handleAiClick}>
-        <img src="/icons/AI_Chat.svg" alt="AI 추천" />
-        <span>AI 추천</span>
+      {/* ✅ 원형 그라디언트 스타일이 적용된 AI 추천 버튼 */}
+      <button className="footer-item ai-recommend-button" onClick={handleAiClick}>
+        <div className="ai-button-bg">
+          <img src="/icons/AI_Chat.svg" alt="AI 추천" />
+          <span>AI 추천</span>
+        </div>
       </button>
 
       <button className="footer-item">

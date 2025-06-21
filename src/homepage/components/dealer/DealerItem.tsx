@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 export interface DealerItemProps {
-  id: string; // ✅ 추가
+  id: string;
   name: string;
   position: string;
   company: string;
@@ -12,7 +12,7 @@ export interface DealerItemProps {
 }
 
 const DealerItem: React.FC<DealerItemProps> = ({
-  id, // ✅ 추가
+  id,
   name,
   position,
   company,
@@ -26,7 +26,7 @@ const DealerItem: React.FC<DealerItemProps> = ({
   };
 
   return (
-    <div className="dealer-card-vertical" onClick={handleClick}> {/* ✅ 클릭 시 이동 */}
+    <div className="dealer-card-vertical" onClick={handleClick}>
       <div className="dealer-image-wrapper">
         <img src={imageUrl} alt={`${name} 사진`} className="dealer-image-full" />
         <div className="dealer-rating-badge">

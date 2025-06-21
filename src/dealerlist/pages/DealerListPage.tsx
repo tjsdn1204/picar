@@ -10,6 +10,7 @@ import '../layout/style.css';
 import '../components/style.css';
 import '../pages/style.css';
 
+// 쿼리 파라미터 파싱용 커스텀 훅
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -17,15 +18,25 @@ function useQuery() {
 export default function DealerListPage() {
   const query = useQuery();
   const modelName = query.get('model') || '차량';
-  const words = modelName.split(' ');
-  const model = words.length >= 2 ? words[1] : modelName;
 
   const [dealerList, setDealerList] = useState<CarModelItem[]>([]);
   const [error, setError] = useState<string | null>(null);
 
+
+  const preprocessSearchTerm = (searchTerm) => {
+    let processed = searchTerm.replace(/\s+/g, "_");
+
+    const brands = ["Hyundai", "Kia", "BMW", "Mercedes-Benz", "Genesis", "Tesla", "Audi", "Ford", "MINI", "Infiniti", "Land_Rover", "Maserati", "Renault_Korea"];
+    brands.forEach(brand => {
+        processed = processed.replace(new RegExp(`^${brand}_?`, 'i'), '');
+    });
+    
+    return processed;
+  };
+
   useEffect(() => {
     const fetchData = async () => {
-      const res = await carAPI.getCarsByModel(model);
+      const res = await carAPI.getCarsByModel(preprocessSearchTerm(modelName));
       if (res.success) {
         setDealerList(res.data);
       } else {
@@ -49,15 +60,17 @@ export default function DealerListPage() {
             {dealerList.map((dealer, index) => (
               <DealerCard
                 key={index}
+                id={dealer.id}
                 name={dealer.dealerName}
-                rating={dealer.priceMax / 1000} // 예: 4.8 이런 식으로
-                reviews={0} // 리뷰 수가 없으므로 임의
+                position={dealer.position}
+                rating={4.8} // 임시 고정
+                reviews={0}  // 임시 고정
                 image={dealer.imagePaths[0]}
                 profile={dealer.dealerImagePath}
                 price={dealer.priceMax}
                 year={`${dealer.modelYear}년식`}
                 distance={`${(dealer.mileage / 10000).toFixed(1)}만 km`}
-                comment={dealer.specialNote.replace(/ \/ /g, ' / ')} // A / B 형태로
+                comment={dealer.specialNote.replace(/ \/ /g, ' / ')}
               />
             ))}
           </div>

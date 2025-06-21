@@ -54,7 +54,6 @@ const Layout = () => {
 
     // URL 쿼리에서 데이터 파싱
     const carId = searchParams.get('id');
-    const carModel = searchParams.get('model');
 
     useEffect(() => {
         const fetchCarDetail = async () => {
@@ -132,11 +131,8 @@ const Layout = () => {
       navigate(`/dealerDetail/${id}`);
     }
 
-    const goToPrevious = () => { 
-      const queryParams = new URLSearchParams({
-            model: carModel
-      });
-      navigate(`/dealerlist?${queryParams.toString()}`);
+    const goToPrevious = () => {
+      navigate(-1);
     };
 
     const onCalc = (id: number): void => {

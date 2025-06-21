@@ -44,9 +44,9 @@ const Layout: React.FC = () => {
                         if (result.success && result.data && result.data.length > 0) {
                             // 첫 번째 차량 데이터 사용
                             const apiCarData = result.data[0];
-                            console.log(apiCarData.id + " ");
                             return {
-                                model: `${apiCarData.brand} ${apiCarData.model}`, // 브랜드 + 모델이 전체 모델
+                                brand: apiCarData.brand, // 브랜드
+                                model: apiCarData.model, // 모델 
                                 releaseDate: apiCarData.modelYear, // 출시연도
                                 displacement: apiCarData.engineDisplacement, // 배기량
                                 fuelType: apiCarData.fuelType, // 유종
@@ -56,7 +56,8 @@ const Layout: React.FC = () => {
                         } else {
                             // API 데이터가 없으면 기본 데이터 사용
                             return {
-                                model: model,
+                                brand: "Infiniti",
+                                model: "Q50",
                                 releaseDate: 2025,
                                 displacement: "1998",
                                 fuelType: "가솔린",
@@ -68,7 +69,8 @@ const Layout: React.FC = () => {
                         console.error(`차량 데이터 가져오기 실패 (${model}):`, error);
                         // 에러 시 기본 데이터 반환
                         return {
-                            model: model,
+                            brand: "Infiniti",
+                            model: "Q50",
                             releaseDate: 2025,
                             displacement: "1998",
                             fuelType: "가솔린",
@@ -84,7 +86,8 @@ const Layout: React.FC = () => {
                 console.error('차량 데이터 로딩 실패:', error);
                 // 전체 실패 시 기본 데이터 사용
                 const defaultCarData = recommendations.map((model, index) => ({
-                    model: model,
+                    brand: "Infiniti",
+                    model: "Q50",
                     releaseDate: 2025,
                     displacement: "1998",
                     fuelType: "가솔린",

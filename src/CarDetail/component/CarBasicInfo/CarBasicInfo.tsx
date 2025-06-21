@@ -4,6 +4,10 @@ import { type CarBasicInfoProps } from "../../types/carType";
 const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
     const {id, brand, model, modelYear, releaseDate, mileage, price} = carInfo;
 
+    const formatModel = (model: string) => {
+        return model.replace(/_/g, ' ');
+    }
+
     const formatDate = (date: number): number => {
         date %= 100;
         return date;
@@ -23,7 +27,6 @@ const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
     }
 
     const formatPrice = (price: number): string => {
-        price/=10000;
         return `${price.toLocaleString()}`;
     }
 
@@ -31,7 +34,7 @@ const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
         <div className="car-basic-info">
             <div className="car-basic-info-title-section">
                 <h1 className="car-basic-info-model">{brand}</h1>
-                <h2 className="car-basic-info-sub-model">{model}</h2>
+                <h2 className="car-basic-info-sub-model">{formatModel(model)}</h2>
             </div>
 
             <div className="car-basic-info-details">

@@ -37,59 +37,46 @@
   margin-bottom: 4px;
 }
 
+/* NavBar CSS */
 .nav-bar {
+  width: 100%;
+  max-width: 375px; /* ✅ 모바일 너비 고정 */
+  margin: 0 auto;
+  height: 54px;
+  background: #fff;
   display: flex;
   align-items: center;
-  justify-content: space-between; /* ✅ 왼쪽 버튼 / 가운데 제목 / 오른쪽 공간 */
-  top: 0;
-  width: 100%;
-  max-width: 375px; /* 모바일 기준 */
-  height: 54px;
-  background-color: #fff;
+  justify-content: space-between; /* 버튼 - 제목 - 빈공간 정렬 */
   padding: 0 16px;
   box-sizing: border-box;
-  z-index: 1000;
+  position: relative;
 }
 
-.back-button {
+
+
+.back-buttons {
   background: none;
   border: none;
   padding: 0;
   cursor: pointer;
+  width: 40px;
+  height: 40px;
 }
 
-/* 가운데 정렬되는 제목 */
+
+.back-button img {
+  width: 20px;
+  height: 20px;
+}
+
 .nav-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  margin-left: -24px; /* 버튼 너비만큼 왼쪽 보정 */
 }
 
 .nav-right-space {
-  width: 24px;  
-}
-
-.dealer-detail-main {
-  padding: 80px 20px 100px;   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  min-height: 100vh;
-  background-color: #fff;
-  box-sizing: border-box;
-}
-.dealer-layout-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.dealer-main-content {
-  width: 100%;
-  max-width: 375px;  /* ✅ 모바일 크기 고정 */
-  padding: 0 20px;    /* 좌우 여백 */
-  box-sizing: border-box;
+  width: 24px; /* 오른쪽 공백용 (버튼과 균형) */
 }

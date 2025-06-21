@@ -1,8 +1,11 @@
 import React from 'react';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 interface DealerCardProps {
+  id: number;
   name: string;
+  position: string;
   rating: number;
   reviews: number;
   profile: string;
@@ -14,7 +17,9 @@ interface DealerCardProps {
 }
 
 export default function DealerCard({
+  id,
   name,
+  position,
   rating,
   reviews,
   profile,
@@ -24,31 +29,50 @@ export default function DealerCard({
   comment,
   price,
 }: DealerCardProps) {
+  const navigate = useNavigate();
+
   return (
-    <div className="dealer-card">
-      <div className="dealer-left">
-        <div className="dealer-top">
-          <img src={profile} className="profile" alt="프로필" />
-          <div className="name-rating">
-            <div className="name">{name}</div>
-            <div className="rating"><img src="/icons/star.svg" alt="별 아이콘" className="star-icon" />{rating} ({reviews} 후기)</div>
+    <div className="dealer-card-wrapper">
+      <div className="dealer-card">
+        <img src="/icons/heart.svg" className="heart" alt="하트" />
+
+        <div className="dealer-left">
+          <div className="dealer-top">
+            <div className="profile-div">
+              <img src={profile} className="profile" alt="프로필" />
+            </div>
+            <div className="name-rating">
+              <div className="name-position">
+                <div className="name">{name}</div>
+                <div className="position">{position}</div>
+              </div>
+              <div className="rating">
+                <img src="/icons/star.svg" alt="별 아이콘" className="star-icon" />
+                {rating} ({reviews} 후기)
+              </div>
+            </div>
           </div>
-          <img src="/icons/heart.svg" className="heart" alt="하트" />
+
+          <div className="info">
+            <div className="info-item">•   {year} / {distance}</div>
+            <div className="info-item">•   {comment}</div>
+          </div>
+
+          <div className="price">
+            → {price.toLocaleString()}<span className="unit">만원</span>
+          </div>
         </div>
 
-        <div className="info">
-          <div>{year} / {distance}</div>
-          <div>{comment}</div>
-        </div>
-
-        <div className="price">
-          → <span>{price.toLocaleString()}<span className="unit">만원</span></span>
+        <div className="dealer-right">
+          <img src={image} className="dealerlist-car-image" alt="차량 이미지" />
         </div>
       </div>
 
-      <div className="dealer-right">
-        <img src={image} className="car-image" alt="차량" />
-        <div className="detail">자세히 보기 &gt;</div>
+      <div
+        className="dealer-detail-bottom"
+        onClick={() => navigate(`/detail?id=${id}`)}
+      >
+        자세히 보기 &gt;
       </div>
     </div>
   );

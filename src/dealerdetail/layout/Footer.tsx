@@ -12,9 +12,11 @@ const Footer: React.FC = () => {
         <img src="/icons/search.svg" alt="검색" />
         <span>검색</span>
       </button>
-      <button className="footer-item">
-        <img src="/icons/AI_Chat.svg" alt="AI 추천" />
-        <span>AI 추천</span>
+      <button className="footer-item ai-recommend-button">
+        <div className="ai-button-bg">
+          <img src="/icons/AI_Chat.svg" alt="AI 추천" />
+          <span>AI 추천</span>
+        </div>
       </button>
       <button className="footer-item">
         <img src="/icons/heart.svg" alt="찜" />

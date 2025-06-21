@@ -7,7 +7,6 @@ import './Footer.css';
 const Footer: React.FC<FooterProps> = ({ carId, carPrice, onCalc, onCalling, onChatting }) => {
 
     const formatPrice = (price: number): string => {
-        price/=10000;
         return `${price.toLocaleString()} 만원`;
     }
 

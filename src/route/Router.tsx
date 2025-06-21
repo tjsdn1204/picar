@@ -30,11 +30,15 @@ const Router: React.FC = () => {
         <Route element={<DealerLayout />}>
           <Route path="/dealerdetail/:id" element={<DealerDetailPage />} />
         </Route>
+
+        {/* AI 추천을 위한 설문조사 화면 */}
         <Route path="/survey" element={<SurveyController />}/>
+
+        {/* AI 추천 결과 화면 */}
         <Route path="/recommendation" element={<Recommendation />}/>
+
+        {/* 차량 상세 정보 화면 */}
         <Route path="/detail" element={<CarDetail />}/>
-        <Route path="/loading" element={<Loading />}/>
-        <Route path="/complete" element={<SurveyComplete />}/>
       </Routes>
     </BrowserRouter>
   );

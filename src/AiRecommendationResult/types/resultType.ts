@@ -1,6 +1,7 @@
 import type { QuestionAnswers } from "../../Survey/types/surveyType";
 
 export interface CarInfo {
+  brand: string;
   model: string;
   releaseDate: number;
   displacement: string;
