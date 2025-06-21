@@ -32,7 +32,7 @@ const DealerDetailPage: React.FC = () => {
         setError(dealerRes.error || '딜러 정보를 불러올 수 없습니다.');
       }
 
-      const carRes = await dealerAPI.getDealerCars(id);
+      const carRes = await dealerAPI.getDealerCars(Number(id));
       if (carRes.success && carRes.data) {
         const mapped = carRes.data.map((car: any) => ({
           image: car.imagePaths[0], // 첫 번째 이미지 사용

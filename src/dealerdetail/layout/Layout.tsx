@@ -1,19 +1,16 @@
 // src/dealerdetail/layout/DealerLayout.tsx
+// DealerLayout.tsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import NavBar from './NavBar';
 import Footer from './Footer';
-import './style.css'; // 반드시 포함
+import './style.css';
 
 const DealerLayout = () => {
   return (
     <div className="dealer-layout-wrapper">
-      <NavBar title="딜러 상세" />
-
-      <main className="dealer-layout-main">
+      <main className="dealer-main-content">
         <Outlet />
       </main>
-
       <Footer />
     </div>
   );

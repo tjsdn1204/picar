@@ -38,7 +38,7 @@
 }
 
 .nav-bar {
-  position: fixed;          /* ← 위에 고정하려면 */
+  position: fixed;         
   top: 0;
   width: 100%;
   height: 54px;
@@ -68,7 +68,7 @@
 }
 
 .nav-right-space {
-  width: 24px;  /* ← back-button의 크기와 동일하게 설정해서 좌우 균형 맞춤 */
+  width: 24px;  
 }
 
 .dealer-detail-main {
@@ -83,6 +83,13 @@
 .dealer-layout-wrapper {
   display: flex;
   flex-direction: column;
-  align-items: center; /* 💥 Footer 포함해서 전체 가운데 정렬 */
+  align-items: center;
   width: 100%;
+}
+
+.dealer-main-content {
+  width: 100%;
+  max-width: 375px;  /* ✅ 모바일 크기 고정 */
+  padding: 0 20px;    /* 좌우 여백 */
+  box-sizing: border-box;
 }

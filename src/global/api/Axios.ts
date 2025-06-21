@@ -204,7 +204,7 @@ export const dealerAPI = {
     // 특정 딜러의 보유 차량 목록 조회
     getDealerCars: async (dealerId: string | number): Promise<DealerCarsResponse> => {
         try {
-            const response = await api.get(`/api/dealers/${dealerId}/cars`);
+            const response = await api.get(`/dealers/${dealerId}/cars`);
             
             // 응답이 배열인지 확인
             const carList = Array.isArray(response.data) ? response.data : [];
