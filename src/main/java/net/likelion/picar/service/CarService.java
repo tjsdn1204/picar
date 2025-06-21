@@ -19,6 +19,7 @@ public class CarService {
     public List<CarResponseDto> getCarsByModel(String model) {
         return carRepository.findByModel(model).stream()
                 .map(car -> new CarResponseDto(
+                        car.getId(),
                         car.getBrand(),
                         car.getModel(),
                         car.getFuelType(),
@@ -48,7 +49,8 @@ public class CarService {
                 car.getPriceMin(),
                 car.getPriceMax(),
                 car.getDealer().getName(),
-                car.getDealer().getAffiliation()
+                car.getDealer().getAffiliation(),
+                car.getDealer().getId()
         );
     }
 }

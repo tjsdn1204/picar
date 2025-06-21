@@ -40,6 +40,7 @@ public class DealerService {
                 .orElseThrow(() -> new IllegalArgumentException("딜러를 찾을 수 없습니다."));
         return dealer.getCarList().stream()
                 .map(car -> new CarResponseDto(
+                        car.getId(),
                         car.getBrand(),
                         car.getModel(),
                         car.getFuelType(),

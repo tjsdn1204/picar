@@ -6,6 +6,7 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CarResponseDto {
+    private Long Id;
     private String brand;
     private String model;
     private String fuelType;

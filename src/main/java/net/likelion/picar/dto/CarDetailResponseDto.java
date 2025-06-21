@@ -21,4 +21,5 @@ public class CarDetailResponseDto {
     // 딜러 정보 일부도 추가하고 싶다면 아래와 같이 확장 가능
     private String dealerName;
     private String dealerAffiliation;
+    private Long dealerId;
 }
