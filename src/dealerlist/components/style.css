@@ -25,28 +25,35 @@
   align-items: center;
   gap: 16px;
   padding: 0 20px;
+  
 }
 
 .dealer-card {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
   width: 335px;
+  height: 164px;
+  background-color: #ffffff;
+  border-radius: 16px;
   padding: 16px;
-  background: #fff;
-  border-radius: 12px;
-  box-shadow: 0 0 0 1px #eee;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
-  gap: 16px;
+
+  /* ✅ 텍스트 세로쓰기 강제 차단 */
+  writing-mode: horizontal-tb !important;
 }
 
+/* 🔹 왼쪽 정보 영역 */
 .dealer-left {
-  flex: 1;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  justify-content: space-between;
+  flex: 1;
 }
 
+/* 🔹 상단: 프로필, 이름, 별점, 하트 */
 .dealer-top {
   display: flex;
   align-items: center;
@@ -54,68 +61,84 @@
 }
 
 .profile {
-  width: 40px;
-  height: 40px;
+  width: 36px;
+  height: 36px;
   border-radius: 50%;
+  object-fit: cover;
 }
 
 .name-rating {
   display: flex;
   flex-direction: column;
-  flex: 1;
+  font-size: 14px;
 }
 
 .name {
-  font-weight: 700;
-  font-size: 16px;
-  color: #111;
+  font-weight: bold;
 }
 
 .rating {
-  font-size: 13px;
-  color: #56A4FF;
+  font-size: 12px;
+  color: #0099ff;
 }
 
 .heart {
+  margin-left: auto;
   width: 20px;
   height: 20px;
 }
 
+/* 🔹 차량 설명 및 가격 */
 .info {
-  font-size: 15px;
-  color: #111;
-  line-height: 1.5;
+  font-size: 13px;
+  margin-top: 8px;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .price {
   font-size: 20px;
-  font-weight: 700;
-  color: #4A90E2;
+  font-weight: bold;
+  color: #3399ff;
+  margin-top: 8px;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .unit {
   font-size: 14px;
-  font-weight: 500;
-  color: #4A90E2;
-  margin-left: 4px;
+  color: gray;
 }
 
+/* 🔹 오른쪽 영역: 이미지, 자세히 보기 */
 .dealer-right {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-left: 16px;
+  width: 120px;
+  writing-mode: horizontal-tb !important;
 }
 
 .car-image {
-  width: 130px;
-  height: 96px;
+  width: 120px;
+  height: 72px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
+  background: #eee;
 }
 
 .detail {
-  font-size: 14px;
-  font-weight: 600;
-  color: #111;
+  font-size: 13px;
+  color: black;
+  margin-top: 8px;
+  white-space: nowrap;
+  word-break: keep-all;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

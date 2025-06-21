@@ -1,32 +1,38 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './style.css';
 import DealerItem from './DealerItem';
+import axios from 'axios';
 
-const dummyDealers = [
-  {
-    name: '문종수',
-    position: '부장',
-    company: '성수자동차상사',
-    rating: 4.7,
-    imageUrl: '/images/dealer1.jpg',
-  },
-  {
-    name: '장승호',
-    position: '실장',
-    company: '장안오토모빌',
-    rating: 4.8,
-    imageUrl: '/images/dealer2.jpg',
-  },
-  {
-    name: '김태형',
-    position: '실장',
-    company: '강서모터스',
-    rating: 4.6,
-    imageUrl: '/images/dealer3.jpg',
-  },
-];
+interface Dealer {
+  id: string;
+  name: string;
+  position: string;
+  company: string;
+  rating: number;        // 👈 없으므로 임의 값 넣자
+  imageUrl: string;
+}
 
 const DealerWrapper: React.FC = () => {
+  const [dealers, setDealers] = useState<Dealer[]>([]);
+
+  useEffect(() => {
+    axios.get('/api/dealers')
+      .then((res) => {
+        const mapped = res.data.map((dealer: any) => ({
+          id: String(dealer.id),
+          name: dealer.name,
+          position: dealer.position,
+          company: dealer.affiliation,             // 이름 맞춤
+          rating: 4.7,                              // 임의 평점 (추후 API 확장 가능)
+          imageUrl: dealer.imagePath               // 이름 맞춤
+        }));
+        setDealers(mapped);
+      })
+      .catch((err) => {
+        console.error('❌ 딜러 목록 가져오기 실패:', err);
+      });
+  }, []);
+
   return (
     <div className="dealer-wrapper">
       <div className="dealer-title-bar">
@@ -35,8 +41,8 @@ const DealerWrapper: React.FC = () => {
       </div>
 
       <div className="dealer-wrapper-scroll">
-        {dummyDealers.map((dealer, idx) => (
-          <DealerItem key={idx} {...dealer} />
+        {dealers.map((dealer) => (
+          <DealerItem key={dealer.id} {...dealer} />
         ))}
       </div>
     </div>

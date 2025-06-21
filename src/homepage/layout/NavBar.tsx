@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+// NavBar.tsx
+import React, { useState, forwardRef } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import './style.css';
 
-export default function NavBar() {
+const NavBar = forwardRef<HTMLDivElement>((_, ref) => {
   const [search, setSearch] = useState('');
   const navigate = useNavigate();
   const location = useLocation();
@@ -20,7 +21,7 @@ export default function NavBar() {
   const showSearch = location.pathname === '/';
 
   return (
-    <div className="navbar-wrapper">
+    <div ref={ref} className="navbar-wrapper">
       <img src="/icons/Picar_Logo_Max.svg" alt="픽카 로고" className="site-logo" />
 
       {showSearch && (
@@ -37,4 +38,6 @@ export default function NavBar() {
       )}
     </div>
   );
-}
+});
+
+export default NavBar;
