@@ -1,0 +1,133 @@
+.dealer-wrapper-scroll {
+  display: flex;
+  overflow-x: auto;
+  padding-left: 18px;
+  padding-right: 0; /* ✅ 줄임 */
+  scroll-padding-left: 18px;
+  scroll-padding-right: 18px; /* ✅ 추가 */
+  gap: 12px;
+  width: 100%;
+  height: 200px;
+  justify-content: flex-start;
+  align-items: flex-end;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  margin-bottom: 24px;
+}
+
+.dealer-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  width: 200px;
+  height: 28px;
+
+  color: #000;
+  font-family: 'Pretendard';
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 150%; /* 30px */
+  letter-spacing: -0.44px;
+}
+
+.dealer-wrapper-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* DealerItem */
+.dealer-card {
+  flex: 0 0 auto;              /* ✅ 완전히 고정 */
+  width: 120px;
+  min-width: 120px;
+  max-width: 120px;            /* ✅ 넘침 방지 */
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  scroll-snap-align: start;
+}
+
+.dealer-image {
+  width: 100%;
+  height: 152px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.dealer-rating {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: #2DA8F4;
+}
+
+/* DealerItem */
+.dealer-info {
+  background-color: #95E700;
+  color: white;
+  padding: 8px 12px;
+  border-radius: 0 0 12px 12px;
+  width: 100%;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.dealer-title-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.dealer-name {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.dealer-position {
+  font-size: 12px;
+}
+
+.dealer-company {
+  font-size: 10px;
+  text-align: right;
+  margin-top: 6px;
+  width: 100%;
+}
+
+/* 상단 제목 바 */
+.dealer-title-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;  /* 🔽 아이콘 기준 아래 정렬 */
+  padding: 0 20px;
+  margin-bottom: 12px;
+  max-width: 375px;
+  width: 100%;
+}
+
+.dealer-title-text {
+  font-size: 20px;
+  font-weight: 700;
+  font-family: 'Pretendard', sans-serif;
+  color: #000;
+  line-height: 1.2;
+  letter-spacing: -0.44px;
+  padding-top: 4px;  /* ✅ 위치 보정용 */
+}
+.dealer-title-icon {
+  font-size: 20px;
+  color: #000;
+}
+

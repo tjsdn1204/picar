@@ -1,0 +1,152 @@
+.dealer-profile-card {
+  display: flex;
+  padding: 20px;
+  align-items: center;
+  background: #fff;
+  gap: 16px;
+}
+
+.dealer-profile-img {
+  width: 104px;
+  height: 144px;
+  border: 2px solid #95E700; /* 선택 컬러 */
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.dealer-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+   background: #fff;
+  gap: 8px;
+  width: 193px;
+}
+
+.dealer-name {
+  font-size: 26px;
+  font-weight: 700;
+  color: #000;
+}
+
+.dealer-company {
+  font-size: 14px;
+  text-align: left;
+  color: #505050;
+}
+
+.dealer-score-label {
+  font-size: 13px;
+  color: #505050;
+}
+
+.dealer-score {
+  font-size: 26px;
+  font-weight: 700;
+  color: #00b4ff;
+}
+
+.score-main {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.score-divider {
+  font-size: 18px;
+  font-weight: 500;
+  color: #121212;
+}
+
+.score-sub {
+  font-size: 12px;
+  font-weight: 500;
+  color: #121212;
+}
+
+.car-card {
+  width: 120px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 12px;
+  background: #fff;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.car-image-box {
+  width: 100%;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  background: #f0f0f0;
+}
+
+.car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.car-text {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 8px 6px 10px 6px;
+  text-align: left;
+}
+
+.car-title {
+  font-size: 12px;
+  font-weight: 500;
+  color: #000;
+  line-height: 1.3;
+  word-break: keep-all;
+}
+
+.car-price {
+  font-size: 14px;
+  font-weight: 700;
+  color: #000;
+}
+
+
+
+.car-list-slider {
+  display: flex;
+  overflow-x: auto;
+  padding: 0px 20px;
+  gap: 8px;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  scrollbar-width: none;        /* Firefox */
+  -ms-overflow-style: none;     /* IE 10+ */
+}
+
+.car-list-slider::-webkit-scrollbar {
+  display: none;                /* Chrome, Safari */
+}
+
+.dealer-location {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  width: 335px;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+.location-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: #000000;
+  margin: 0;
+}
+
+.location-address {
+  font-size: 14px;
+  font-weight: 400;
+  color: #121212;
+  margin: 0;
+}

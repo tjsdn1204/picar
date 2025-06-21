@@ -1,0 +1,20 @@
+.dealerlist-page-wrapper {
+  background: #fff;
+  min-height: 100vh;
+  width: 100%;
+  padding: 24px 20px;
+  box-sizing: border-box;
+}
+.dealerlist-page-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dealerlist-card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* ✅ 이거 꼭 필요함 */
+  gap: 16px;
+  margin-top: 24px;
+}
