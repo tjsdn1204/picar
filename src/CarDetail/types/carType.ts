@@ -17,7 +17,7 @@ export interface CarBasicInfoProps {
     subModel: string;
     year: string;
     month: string;
-    registrationDate: string;
+    releaseDate: string;
     mileage: number;
     price: number;
   }

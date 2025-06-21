@@ -1,12 +1,11 @@
 import type { QuestionAnswers } from "../../Survey/types/surveyType";
 
 export interface CarInfo {
-  id: string;
   model: string;
-  year: number;
+  releaseDate: number;
   displacement: string;
   fuelType: string;
-  averagePrice: number;
+  averageMaintenancePrice: number;
   image: string;
 }
 
