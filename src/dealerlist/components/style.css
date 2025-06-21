@@ -59,6 +59,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
+  position: relative;
 }
 
 .profile {
@@ -84,7 +85,7 @@
 }
 
 .heart {
-  position: absolute;
+  position: static;
   top: 16px;
   right: 16px;
   width: 20px;

@@ -10,6 +10,7 @@ import '../layout/style.css';
 import '../components/style.css';
 import '../pages/style.css';
 
+// 쿼리 파라미터 파싱용 커스텀 훅
 function useQuery() {
   return new URLSearchParams(useLocation().search);
 }
@@ -49,15 +50,16 @@ export default function DealerListPage() {
             {dealerList.map((dealer, index) => (
               <DealerCard
                 key={index}
+                id={dealer.id} // ✅ 차량 ID 정확히 넘기기
                 name={dealer.dealerName}
-                rating={4.8} // 예: 4.8 이런 식으로
-                reviews={0} // 리뷰 수가 없으므로 임의
+                rating={4.8} // 임시 고정값
+                reviews={0} // 임시 고정값
                 image={dealer.imagePaths[0]}
                 profile={dealer.dealerImagePath}
                 price={dealer.priceMax}
                 year={`${dealer.modelYear}년식`}
                 distance={`${(dealer.mileage / 10000).toFixed(1)}만 km`}
-                comment={dealer.specialNote.replace(/ \/ /g, ' / ')} // A / B 형태로
+                comment={dealer.specialNote.replace(/ \/ /g, ' / ')}
               />
             ))}
           </div>
