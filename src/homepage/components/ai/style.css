@@ -1,3 +1,5 @@
+
+
 .ai-card {
   width: 335px;
   height: 416px;
@@ -8,7 +10,7 @@
   gap: 10px;
   border-radius: 12px;
   flex-shrink: 0;
-  background: url("C:\Users\nickj\Likelion\picar\public\images\ai_recommend_bg.jpg") no-repeat center/cover;
+  background: url('../../../assets/ai_recommend_bg.jpg') no-repeat center/cover;
   color: #121212;
 }
 
