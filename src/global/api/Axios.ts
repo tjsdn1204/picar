@@ -9,6 +9,7 @@ const api = axios.create({
     },
 });
 
+export const API_BASE_URL = process.env.REACT_APP_API_BASE_URL || 'http://localhost:8000';
 
 // API
 
@@ -273,8 +274,8 @@ export interface CarDetailResponse {
     dealerAffiliation: string;
     dealerId: number; // dealerId 추가
     position: string; // 딜러 직급 추가 
-    dealerImg: string; // 딜러 사진 추가
-    carImg: string; // 차량 사진 추가
+    imagePaths: string[]; // 차량 사진들 추가
+    dealerImagePath: string; // 딜러 사진 추가 
 }
 
 export interface CarDetailAPIResponse {
@@ -298,13 +299,14 @@ export interface CarModelItem {
     seatingCapacity: number; // 차량 좌석 추가
     priceMin: number; // 최소 가격 추가
     priceMax: number; // 최대 가격 추가
-    maintenanceCostMin: number; // 최소 유지비 추가
+    maintenanceCostMin: number; // 최소 유지비 추가 
     maintenanceCostMax: number; // 최대 유지비 추가 
+    specialNote: string; // 특징 추가 A / B <- 이렇게 구성되어있음 
     dealerName: string;
     dealerId: number; // 해당 차량을 보유 중인 딜러 id 추가
     position: string; // 딜러 직급 추가  
-    dealerImg: string; // 딜러 사진 추가
-    carImg: string; // 차량 사진 추가
+    imagePaths: string[]; // 차량 사진들 추가 
+    dealerImagePath: string; // 딜러 사진 추가 
 }
 
 export interface CarModelListResponse {
@@ -320,7 +322,7 @@ export interface DealerItem {
     name: string;
     affiliation: string;
     position: string; // 딜러 직급 추가
-    dealerImg: string; // 딜러 이미지 추가
+    imagePath: string; // 딜러 사진 추가
 }
 
 export interface DealerListResponse {
@@ -335,7 +337,7 @@ export interface DealerDetail {
     name: string;
     affiliation: string;
     position: string;  // 딜러 직급 추가
-    dealerImg: string; // 딜러 이미지 추가
+    imagePath: string; // 딜러 사진 추가
 }
 
 export interface DealerDetailResponse {
@@ -364,6 +366,8 @@ export interface DealerCarItem {
     specialNote: string; // 특징 추가 A / B <- 이렇게 구성되어있음 
     dealerName: string;
     dealerId: number; // 해당 차량을 보유 중인 딜러 id 추가
+    position: string; // 딜러 직급
+    imagePaths: string[]; // 차량 사진 추가
 }
 
 export interface DealerCarsResponse {
