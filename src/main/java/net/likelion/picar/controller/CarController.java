@@ -40,12 +40,16 @@ import java.util.List;
      *       "maintenanceCostMin": 50,
      *       "maintenanceCostMax": 80,
      *       "specialNote": "판금 / 1인 신조 차량",
-     *       "imageUrl": "/images/Uploads_Cars/car_1_avante.jpg",
+     *       "imagePaths": [
+     *         "/images/Uploads_Cars/car_1_avante_1.jpg",
+     *         "/images/Uploads_Cars/car_1_avante_2.jpg",
+     *         "/images/Uploads_Cars/car_1_avante_3.jpg"
+     *       ],
      *       "dealer": {
      *         "id": 1,
      *         "name": "최지원",
      *         "affiliation": "멋사중고차",
-     *         "imageUrl": "/images/Uploads_Dealers/dealer_1_choi.jpg"
+     *         "imagePath": "/images/Uploads_Dealers/dealer_1_choi.jpg"
      *       }
      *     },
      *     ...
@@ -53,8 +57,8 @@ import java.util.List;
      *
      * - 설명:
      *   DB에 저장된 모든 차량 정보를 조회합니다.
-     *   차량에는 이미지 URL과 연결된 딜러 정보까지 포함됩니다.
-     *   프론트엔드는 이 API를 통해 차량 목록 페이지나 추천 결과를 구성할 수 있습니다.
+     *   각 차량에는 3장의 이미지 경로(`imagePaths`)와 연결된 딜러 정보(`dealer`)가 포함됩니다.
+     *   프론트엔드는 이 API를 통해 차량 목록 또는 추천 결과 페이지를 구성할 수 있습니다.
      */
 @RestController
 @RequestMapping("/api/cars")

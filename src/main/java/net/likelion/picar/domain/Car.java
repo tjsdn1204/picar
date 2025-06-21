@@ -3,6 +3,7 @@ package net.likelion.picar.domain;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Getter
@@ -29,6 +30,7 @@ public class Car {
 
     private int priceMin;              // 가격 하한 (만원)
     private Integer priceMax;          // 가격 상한 (만원, nullable)
+    private Integer finalPrice;        // 총 가격 (만원)
     private int maintenanceCostMin;    // 유지비 하한 (만원)
     private Integer maintenanceCostMax; // 유지비 상한 (만원, nullable)
 
@@ -38,5 +40,11 @@ public class Car {
     @JoinColumn
     private Dealer dealer;
 
-    private String imageUrl;
+    @ElementCollection
+    @CollectionTable(
+            name = "car_images",
+            joinColumns = @JoinColumn(name = "car_id")
+    )
+    @Column(name = "image_path")
+    private List<String> imagePaths;
 }
