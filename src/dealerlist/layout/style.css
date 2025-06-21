@@ -1,18 +1,37 @@
+/* NavBar 전체 컨테이너 */
 .dealerlist-navbar {
-  position: relative;
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center; /* ✅ 텍스트 중앙 정렬 */
   height: 54px;
-  background: #fff;
   padding: 0 20px;
+  position: fixed;             /* 상단 고정 */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
   box-sizing: border-box;
 }
 
-/* 뒤로가기 버튼은 왼쪽 상단에 고정 */
+/* 왼쪽 영역: 뒤로가기 버튼 */
+.nav-left,
+.nav-right {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 가운데 텍스트 */
+.nav-center {
+  flex-grow: 1;
+  text-align: center;
+}
+
+/* 아이콘 */
 .back-icon {
-  position: absolute;
-  left: 20px;
   width: 24px;
   height: 24px;
   cursor: pointer;
@@ -20,15 +39,7 @@
 
 /* 중앙 텍스트 */
 .dealerlist-title {
-  font-size: 18px;         /* ✅ 글자 크기 수정 */
+  font-size: 18px;
   font-weight: 600;
   color: #111111;
-}
-
-.layout-wrapper {
-  display: flex;
-  justify-content: center;
-  background: #fff;         /* ✅ 반드시 흰색으로 설정 */
-  min-height: 100vh;
-  width: 100%;
 }
