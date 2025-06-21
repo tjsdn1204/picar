@@ -271,7 +271,10 @@ export interface CarDetailResponse {
     priceMax: number;
     dealerName: string;
     dealerAffiliation: string;
-    dealerId: number;               // dealerId 추가
+    dealerId: number; // dealerId 추가
+    position: string; // 딜러 직급 추가 
+    dealerImg: string; // 딜러 사진 추가
+    carImg: string; // 차량 사진 추가
 }
 
 export interface CarDetailAPIResponse {
@@ -299,6 +302,9 @@ export interface CarModelItem {
     maintenanceCostMax: number; // 최대 유지비 추가 
     dealerName: string;
     dealerId: number; // 해당 차량을 보유 중인 딜러 id 추가
+    position: string; // 딜러 직급 추가  
+    dealerImg: string; // 딜러 사진 추가
+    carImg: string; // 차량 사진 추가
 }
 
 export interface CarModelListResponse {
@@ -314,6 +320,7 @@ export interface DealerItem {
     name: string;
     affiliation: string;
     position: string; // 딜러 직급 추가
+    dealerImg: string; // 딜러 이미지 추가
 }
 
 export interface DealerListResponse {
@@ -328,6 +335,7 @@ export interface DealerDetail {
     name: string;
     affiliation: string;
     position: string;  // 딜러 직급 추가
+    dealerImg: string; // 딜러 이미지 추가
 }
 
 export interface DealerDetailResponse {
