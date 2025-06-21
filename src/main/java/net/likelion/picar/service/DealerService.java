@@ -57,7 +57,8 @@ public class DealerService {
                         car.getMaintenanceCostMax(),
                         car.getSpecialNote(),
                         car.getDealer().getName(),
-                        car.getDealer().getId()      // ✅ 추가된 dealerId
+                        car.getDealer().getId(),      // ✅ 추가된 dealerId
+                        car.getDealer().getPosition()
                 ))
                 .collect(Collectors.toList());
     }

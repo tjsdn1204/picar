@@ -36,7 +36,8 @@ public class CarService {
                         car.getMaintenanceCostMax(),
                         car.getSpecialNote(),
                         car.getDealer().getName(),
-                        car.getDealer().getId()
+                        car.getDealer().getId(),
+                        car.getDealer().getPosition()
                 ))
                 .collect(Collectors.toList());
     }
