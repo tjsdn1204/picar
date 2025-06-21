@@ -15,7 +15,7 @@ interface CarListSliderProps {
 const CarListSlider: React.FC<CarListSliderProps> = ({ carList }) => {
   return (
     <div className="car-slider-wrapper">
-      <div className="car-slider-scroll">
+      <div className="car-list-slider">
         {carList.map((car, idx) => (
           <div className="car-card-wrapper" key={idx}>
             <CarCard {...car} />

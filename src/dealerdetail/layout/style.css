@@ -39,25 +39,30 @@
 
 /* NavBar CSS */
 .nav-bar {
-  position: absolute;
-  top: 0;
   width: 100%;
-  max-width: 375px; /* 모바일 기준 */
+  max-width: 375px; /* ✅ 모바일 너비 고정 */
+  margin: 0 auto;
   height: 54px;
-  background-color: #fff;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 버튼 - 제목 - 빈공간 정렬 */
   padding: 0 16px;
   box-sizing: border-box;
-  align-items: center;
+  position: relative;
 }
 
 
-.back-button {
+
+.back-buttons {
   background: none;
   border: none;
   padding: 0;
-  width: 24px;
-  height: 24px;
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
 }
+
 
 .back-button img {
   width: 20px;
@@ -67,7 +72,11 @@
 .nav-title {
   font-size: 16px;
   font-weight: 600;
-  color: #111111;
-  margin: 0;
+  text-align: center;
+  flex: 1;
+  margin-left: -24px; /* 버튼 너비만큼 왼쪽 보정 */
 }
 
+.nav-right-space {
+  width: 24px; /* 오른쪽 공백용 (버튼과 균형) */
+}
