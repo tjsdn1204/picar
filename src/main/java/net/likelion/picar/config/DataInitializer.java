@@ -37,10 +37,10 @@ public class DataInitializer implements ApplicationRunner {
         if (dealerRepository.count() == 0 && carRepository.count() == 0) {
             // 딜러 5명 생성 및 저장
             Dealer d1 = dealerRepository.save(Dealer.builder().name("최지원").affiliation("멋사중고차").imagePath("/static/images/dealers/dealer_1.jpg").position("실장").build());
-            Dealer d2 = dealerRepository.save(Dealer.builder().name("이상민").affiliation("ICT모터스").imagePath("/static/images/dealers/dealer_1.jpg").position("지점장").build());
-            Dealer d3 = dealerRepository.save(Dealer.builder().name("이수빈").affiliation("드림오토").imagePath("/static/images/dealers/dealer_1.jpg").position("과장").build());
-            Dealer d4 = dealerRepository.save(Dealer.builder().name("김현준").affiliation("청년카딜러스").imagePath("/static/images/dealers/dealer_1.jpg").position("대리").build());
-            Dealer d5 = dealerRepository.save(Dealer.builder().name("박민수").affiliation("에이스카").imagePath("/static/images/dealers/dealer_1.jpg").position("부장").build());
+            Dealer d2 = dealerRepository.save(Dealer.builder().name("이상민").affiliation("ICT모터스").imagePath("/static/images/dealers/dealer_2.jpg").position("지점장").build());
+            Dealer d3 = dealerRepository.save(Dealer.builder().name("이수빈").affiliation("드림오토").imagePath("/static/images/dealers/dealer_3.jpg").position("과장").build());
+            Dealer d4 = dealerRepository.save(Dealer.builder().name("김현준").affiliation("청년카딜러스").imagePath("/static/images/dealers/dealer_4.jpg").position("대리").build());
+            Dealer d5 = dealerRepository.save(Dealer.builder().name("박민수").affiliation("에이스카").imagePath("/static/images/dealers/dealer_5.jpg").position("부장").build());
 
 
             Map<Long, Dealer> dealerMap = new HashMap<>();

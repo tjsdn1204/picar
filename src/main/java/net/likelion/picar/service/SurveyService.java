@@ -40,7 +40,7 @@ public class SurveyService {
                 ", 용도 = " + String.join(", ", dto.getPurpose()) +
                 ", 제조국 = " + dto.getCarOrigin() +
                 ", 연비 중시도 = " + dto.getFuelPerformancePreference() +
-                ", 차량 크기 = " + String.join(", ", dto.getCarSize()) + "\n" +  // ✅ 추가된 필드
+                ", 차량 크기 = " + String.join(", ", dto.getCarSize()) + "\n" +
                 "아래는 추천 가능한 차량 리스트야:\n[" + modelList + "]\n" +
                 "이 중에서 3개만 골라서 JSON 배열로 정확히 반환해줘. 다른 말은 하지 말고 JSON 배열만 줘.\n" +
                 "예: [\"BMW 320d\", \"벤츠 C220d\", \"아우디 A4\"]";
