@@ -17,6 +17,7 @@ import { type OptionsInfoProps } from '../types/carType';
 import Footer from './Footer';
 import { FooterProps } from '../types/carType';
 import { carAPI } from "../../global/api/Axios";
+import { API_BASE_URL } from "../../global/api/Axios"
 
 import carImg1 from "../../assets/test/carImgs/carImg1.png";
 import carImg2 from "../../assets/test/carImgs/carImg2.png";
@@ -42,8 +43,19 @@ const Layout = () => {
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState<string | null>(null);
 
+    const getFullImgUrl = (imagePath: string): string => {
+      return `${API_BASE_URL}${imagePath}`;
+    }
+
+    const makeCarImgs = (imagePaths: string[]): string[] => {
+      const carImgs: string[] = imagePaths.map((link, index) => getFullImgUrl(link));
+      return carImgs;
+    }
+
     // URL 쿼리에서 데이터 파싱
     const carId = searchParams.get('id');
+    const carModel = searchParams.get('model');
+
     useEffect(() => {
         const fetchCarDetail = async () => {
             if (!carId) {
@@ -75,6 +87,8 @@ const Layout = () => {
 
     // API 데이터를 컴포넌트 props에 맞게 변환
     const mapApiDataToProps = (apiData: any) => {
+        const carImgs: string[] = makeCarImgs(apiData.imagePaths);
+
         const carInfo: CarBasicInfoProps["carInfo"] = {
             id: apiData.id,
             brand: apiData.brand,
@@ -103,10 +117,10 @@ const Layout = () => {
             title: apiData.position, // 딜러 직급 
             company: apiData.dealerAffiliation || "딜러사", // 딜러 회사
             description: "", // 설명문
-            profileImage: apiData.dealerImg, // 딜러 사진
+            profileImage: getFullImgUrl(apiData.dealerImg), // 딜러 사진
         };
 
-        return { carInfo, carSpecs, dealerInfo };
+        return { carImgs, carInfo, carSpecs, dealerInfo };
     };
 
     const formatDealerInfo = (dealer: DealerInfoProps["dealer"]):DealerInfoProps["dealer"] => {
@@ -118,32 +132,44 @@ const Layout = () => {
       navigate(`/dealerDetail/${id}`);
     }
 
+    const goToPrevious = () => { 
+      const queryParams = new URLSearchParams({
+            model: carModel
+      });
+      navigate(`/dealerlist?${queryParams.toString()}`); 
+    };
+
     const onCalc = (id: number): void => {
     }
     const onCalling = (id: number): void => {
     }
     const onChatting = (id: number): void => {
     }
+    if (loading || !carData) return null;
+    if (error) return null;
 
-
+    const {carImgs, carInfo, carSpecs, dealerInfo } = mapApiDataToProps(carData);
+    
     return (
       <div className="car-detail">
           {/* Header */}
-          <Header />
-          <CarImageGallery images={imgs}/>
+          <Header goToPrevious={goToPrevious}/>
+          <CarImageGallery images={carImgs}/>
           <VerifedBanner description="완전 무사고•검증된 딜러" />
-          <CarBasicInfo carInfo={carInfoSample}/>
-          <CarSpecs specs={carSpecsSample}/>
+          <CarBasicInfo carInfo={carInfo}/>
+          <CarSpecs specs={carSpecs}/>
           <AiRecommendation recommendation={aiRecommendationSample}/>
           <SeperateLine />
-          <DealerInfo dealer={formatDealerInfo(dealerSample)} onDealerDetail={onDealerDetail}/>
+          <DealerInfo dealer={formatDealerInfo(dealerInfo)} onDealerDetail={onDealerDetail}/>
           <SeperateLine />
           <OptionsInfo options={optionsSample} />
-          <Footer carId={carInfoSample.id} carPrice={carInfoSample.price} onCalc={onCalc} onCalling={onCalling} onChatting={onChatting}/>
+          <Footer carId={carInfo.id} carPrice={carInfo.price} onCalc={onCalc} onCalling={onCalling} onChatting={onChatting}/>
       </div>
     );
 };
 
+
+// SampleData들
 const imgs: string[] = [
     carImg1,
     carImg2,

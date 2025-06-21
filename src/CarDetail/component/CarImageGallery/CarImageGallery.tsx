@@ -10,6 +10,14 @@ const CarImageGallery: React.FC<CarImageGalleryProps> = ({ images }) => {
   const [isDrag, setIsDrag] = useState(false);
   const [start, setStart] = useState(0);
 
+  const extendedImages: string[] = React.useMemo(() => {
+    const extenedArray: string[] = [];
+    for (let i = 0; i < 12; i++){
+      extenedArray.push(images[i % images.length]);
+    }
+    return extenedArray;
+  }, [images]);
+
   const onMouseDown = (event) => {
     event.preventDefault();
     setIsDrag(true);
@@ -55,10 +63,10 @@ const CarImageGallery: React.FC<CarImageGalleryProps> = ({ images }) => {
       {/* 메인 이미지 */}
       <div className="main-image-container">
         <img 
-          src={images[selectedImageIndex]} 
+          src={extendedImages[selectedImageIndex]} 
           alt="Car main view"
           className="main-car-image"/>
-        <div className="image-number"> {selectedImageIndex + 1}/{images.length}</div>
+        <div className="image-number"> {selectedImageIndex + 1}/{extendedImages.length}</div>
       </div>
       
       {/* 썸네일 이미지들 - 가로 스크롤 */}
@@ -70,7 +78,7 @@ const CarImageGallery: React.FC<CarImageGalleryProps> = ({ images }) => {
             onMouseUp={onMouseUp}
             onMouseLeave={onMouseUp}
             ref={scrollRef}>
-          {images.map((image, index) => (
+          {extendedImages.map((image, index) => (
             <button
               key={index}
               className={`thumbnail-btn ${selectedImageIndex === index ? 'active' : ''}`}

@@ -6,7 +6,7 @@ import CarCard from '../component/CarCard/CarCard';
 import img from "../../assets/test/BMW_320d.png" // Test용 사진
 import AiRecommendationLoading from '../../AiRecommendationLoading/pages/AiRecommendationLoading';
 import { type CarCardProps } from '../types/resultType';
-import { surveyAPI, carAPI, type QuestionAnswers } from '../../global/api/Axios';
+import { surveyAPI, carAPI, type QuestionAnswers, API_BASE_URL } from '../../global/api/Axios';
 
 import "./style.css"
 
@@ -16,6 +16,10 @@ const Layout: React.FC = () => {
     const [carData, setCarData] = useState<any[]>([]); //추가
     const [loading, setLoading] = useState(true); //추가
     const navigate = useNavigate();
+
+    const getFullImgUrl = (imagePath: string): string => {
+        return `${API_BASE_URL}${imagePath}`;
+    }
 
     // URL 쿼리에서 데이터 파싱
     const recommendationsParam = searchParams.get('recommendations');
@@ -59,7 +63,7 @@ const Layout: React.FC = () => {
                                 displacement: apiCarData.engineDisplacement, // 배기량
                                 fuelType: apiCarData.fuelType, // 유종
                                 averageMaintenancePrice: Math.round((apiCarData.maintenanceCostMin + apiCarData.maintenanceCostMax)/2), // 평균 유지비용
-                                image: apiCarData.carImg // 차량 이미지
+                                image: getFullImgUrl(apiCarData.imagePaths[0]) // 차량 이미지
                             };
                         } else {
                             // API 데이터가 없으면 기본 데이터 사용
