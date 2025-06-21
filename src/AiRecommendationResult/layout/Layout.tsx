@@ -51,7 +51,7 @@ const Layout: React.FC = () => {
                                 displacement: apiCarData.engineDisplacement, // 배기량
                                 fuelType: apiCarData.fuelType, // 유종
                                 averageMaintenancePrice: Math.round((apiCarData.maintenanceCostMin + apiCarData.maintenanceCostMax)/2), // 평균 유지비용
-                                image: getFullImgUrl(apiCarData.imagePaths[Math.floor(Math.random()*2)]) // 차량 이미지
+                                image: getFullImgUrl(apiCarData.imagePaths[0]) // 차량 이미지
                             };
                         } else {
                             // API 데이터가 없으면 기본 데이터 사용

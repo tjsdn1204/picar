@@ -47,11 +47,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between; /* 버튼 - 제목 - 빈공간 정렬 */
-  padding: 0 16px;
   box-sizing: border-box;
   position: relative;
 }
-
 
 
 .back-buttons {

@@ -7,6 +7,7 @@ const DealerInfo: React.FC<DealerInfoProps> = ({ dealer, onDealerDetail }) => {
   console.log(profileImage);
   const handleClick = (): void => {
     onDealerDetail(id);
+    console.log(id + " " + name);
   }
 
   return (

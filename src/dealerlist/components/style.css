@@ -161,6 +161,8 @@
   letter-spacing: -0.0375rem;
 
   margin-bottom: 0.75rem;
+  word-break: keep-all; 
+  overflow-wrap: break-word;
 }
 
 .highlight {

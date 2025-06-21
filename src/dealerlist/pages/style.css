@@ -4,7 +4,7 @@
   align-items: center; /* 가운데 정렬 */
   box-sizing: border-box;
   background-color: #fff;
-
+  padding: 0 1rem;
   margin: 0 auto;
   max-width: 375px;
 }

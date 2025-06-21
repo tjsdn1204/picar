@@ -111,7 +111,7 @@ const Layout = () => {
         };
 
         const dealerInfo: DealerInfoProps["dealer"] = {
-            id: apiData.id,
+            id: apiData.dealerId,
             name: apiData.dealerName || "담당 딜러", // 딜러 이름 
             title: apiData.position, // 딜러 직급 
             company: apiData.dealerAffiliation || "딜러사", // 딜러 회사
