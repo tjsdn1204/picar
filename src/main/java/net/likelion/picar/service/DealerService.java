@@ -24,6 +24,7 @@ public class DealerService {
                         .name(dealer.getName())
                         .affiliation(dealer.getAffiliation())
                         .position(dealer.getPosition())
+                        .imagePath(dealer.getImagePath())
                         .build())
                 .collect(Collectors.toList());
     }
@@ -32,7 +33,7 @@ public class DealerService {
     public DealerResponseDto getDealerById(Long dealerId) {
         Dealer dealer = dealerRepository.findById(dealerId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 딜러가 존재하지 않습니다."));
-        return new DealerResponseDto(dealer.getId(), dealer.getName(), dealer.getAffiliation(), dealer.getPosition());
+        return new DealerResponseDto(dealer.getId(), dealer.getName(), dealer.getAffiliation(), dealer.getPosition(), dealer.getImagePath());
     }
 
     // 딜러 id로 가지고 있는 차들 찾기
@@ -58,7 +59,9 @@ public class DealerService {
                         car.getSpecialNote(),
                         car.getDealer().getName(),
                         car.getDealer().getId(),      // ✅ 추가된 dealerId
-                        car.getDealer().getPosition()
+                        car.getDealer().getPosition(),
+                        car.getImagePaths(),
+                        dealer.getImagePath()
                 ))
                 .collect(Collectors.toList());
     }

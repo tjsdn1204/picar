@@ -37,7 +37,9 @@ public class CarService {
                         car.getSpecialNote(),
                         car.getDealer().getName(),
                         car.getDealer().getId(),
-                        car.getDealer().getPosition()
+                        car.getDealer().getPosition(),
+                        car.getImagePaths(),
+                        car.getDealer().getImagePath()
                 ))
                 .collect(Collectors.toList());
     }
@@ -59,10 +61,15 @@ public class CarService {
                 car.getMaintenanceCostMax(),
                 car.getPriceMin(),
                 car.getPriceMax(),
+                car.getModelYear(),
+                car.getReleaseDate().toString(),
+                car.getMileage(),
+                car.getEngineDisplacement(),
                 car.getDealer().getName(),
                 car.getDealer().getAffiliation(),
                 car.getDealer().getId(),
-                car.getDealer().getPosition()
+                car.getDealer().getPosition(),
+                car.getImagePaths()
         );
     }
 }
