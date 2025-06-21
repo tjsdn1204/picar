@@ -23,6 +23,7 @@ public class DealerService {
                         .id(dealer.getId())
                         .name(dealer.getName())
                         .affiliation(dealer.getAffiliation())
+                        .position(dealer.getPosition())
                         .build())
                 .collect(Collectors.toList());
     }
@@ -31,23 +32,33 @@ public class DealerService {
     public DealerResponseDto getDealerById(Long dealerId) {
         Dealer dealer = dealerRepository.findById(dealerId)
                 .orElseThrow(() -> new IllegalArgumentException("해당 딜러가 존재하지 않습니다."));
-        return new DealerResponseDto(dealer.getId(), dealer.getName(), dealer.getAffiliation());
+        return new DealerResponseDto(dealer.getId(), dealer.getName(), dealer.getAffiliation(), dealer.getPosition());
     }
 
     // 딜러 id로 가지고 있는 차들 찾기
     public List<CarResponseDto> getCarsByDealerId(Long dealerId) {
         Dealer dealer = dealerRepository.findById(dealerId)
                 .orElseThrow(() -> new IllegalArgumentException("딜러를 찾을 수 없습니다."));
-        return dealer.getCarList().stream()
-                .map(car -> new CarResponseDto(
+        return dealer.getCarList().stream().map(car -> new CarResponseDto(
                         car.getId(),
                         car.getBrand(),
                         car.getModel(),
-                        car.getFuelType(),
+                        car.getModelYear(),
+                        car.getReleaseDate().toString(),
                         car.getOrigin(),
+                        car.getFuelType(),
+                        car.getEngineDisplacement(),
+                        car.getMileage(),
+                        car.getSize(),
+                        car.getSeatingCapacity(),
                         car.getPriceMin(),
                         car.getPriceMax(),
-                        car.getDealer().getName()
+                        car.getMaintenanceCostMin(),
+                        car.getMaintenanceCostMax(),
+                        car.getSpecialNote(),
+                        car.getDealer().getName(),
+                        car.getDealer().getId(),      // ✅ 추가된 dealerId
+                        car.getDealer().getPosition()
                 ))
                 .collect(Collectors.toList());
     }

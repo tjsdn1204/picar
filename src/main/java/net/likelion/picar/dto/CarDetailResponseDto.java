@@ -22,4 +22,5 @@ public class CarDetailResponseDto {
     private String dealerName;
     private String dealerAffiliation;
     private Long dealerId;
+    private String position;
 }

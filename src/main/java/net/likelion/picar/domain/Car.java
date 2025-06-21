@@ -39,4 +39,5 @@ public class Car {
     private Dealer dealer;
 
     private String imageUrl;
+    //private String imagePath;
 }

@@ -6,12 +6,23 @@ import lombok.Getter;
 @Getter
 @AllArgsConstructor
 public class CarResponseDto {
-    private Long Id;
+    private Long id;
     private String brand;
     private String model;
-    private String fuelType;
+    private int modelYear;
+    private String releaseDate;
     private String origin;
+    private String fuelType;
+    private int engineDisplacement;
+    private int mileage;
+    private String size;
+    private int seatingCapacity;
     private int priceMin;
-    private int priceMax;
+    private Integer priceMax;
+    private int maintenanceCostMin;
+    private Integer maintenanceCostMax;
+    private String specialNote;
     private String dealerName;
+    private Long dealerId;
+    private String position;
 }

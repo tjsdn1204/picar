@@ -22,11 +22,22 @@ public class CarService {
                         car.getId(),
                         car.getBrand(),
                         car.getModel(),
-                        car.getFuelType(),
+                        car.getModelYear(),
+                        car.getReleaseDate().toString(),
                         car.getOrigin(),
+                        car.getFuelType(),
+                        car.getEngineDisplacement(),
+                        car.getMileage(),
+                        car.getSize(),
+                        car.getSeatingCapacity(),
                         car.getPriceMin(),
                         car.getPriceMax(),
-                        car.getDealer().getName() // 딜러 이름 추출
+                        car.getMaintenanceCostMin(),
+                        car.getMaintenanceCostMax(),
+                        car.getSpecialNote(),
+                        car.getDealer().getName(),
+                        car.getDealer().getId(),
+                        car.getDealer().getPosition()
                 ))
                 .collect(Collectors.toList());
     }
@@ -50,7 +61,8 @@ public class CarService {
                 car.getPriceMax(),
                 car.getDealer().getName(),
                 car.getDealer().getAffiliation(),
-                car.getDealer().getId()
+                car.getDealer().getId(),
+                car.getDealer().getPosition()
         );
     }
 }
