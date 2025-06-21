@@ -5,7 +5,7 @@ const Footer: React.FC = () => {
   return (
     <footer className="bottom-footer">
       <button className="footer-item">
-        <img src="/icons/logo.svg" alt="홈" />
+        <img src="/icons/Picar_Logo-01.svg" alt="홈" />
         <span>홈</span>
       </button>
       <button className="footer-item">

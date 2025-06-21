@@ -1,5 +1,5 @@
 // src/homepage/layout/Layout.tsx
-import React from 'react';
+import React, { useRef } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
 import NavBar from './NavBar';
 import Footer from './Footer';
@@ -7,9 +7,9 @@ import './style.css';
 
 const Layout: React.FC = () => {
   const location = useLocation();
+  const navRef = useRef<HTMLDivElement>(null); // ✅ NavBar 참조용 ref
 
-  // 특정 페이지에서는 NavBar 숨기기
-  const hideNavBarRoutes = ['/dealerlist']; // ✅ 이걸 꼭 포함해야 함!
+  const hideNavBarRoutes = ['/dealerlist'];
   const shouldShowNavBar = !hideNavBarRoutes.includes(location.pathname);
 
   const shouldShowFooter = !location.pathname.startsWith('/dealer/');
@@ -17,11 +17,11 @@ const Layout: React.FC = () => {
   return (
     <div className="layout-wrapper">
       <div className="layout-inner">
-        {shouldShowNavBar && <NavBar />} {/* 👈 homepage NavBar 조건부로 보여줌 */}
+        {shouldShowNavBar && <NavBar ref={navRef} />}
         <main className="layout-content">
           <Outlet />
         </main>
-        {shouldShowFooter && <Footer />}
+        {shouldShowFooter && <Footer navRef={navRef} />}
       </div>
     </div>
   );
