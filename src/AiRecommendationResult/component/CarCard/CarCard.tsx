@@ -5,15 +5,14 @@ import type { CarCardProps } from '../../types/resultType';
 import './CarCard.css';
 
 const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
-  const {model, releaseDate, displacement, fuelType, averageMaintenancePrice, image} = car;
+  const {brand, model, releaseDate, displacement, fuelType, averageMaintenancePrice, image} = car;
 
-  const formatModel = (model: string): string => {
-    model = model.replace(" ", "\n");
-    return model.replace("_", " ");
+  const formatModel = (model: string) => {
+    return model.replace(/_/g, ' ');
   }
 
   const formatAverageMaintenancePrice = (price?: number): string => {
-  if (typeof price !== 'number') return '정보 없음';
+    if (typeof price !== 'number') return '정보 없음';
     return `평균 유지비: 월 ${price.toLocaleString()}만원`;
   };
 
@@ -29,15 +28,22 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
   return (
     <div className="car-card-page">
         <div className="car-card-container">
-            <div className="car-card-image-container">
-                <h3 className="car-card-model">{formatModel(model)}</h3>
-                <img 
-                    src={image} 
-                    alt={model}
-                    className="car-card-image"
-                />
+            <div className="car-card-left-section">
+                <div className="car-card-title-section">
+                    <span className="car-card-brand">{formatModel(brand)}</span>
+                    <span className="car-card-model">{formatModel(model)}</span>
+                </div>
+                <div className="car-card-image-container">
+                    <img 
+                        src={image}
+                        alt={`${brand} ${model}`}
+                        className="car-card-image"
+                    />
+                </div>
             </div>
+            
             <div className="car-card-seperate-line"></div>
+            
             <div className="car-card-info">
                 <ul className="car-card-specs">
                     <li>{releaseDate}년 출시</li>
@@ -52,7 +58,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
             className="car-card-details-button"
             onClick={handleViewDetails}
             type="button">
-            <span>{model}을 보유중인 딜러</span>
+            <span>{formatModel(model)}을 보유중인 딜러</span>
             <RightArrow />
         </button>
       </div>
