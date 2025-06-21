@@ -56,12 +56,11 @@ const SurveyController = () => {
   // 조건부 렌더링
   if (error) {
     return (
-      <AiRecommendationLoading />
-      // <div className="error-container">
-      //   <h2>오류가 발생했습니다</h2>
-      //   <p>{error}</p>
-      //   <button onClick={handleRetry}>다시 시도</button>
-      // </div>
+      <div className="error-container">
+        <h2>오류가 발생했습니다</h2>
+        <p>{error}</p>
+        <button onClick={handleRetry}>다시 시도</button>
+      </div>
     );
   }
 

@@ -5,11 +5,25 @@ import type { CarCardProps } from '../../types/resultType';
 import './CarCard.css';
 
 const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
-  const formatPrice = (price: number): string => {
+  const {model, releaseDate, displacement, fuelType, averageMaintenancePrice, image} = car;
+
+  // 유종 한글 대치
+  const convertFuelTypeToKorean = (fuelType: string): string => {
+    const fuelTypeMap: { [key: string]: string } = {
+      'Gasoline': '가솔린',
+      'LPG': 'LPG',
+      'Diesel': '디젤',
+      'Electric': '전기'
+  } ;
+  
+    return fuelTypeMap[fuelType] || fuelType; // 매칭되지 않으면 원본 반환
+  }
+
+  const formatAverageMaintenancePrice = (price: number): string => {
     return `평균 유지비: 월 ${price.toLocaleString()}만원`;
   };
 
-  const formatdisplacement = (displacement: string): string => {
+  const formatDisplacement = (displacement: string): string => {
     const intDisplacement = parseInt(displacement);
     return `${intDisplacement.toLocaleString()}cc`;
   };
@@ -22,20 +36,20 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
     <div className="car-card">
         <div className="car-card-container">
             <div className="car-image-container">
-                <h3 className="car-model">{car.model}</h3>
+                <h3 className="car-model">{model}</h3>
                 <img 
-                    src={car.image} 
-                    alt={car.model}
+                    src={image} 
+                    alt={model}
                     className="car-image"
                 />
             </div>
             <div className="car-seperate-line"></div>
             <div className="car-info">
                 <ul className="car-specs">
-                    <li>{car.year}년 출시</li>
-                    <li>배기량: {car.displacement}</li>
-                    <li>유종: {car.fuelType}</li>
-                    <li>{formatPrice(car.averagePrice)}</li>
+                    <li>{releaseDate}년 출시</li>
+                    <li>배기량: {formatDisplacement(displacement)}</li>
+                    <li>유종: {fuelType}</li>
+                    <li>{formatAverageMaintenancePrice(averageMaintenancePrice)}</li>
                 </ul>
             </div>
       </div>
@@ -44,7 +58,7 @@ const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
             className="car-details-button"
             onClick={handleViewDetails}
             type="button">
-            <span>{car.model}을 보유중인 딜러</span>
+            <span>{model}을 보유중인 딜러</span>
             <RightArrow />
         </button>
       </div>

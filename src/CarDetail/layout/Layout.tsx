@@ -1,4 +1,5 @@
-import { useNavigate } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import Header from "../layout/Header.tsx";
 import CarImageGallery from "../component/CarImageGallery/CarImageGallery.tsx";
 import VerifedBanner from "../component/VerifedBanner/VerifiedBanner.tsx";
@@ -15,6 +16,7 @@ import OptionsInfo from '../component/OptionsInfo/OptionsInfo.tsx';
 import { type OptionsInfoProps } from '../types/carType.ts';
 import Footer from './Footer.tsx';
 import { FooterProps } from '../types/carType.ts';
+import { carAPI } from "../../global/api/Axios.ts";
 
 import carImg1 from "../../assets/test/carImgs/carImg1.png";
 import carImg2 from "../../assets/test/carImgs/carImg2.png";
@@ -33,40 +35,116 @@ import dealerImg from "../../assets/test/dealer_img.png";
 import "./style.css"
 
 const Layout = () => {
-  const navigate = useNavigate();
-  const formatDealerInfo = (dealer: DealerInfoProps["dealer"]):DealerInfoProps["dealer"] => {
-    dealer.description = `고객님! 안녕하십니까?\n${dealer.company}의 ${dealer.name} ${dealer.title}입니다.\n픽카 딜러고사 수석에 빛나는 실력으로 고객님에게 알맞은 차량을 안내해드리도록 최선을 다하겠습니다!`
-    return dealer;
-  }
+    const navigate = useNavigate();
+    const [searchParams, setSearchParams] = useSearchParams();
 
-  const onDealerDetail = (id:number):void => {
-    navigate(`/dealerDetail/${id}`);
-  }
+    const [carData, setCarData] = useState<any>(null);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState<string | null>(null);
 
-  const onCalc = (id: number): void => {
-  }
-  const onCalling = (id: number): void => {
-  }
-  const onChatting = (id: number): void => {
-  }
+    // URL 쿼리에서 데이터 파싱
+    const carId = searchParams.get('id');
+
+    useEffect(() => {
+        const fetchCarDetail = async () => {
+            if (!carId) {
+                setError('차량 ID가 지정되지 않았습니다.');
+                setLoading(false);
+                return;
+            }
+
+            try {
+                setLoading(true);
+                setError(null);
+                
+                const result = await carAPI.getCarDetail(carId);
+                
+                if (result.success && result.data) {
+                    setCarData(result.data);
+                } else {
+                    setError(result.error || '차량 정보를 불러올 수 없습니다.');
+                }
+            } catch (err) {
+                setError('차량 정보를 불러오는 중 오류가 발생했습니다.');
+                console.error('차량 상세 정보 가져오기 실패:', err);
+            } finally {
+                setLoading(false);
+            }
+        };
+
+        fetchCarDetail();
+    }, [carId]);
+
+    // API 데이터를 컴포넌트 props에 맞게 변환
+    const mapApiDataToProps = (apiData: any) => {
+        const carInfo: CarBasicInfoProps["carInfo"] = {
+            id: apiData.id,
+            model: apiData.brand,
+            subModel: apiData.model,
+            year: "2022", // 연식 - 추후 추가시 apiData.year로 변경
+            month: "08",  // 연식 - 추루 추가시 apiData.month로 변경
+            releaseDate: "2022", // 출시연도 - 추후 추가시 apiData.releaseDate로 변경
+            mileage: 35000, // 주행거리 - 추후 추가시 apiData.mileage로 변경
+            price: apiData.priceMax || apiData.priceMin || 0 // 정확한 가격 - 추후 추가시 apiData.price로 변경
+        };
+
+        const carSpecs: CarSpecsProps["specs"] = {
+            transmission: "자동", // API에 없는 데이터
+            warranty: "소모품",
+            drivetrain: "후륜",
+            insuranceHistory: "0",
+            fuelType: apiData.fuelType || "가솔린",
+            accidentHistory: "무사고",
+            displacement: "1998",
+            power: "192",
+            fuelEfficiency: "14.5"
+        };
+
+        const dealerInfo: DealerInfoProps["dealer"] = {
+            id: apiData.id,
+            name: apiData.dealerName || "담당 딜러",
+            title: "부장", // - 백 추가시 apiData.title
+            company: apiData.dealerAffiliation || "딜러사",
+            description: "",
+            profileImage: dealerImg // - 백 추가시 apiData.image
+        };
+
+        return { carInfo, carSpecs, dealerInfo };
+    };
+
+    const formatDealerInfo = (dealer: DealerInfoProps["dealer"]):DealerInfoProps["dealer"] => {
+      dealer.description = `고객님! 안녕하십니까?\n${dealer.company}의 ${dealer.name} ${dealer.title}입니다.\n픽카 딜러고사 수석에 빛나는 실력으로 고객님에게 알맞은 차량을 안내해드리도록 최선을 다하겠습니다!`
+      return dealer;
+    }
+
+    const onDealerDetail = (id:number):void => {
+      navigate(`/dealerDetail/${id}`);
+    }
+
+    const onCalc = (id: number): void => {
+    }
+    const onCalling = (id: number): void => {
+    }
+    const onChatting = (id: number): void => {
+    }
 
 
-  return (
-    <div className="car-detail">
-        {/* Header */}
-        <Header />
-        <CarImageGallery images={imgs}/>
-        <VerifedBanner description="완전 무사고•검증된 딜러" />
-        <CarBasicInfo carInfo={carInfoSample}/>
-        <CarSpecs specs={carSpecsSample.specs}/>
-        <AiRecommendation recommendation={aiRecommendationSample}/>
-        <SeperateLine />
-        <DealerInfo dealer={formatDealerInfo(dealerSample)} onDealerDetail={onDealerDetail}/>
-        <SeperateLine />
-        <OptionsInfo options={optionsSample} />
-        <Footer carId={carInfoSample.id} carPrice={carInfoSample.price} onCalc={onCalc} onCalling={onCalling} onChatting={onChatting}/>
-    </div>
-  );
+    return (
+      <div className="car-detail">
+          {/* Header */}
+          <Header />
+          <CarImageGallery images={imgs}/>
+          <VerifedBanner description="완전 무사고•검증된 딜러" />
+          <CarBasicInfo carInfo={carInfoSample}/>
+          <CarSpecs specs={carSpecsSample}/>
+          <AiRecommendation recommendation={aiRecommendationSample}/>
+          <SeperateLine />
+          <DealerInfo dealer={formatDealerInfo(dealerSample)} onDealerDetail={onDealerDetail}/>
+          <SeperateLine />
+          <OptionsInfo options={optionsSample} />
+          <Footer carId={carInfoSample.id} carPrice={carInfoSample.price} onCalc={onCalc} onCalling={onCalling} onChatting={onChatting}/>
+      </div>
+    );
 };
 
 const imgs: string[] = [
@@ -90,13 +168,12 @@ const carInfoSample: CarBasicInfoProps["carInfo"] = {
   subModel: "Smart 2.0",
   year: "2022",
   month: "08",
-  registrationDate: "2022",
+  releaseDate: "2022",
   mileage: 35000,
   price: 18900000
 };
 
-const carSpecsSample: CarSpecsProps = {
-  specs: {
+const carSpecsSample: CarSpecsProps["specs"] = {
     transmission: "자동",                 // 변속기
     warranty: "소모품",                        // 제조사 보증
     drivetrain: "후륜",                        // 구동방식
@@ -106,7 +183,6 @@ const carSpecsSample: CarSpecsProps = {
     displacement: "1998",                    // 배기량
     power: "192",                           // 출력
     fuelEfficiency: "14.5",               // 연비
-  }
 };
 
 const aiRecommendationSample: AiRecommendationProps['recommendation'] = {
@@ -158,12 +234,12 @@ const dealerSample: DealerInfoProps["dealer"] = {
   profileImage: dealerImg 
 };
 
-const optionsSample: string[] = [
+const optionsSample: OptionsInfoProps["options"] = [
   "메모리시트(운전석)",
   "열선시트", 
   "전동시트(앞지석)",
   "차선유지보조(LSS)",
-  "LED 헤드라이트",
-];
+  "LED 헤드라이트"
+]
 
 export default Layout;

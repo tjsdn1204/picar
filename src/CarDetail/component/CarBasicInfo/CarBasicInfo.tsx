@@ -2,7 +2,7 @@ import "./CarBasicInfo.css"
 import { type CarBasicInfoProps } from "../../types/CarType";
 
 const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
-    const {id, model, subModel, year, month, registrationDate, mileage, price} = carInfo;
+    const {id, model, subModel, year, month, releaseDate, mileage, price} = carInfo;
 
     const formatDate = (date: string): string => {
         date = date.substring(date.length-2, date.length);
@@ -26,7 +26,7 @@ const CarBasicInfo: React.FC<CarBasicInfoProps> = ({carInfo}) => {
             </div>
 
             <div className="car-details">
-                <span className="car-year">{formatDate(year)} / {formatDate(month)}({formatDate(registrationDate)}식) · {formatMileage(mileage)}</span>
+                <span className="car-year">{formatDate(year)} / {formatDate(month)}({formatDate(releaseDate)}식) · {formatMileage(mileage)}</span>
             </div>
 
             <div className="car-price-section">
