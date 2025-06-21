@@ -29,4 +29,5 @@ public class CarDetailResponseDto {
     private Long dealerId;
     private String position;
     private List<String> imagePaths;
+    private String dealerImagePath;
 }

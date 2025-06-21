@@ -69,7 +69,8 @@ public class CarService {
                 car.getDealer().getAffiliation(),
                 car.getDealer().getId(),
                 car.getDealer().getPosition(),
-                car.getImagePaths()
+                car.getImagePaths(),
+                car.getDealer().getImagePath()
         );
     }
 }
