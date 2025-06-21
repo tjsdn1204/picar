@@ -17,18 +17,18 @@ const DealerItem: React.FC<DealerItemProps> = ({
   imageUrl,
 }) => {
   return (
-    <div className="dealer-card">
-      <div className="dealer-image-container">
-        <img src={imageUrl} alt={`${name} 사진`} className="dealer-image" />
-        <div className="dealer-rating">
-          <img src="/icons/star.svg" alt="별 아이콘" />
+    <div className="dealer-card-vertical">
+      <div className="dealer-image-wrapper">
+        <img src={imageUrl} alt={`${name} 사진`} className="dealer-image-full" />
+        <div className="dealer-rating-badge">
+          <img src="/icons/star.svg" alt="별 아이콘" className="star-icon" />
           <span>{rating.toFixed(1)}</span>
         </div>
       </div>
 
-      <div className="dealer-info">
-        <div className="dealer-title-row">
-          <span className="dealer-name">{name}</span>
+      <div className="dealer-info-block">
+        <div className="dealer-name-line">
+          <span className="dealer-name-bold">{name}</span>
           <span className="dealer-position">{position}</span>
         </div>
         <div className="dealer-company">{company}</div>

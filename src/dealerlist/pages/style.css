@@ -1,15 +1,22 @@
 .dealerlist-page-wrapper {
-  background: #fff;
-  min-height: 100vh;
   width: 100%;
-  padding: 24px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가운데 정렬 */
   box-sizing: border-box;
+  background-color: #fff;
 }
+
 .dealerlist-page-content {
+  width: 100%;
+  max-width: 375px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-sizing: border-box;
+  padding: 24px 20px;
 }
+
 
 .dealerlist-card-list {
   display: flex;
