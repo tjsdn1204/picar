@@ -30,7 +30,7 @@ public class CarService {
                     return new CarResponseDto(
                             car.getId(),
                             car.getBrand(),
-                            car.getBrand() + " " + car.getModel(),
+                            car.getModel(),
                             car.getModelYear(),
                             car.getReleaseDate().toString(),
                             car.getOrigin(),
