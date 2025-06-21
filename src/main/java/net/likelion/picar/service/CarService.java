@@ -18,29 +18,39 @@ public class CarService {
 
     public List<CarResponseDto> getCarsByModel(String model) {
         return carRepository.findByModel(model).stream()
-                .map(car -> new CarResponseDto(
-                        car.getId(),
-                        car.getBrand(),
-                        car.getModel(),
-                        car.getModelYear(),
-                        car.getReleaseDate().toString(),
-                        car.getOrigin(),
-                        car.getFuelType(),
-                        car.getEngineDisplacement(),
-                        car.getMileage(),
-                        car.getSize(),
-                        car.getSeatingCapacity(),
-                        car.getPriceMin(),
-                        car.getPriceMax(),
-                        car.getMaintenanceCostMin(),
-                        car.getMaintenanceCostMax(),
-                        car.getSpecialNote(),
-                        car.getDealer().getName(),
-                        car.getDealer().getId(),
-                        car.getDealer().getPosition(),
-                        car.getImagePaths(),
-                        car.getDealer().getImagePath()
-                ))
+                .map(car -> {
+                    List<String> cleanedImagePaths = car.getImagePaths().stream()
+                            .map(path -> path.replace("/static", ""))
+                            .collect(Collectors.toList());
+
+                    String cleanedDealerImagePath = car.getDealer().getImagePath() != null
+                            ? car.getDealer().getImagePath().replace("/static", "")
+                            : null;
+
+                    return new CarResponseDto(
+                            car.getId(),
+                            car.getBrand(),
+                            car.getBrand() + " " + car.getModel(),
+                            car.getModelYear(),
+                            car.getReleaseDate().toString(),
+                            car.getOrigin(),
+                            car.getFuelType(),
+                            car.getEngineDisplacement(),
+                            car.getMileage(),
+                            car.getSize(),
+                            car.getSeatingCapacity(),
+                            car.getPriceMin(),
+                            car.getPriceMax(),
+                            car.getMaintenanceCostMin(),
+                            car.getMaintenanceCostMax(),
+                            car.getSpecialNote(),
+                            car.getDealer().getName(),
+                            car.getDealer().getId(),
+                            car.getDealer().getPosition(),
+                            cleanedImagePaths,
+                            cleanedDealerImagePath
+                    );
+                })
                 .collect(Collectors.toList());
     }
 
@@ -48,6 +58,14 @@ public class CarService {
     public CarDetailResponseDto getCarDetailById(Long id) {
         Car car = carRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("해당 차량을 찾을 수 없습니다."));
+
+        List<String> cleanedImagePaths = car.getImagePaths().stream()
+                .map(path -> path.replace("/static", ""))
+                .collect(Collectors.toList());
+
+        String cleanedDealerImagePath = car.getDealer().getImagePath() != null
+                ? car.getDealer().getImagePath().replace("/static", "")
+                : null;
 
         return new CarDetailResponseDto(
                 car.getId(),
@@ -69,8 +87,8 @@ public class CarService {
                 car.getDealer().getAffiliation(),
                 car.getDealer().getId(),
                 car.getDealer().getPosition(),
-                car.getImagePaths(),
-                car.getDealer().getImagePath()
+                cleanedImagePaths,
+                cleanedDealerImagePath
         );
     }
 }
