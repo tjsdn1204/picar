@@ -12,8 +12,7 @@ const Layout: React.FC = () => {
   const hideNavBarRoutes = ['/dealerlist']; // ✅ 이걸 꼭 포함해야 함!
   const shouldShowNavBar = !hideNavBarRoutes.includes(location.pathname);
 
-  const hideFooterRoutes = ['/dealerdetail'];
-  const shouldShowFooter = !hideFooterRoutes.includes(location.pathname);
+  const shouldShowFooter = !location.pathname.startsWith('/dealer/');
 
   return (
     <div className="layout-wrapper">
