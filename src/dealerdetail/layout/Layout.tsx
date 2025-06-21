@@ -1,16 +1,20 @@
 // src/dealerdetail/layout/DealerLayout.tsx
-// src/dealerdetail/layout/DealerLayout.tsx
 import React from 'react';
 import { Outlet } from 'react-router-dom';
-import Footer from './Footer'; // 👈 딜러용 Footer
+import NavBar from './NavBar';
+import Footer from './Footer';
+import './style.css'; // 반드시 포함
 
 const DealerLayout = () => {
   return (
     <div className="dealer-layout-wrapper">
-      <main>
+      <NavBar title="딜러 상세" />
+
+      <main className="dealer-layout-main">
         <Outlet />
       </main>
-      <Footer /> {/* 이건 딜러 전용 footer */}
+
+      <Footer />
     </div>
   );
 };

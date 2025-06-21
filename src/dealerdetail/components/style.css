@@ -4,6 +4,8 @@
   align-items: center;
   background: #fff;
   gap: 16px;
+  justify-content: center;
+  margin-top: 64px;
 }
 
 .dealer-profile-img {
