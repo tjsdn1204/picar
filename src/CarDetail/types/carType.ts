@@ -16,7 +16,7 @@ export interface CarBasicInfoProps {
     brand: string;
     model: string;
     releaseDate: string;
-    modelYear: string;
+    modelYear: number;
     mileage: number;
     price: number;
   }

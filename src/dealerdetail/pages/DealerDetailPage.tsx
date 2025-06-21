@@ -51,7 +51,6 @@ const DealerDetailPage: React.FC = () => {
 
   return (
     <div className="app-wrapper">
-      <NavBar title="딜러 상세" />
       <main>
         <DealerProfileCard
           name={dealer.name}

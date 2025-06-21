@@ -4,7 +4,7 @@ import './DealerInfo.css';
 
 const DealerInfo: React.FC<DealerInfoProps> = ({ dealer, onDealerDetail }) => {
   const {id, name, title, company, description, profileImage} = dealer;
-
+  console.log(profileImage);
   const handleClick = (): void => {
     onDealerDetail(id);
   }

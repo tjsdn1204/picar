@@ -5,11 +5,12 @@
 .car-card-container {
     display: flex;
     flex-direction: row;
-
+    
     background-color: #F3F3F3;
     border-radius: 12px;
-
+    
     padding: 1.25rem 1rem;
+    min-height: 7.5rem; /* 최소 높이 설정으로 일관성 유지 */
 }
 
 .car-card-image-container {
@@ -17,51 +18,66 @@
     flex-direction: column;
     align-items: center;
     flex: 1;
+    min-width: 0; /* flex 아이템이 줄어들 수 있도록 */
 }
 
 .car-card-model {
     font-size: 1.25rem; /*20px*/
     font-weight: 700;
-    line-height: 100%;
+    line-height: 1.2; /* 줄 간격 조정 */
     letter-spacing: -0.5px;
-
+    
     align-self: flex-start;
     margin: 0 0 0.625rem 0;
+    
+    /* 긴 텍스트 처리 */
+    word-break: keep-all; /* 한글 단어 단위로 줄바꿈 */
+    overflow-wrap: break-word; /* 필요시 단어 내 줄바꿈 */
+    hyphens: auto; /* 하이픈으로 줄바꿈 표시 */
+    
+    /* 최대 2줄로 제한하고 싶다면 아래 주석 해제 */
+    /* 
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    */
 }
-
 
 .car-card-seperate-line {
     width: 0.125rem; /*2px*/
-    height: 6rem; /*96px*/
     background: #D9D9D9;
-
-    margin: 0 0.5rem 0 0.5rem; 
+    
+    margin: 0 0.5rem 0 0.5rem;
+    flex-shrink: 0; /* 구분선이 줄어들지 않도록 */
+    align-self: stretch; /* 컨테이너 높이에 맞춰 늘어나도록 */
 }
 
 .car-card-info {
-  flex: 1;
-  display: flex;
-  justify-content: center;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    min-width: 0; /* flex 아이템이 줄어들 수 있도록 */
 }
 
 .car-card-specs {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  
-  white-space: nowrap;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+    white-space: nowrap;
 }
 
 .car-card-specs li {
     font-size: 0.875rem; /*14px*/
     position: relative;
     padding-left: 1rem;
-
+    
     font-weight: 500;
     line-height: 130%;
     letter-spacing: -2%;
@@ -76,7 +92,12 @@
 .car-card-image {
     width: 9.5rem;
     height: 4.5rem;
-    object-fit: contain;
+    object-fit: cover;
+    flex-shrink: 0; /* 이미지 크기 고정 */
+}
+
+.car-card-button-container {
+    margin-top: 0.75rem; /* 버튼과 카드 사이 간격 */
 }
 
 .car-card-details-button {
@@ -85,24 +106,52 @@
     align-items: center;
     justify-content: flex-end;
     gap: 0.5rem;
-    padding: 0;
-
+    padding: 0.5rem 0;
+    
     background: white;
     border: none;
     
     cursor: pointer;
-
-    font-size: 0.8125rem; /* 16px */
+    
+    font-size: 0.8125rem;
     font-weight: 700;
     line-height: 150%;
     letter-spacing: -2.2%;
+    
+    transition: all 0.2s ease; /* 부드러운 호버 효과 */
 }
-/* 
-.car-details-button:hover {
-  background: #f9fafb;
-  border-color: #d1d5db;
-} */
-/* 
-.car-details-button:active {
-  transform: translateY(1px);
-} */
+
+.car-card-details-button:hover {
+    opacity: 0.8;
+}
+
+/* 모바일 반응형 처리 */
+@media (max-width: 480px) {
+    .car-card-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 1rem;
+    }
+    
+    .car-card-model {
+        align-self: center;
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    
+    .car-card-seperate-line {
+        width: 100%;
+        height: 0.125rem;
+        margin: 0.75rem 0;
+    }
+    
+    .car-card-specs {
+        align-items: center;
+    }
+    
+    .car-card-specs li {
+        white-space: normal;
+        text-align: center;
+    }
+}

@@ -17,13 +17,15 @@ function useQuery() {
 export default function DealerListPage() {
   const query = useQuery();
   const modelName = query.get('model') || '차량';
+  const words = modelName.split(' ');
+  const model = words.length >= 2 ? words[1] : modelName;
 
   const [dealerList, setDealerList] = useState<CarModelItem[]>([]);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      const res = await carAPI.getCarsByModel(modelName);
+      const res = await carAPI.getCarsByModel(model);
       if (res.success) {
         setDealerList(res.data);
       } else {

@@ -123,6 +123,6 @@ export const questionsData : SurveyQuestion[] = [
             { id: 'mid_large', label: '준대형' },
             { id: 'large', label: '대형' }
         ],
-        multiple: false
+        multiple: true
     }
 ]

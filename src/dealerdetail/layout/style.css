@@ -39,10 +39,7 @@
 
 /* NavBar CSS */
 .nav-bar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between; /* ✅ 왼쪽 버튼 / 가운데 제목 / 오른쪽 공간 */
-  position: fixed;
+  position: absolute;
   top: 0;
   width: 100%;
   max-width: 375px; /* 모바일 기준 */
@@ -50,16 +47,7 @@
   background-color: #fff;
   padding: 0 16px;
   box-sizing: border-box;
-  z-index: 1000;
-}
-
-/* 가운데 정렬되는 제목 */
-.nav-title {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 16px;
-  font-weight: bold;
+  align-items: center;
 }
 
 
@@ -67,32 +55,19 @@
   background: none;
   border: none;
   padding: 0;
-  cursor: pointer;
+  width: 24px;
+  height: 24px;
 }
 
-.nav-right-space {
-  width: 24px;  
+.back-button img {
+  width: 20px;
+  height: 20px;
 }
 
-.dealer-detail-main {
-  padding: 80px 20px 100px;   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 40px;
-  min-height: 100vh;
-  background-color: #fff;
-  box-sizing: border-box;
-}
-.dealer-layout-wrapper {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+.nav-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+  margin: 0;
 }
 
-.dealer-main-content {
-  width: 100%;
-  max-width: 375px;  /* ✅ 모바일 크기 고정 */
-  padding: 0 20px;    /* 좌우 여백 */
-  box-sizing: border-box;
-}

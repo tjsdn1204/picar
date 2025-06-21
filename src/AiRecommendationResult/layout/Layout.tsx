@@ -24,21 +24,8 @@ const Layout: React.FC = () => {
     // URL 쿼리에서 데이터 파싱
     const recommendationsParam = searchParams.get('recommendations');
     const answersParam = searchParams.get('answers');
-
-    // JSON 파싱 (에러 처리 포함)
-    let recommendations: string[] = [];
-    let answers: any = {};
-
-    try {
-        if (recommendationsParam) {
-         recommendations = JSON.parse(recommendationsParam);
-        }
-        if (answersParam) {
-         answers = JSON.parse(answersParam);
-        }
-    } catch (error) {
-        console.error('URL 파라미터 파싱 오류:', error);
-    }
+    const recommendations = JSON.parse(recommendationsParam);
+    const answers = JSON.parse(answersParam);
 
     useEffect(() => {
         if (recommendations.length === 0) {
@@ -57,13 +44,14 @@ const Layout: React.FC = () => {
                         if (result.success && result.data && result.data.length > 0) {
                             // 첫 번째 차량 데이터 사용
                             const apiCarData = result.data[0];
+                            console.log(apiCarData.id + " ");
                             return {
                                 model: `${apiCarData.brand} ${apiCarData.model}`, // 브랜드 + 모델이 전체 모델
                                 releaseDate: apiCarData.modelYear, // 출시연도
                                 displacement: apiCarData.engineDisplacement, // 배기량
                                 fuelType: apiCarData.fuelType, // 유종
                                 averageMaintenancePrice: Math.round((apiCarData.maintenanceCostMin + apiCarData.maintenanceCostMax)/2), // 평균 유지비용
-                                image: getFullImgUrl(apiCarData.imagePaths[0]) // 차량 이미지
+                                image: getFullImgUrl(apiCarData.imagePaths[Math.floor(Math.random()*2)]) // 차량 이미지
                             };
                         } else {
                             // API 데이터가 없으면 기본 데이터 사용
@@ -112,7 +100,7 @@ const Layout: React.FC = () => {
         if (recommendations.length > 0) {
             fetchCarData();
         }
-    }, [recommendations]);
+    }, []);
     
     const handleRetry = async () => {
         try {
