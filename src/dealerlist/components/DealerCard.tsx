@@ -31,7 +31,7 @@ export default function DealerCard({
           <img src={profile} className="profile" alt="프로필" />
           <div className="name-rating">
             <div className="name">{name}</div>
-            <div className="rating">⭐ {rating} ({reviews} 후기)</div>
+            <div className="rating"><img src="/icons/star.svg" alt="별 아이콘" className="star-icon" />{rating} ({reviews} 후기)</div>
           </div>
           <img src="/icons/heart.svg" className="heart" alt="하트" />
         </div>

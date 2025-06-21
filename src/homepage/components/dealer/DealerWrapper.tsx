@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import './style.css';
 import DealerItem from './DealerItem';
-import axios from 'axios';
+import { dealerAPI } from '../../../global/api/Axios';
 
 interface Dealer {
   id: string;
   name: string;
   position: string;
   company: string;
-  rating: number;        // 👈 없으므로 임의 값 넣자
+  rating: number;
   imageUrl: string;
 }
 
@@ -16,21 +16,19 @@ const DealerWrapper: React.FC = () => {
   const [dealers, setDealers] = useState<Dealer[]>([]);
 
   useEffect(() => {
-    axios.get('/api/dealers')
-      .then((res) => {
+    dealerAPI.getDealers().then((res) => {
+      if (res.success && res.data) {
         const mapped = res.data.map((dealer: any) => ({
           id: String(dealer.id),
           name: dealer.name,
-          position: dealer.position,
-          company: dealer.affiliation,             // 이름 맞춤
-          rating: 4.7,                              // 임의 평점 (추후 API 확장 가능)
-          imageUrl: dealer.imagePath               // 이름 맞춤
+          position: dealer.position, // ✅ 정상 필드명
+          company: dealer.affiliation,
+          rating: 4.7,
+          imageUrl: dealer.imagePath,
         }));
         setDealers(mapped);
-      })
-      .catch((err) => {
-        console.error('❌ 딜러 목록 가져오기 실패:', err);
-      });
+      }
+    });
   }, []);
 
   return (
