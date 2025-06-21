@@ -21,6 +21,7 @@ public class Dealer {
     private String name; // 이름
 
     private String affiliation; // 소속사
+    private String position; // 직급
 
     @Builder.Default
     @OneToMany(mappedBy = "dealer", cascade = CascadeType.ALL, orphanRemoval = true) // 딜러 : 차 = 1 : N
