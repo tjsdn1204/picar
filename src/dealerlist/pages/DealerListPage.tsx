@@ -48,7 +48,7 @@ export default function DealerListPage() {
               <DealerCard
                 key={index}
                 name={dealer.dealerName}
-                rating={dealer.priceMax / 1000} // 예: 4.8 이런 식으로
+                rating={4.8} // 예: 4.8 이런 식으로
                 reviews={0} // 리뷰 수가 없으므로 임의
                 image={dealer.imagePaths[0]}
                 profile={dealer.dealerImagePath}
