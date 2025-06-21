@@ -1,0 +1,96 @@
+/* 전체 화면 중앙 정렬 + 흰 배경 */
+.layout-wrapper {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  min-height: 100vh;
+}
+
+/* 내부 콘텐츠를 column으로 중앙 정렬 */
+.layout-inner {
+  width: 100%;
+  max-width: 375px;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+}
+
+/* 페이지별 콘텐츠 패딩 */
+.layout-content {
+  padding: 0 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+/* NavBar 전체 영역 */
+.navbar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 20px 20px;
+  gap: 20px;
+  background: #fff;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* 로고 */
+.site-logo {
+  width: 100px;
+  height: auto;
+}
+
+/* 검색창 */
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 52px;
+  padding: 14px 16px;
+  gap: 8px;
+  background: #f3f3f3;
+  border-radius: 12px;
+  box-sizing: border-box;
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.search-box input {
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  width: 100%;
+  outline: none;
+  font-family: 'Pretendard', sans-serif;
+  color: #121212;
+}
+
+/* Footer 영역 */
+.bottom-footer {
+  margin-top: 48px;
+  padding: 8px 16px 36px 16px;
+  width: 100%;
+  max-width: 375px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border-top: 1.2px solid #EBEBED;
+  border-right: 1.2px solid #EBEBED;
+  border-left: 1.2px solid #EBEBED;
+  border-radius: 12px 12px 0 0;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  font-size: 13px;
+  color: #121212;
+}
