@@ -9,12 +9,12 @@ import java.nio.file.Paths;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    @Override
-    public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        // 프로젝트 내 images 폴더를 정적 리소스로 매핑
-        String imagePath = Paths.get("images").toAbsolutePath().toUri().toString();
-
-        registry.addResourceHandler("/images/**")
-                .addResourceLocations(imagePath);
-    }
+//    @Override
+//    public void addResourceHandlers(ResourceHandlerRegistry registry) {
+//        // 프로젝트 내 images 폴더를 정적 리소스로 매핑
+//        String imagePath = Paths.get("images").toAbsolutePath().toUri().toString();
+//
+//        registry.addResourceHandler("/images/**")
+//                .addResourceLocations(imagePath);
+//    }
 }
