@@ -41,12 +41,9 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
   position: relative;
-
-  /* ✅ 텍스트 세로쓰기 강제 차단 */
   writing-mode: horizontal-tb !important;
 }
 
-/* 🔹 왼쪽 정보 영역 */
 .dealer-left {
   display: flex;
   flex-direction: column;
@@ -54,7 +51,6 @@
   flex: 1;
 }
 
-/* 🔹 상단: 프로필, 이름, 별점, 하트 */
 .dealer-top {
   display: flex;
   align-items: center;
@@ -73,6 +69,7 @@
   display: flex;
   flex-direction: column;
   font-size: 14px;
+  gap: 2px;
 }
 
 .name {
@@ -82,36 +79,40 @@
 .rating {
   font-size: 12px;
   color: #0099ff;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star-icon {
+  width: 12px;
+  height: 12px;
 }
 
 .heart {
-  position: static;
-  top: 16px;
-  right: 16px;
+  margin-left: auto;
   width: 20px;
   height: 20px;
   cursor: pointer;
 }
 
-/* 🔹 차량 설명 및 가격 */
+/* 차량 설명 */
 .info {
   font-size: 13px;
   margin-top: 8px;
-  white-space: nowrap;
-  word-break: keep-all;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  overflow: visible;
+  text-overflow: initial;
+  line-height: 1.4;
 }
 
+/* 가격 */
 .price {
   font-size: 20px;
   font-weight: bold;
   color: #3399ff;
   margin-top: 8px;
   white-space: nowrap;
-  word-break: keep-all;
-  overflow: hidden;
-  text-overflow: ellipsis;
 }
 
 .unit {
@@ -119,7 +120,6 @@
   color: gray;
 }
 
-/* 🔹 오른쪽 영역: 이미지, 자세히 보기 */
 .dealer-right {
   display: flex;
   flex-direction: column;
@@ -140,10 +140,9 @@
 
 .detail {
   font-size: 13px;
-  color: black;
+  color: #333;
   margin-top: 8px;
   white-space: nowrap;
-  word-break: keep-all;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  text-align: right;
+  cursor: pointer;
 }

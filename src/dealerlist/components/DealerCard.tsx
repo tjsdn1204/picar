@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 interface DealerCardProps {
-  id: number; // ✅ 차량 고유 ID
+  id: number;
   name: string;
   rating: number;
   reviews: number;
@@ -35,38 +35,34 @@ export default function DealerCard({
 
   return (
     <div className="dealer-card">
-      <div className="dealer-card-top">
-        <div className="dealer-left">
-          <div className="dealer-top">
-            <img src={profile} className="profile" alt="프로필" />
-            <div className="name-rating">
-              <div className="name">{name}</div>
-              <div className="rating">
-                <img src="/icons/star.svg" alt="별 아이콘" className="star-icon" />
-                {rating} ({reviews} 후기)
-              </div>
+      <div className="dealer-left">
+        <div className="dealer-profile-row">
+          <img src={profile} alt="프로필" className="dealer-profile" />
+          <div className="dealer-info-text">
+            <div className="dealer-name">{name}</div>
+            <div className="dealer-rating">
+              <img src="/icons/star.svg" alt="별" className="star-icon" />
+              {rating.toFixed(1)} ({reviews} 후기)
             </div>
-            <img src="/icons/heart.svg" className="heart" alt="하트" />
           </div>
-
-          <div className="info">
-            <div>{year} / {distance}</div>
-            <div>{comment}</div>
-          </div>
-
-          <div className="price">
-            → <span>{price.toLocaleString()}<span className="unit">만원</span></span>
-          </div>
+          <img src="/icons/heart.svg" alt="하트" className="heart-icon" />
         </div>
 
-        <div className="dealer-right">
-          <img src={image} className="car-image" alt="차량" />
+        <div className="dealer-car-info">
+          <div>{year} / {distance}</div>
+          <div>{comment}</div>
+        </div>
+
+        <div className="dealer-price">
+          → <span>{price.toLocaleString()}<span className="unit">만원</span></span>
         </div>
       </div>
 
-      {/* 🔽 "자세히 보기" 클릭 시 페이지 이동 */}
-      <div className="dealer-detail-button" onClick={handleDetailClick}>
-        자세히 보기 &gt;
+      <div className="dealer-right">
+        <img src={image} alt="차량 이미지" className="dealer-car-image" />
+        <div className="dealer-detail-button" onClick={handleDetailClick}>
+          자세히 보기 &gt;
+        </div>
       </div>
     </div>
   );
