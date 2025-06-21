@@ -1,61 +1,44 @@
-.dealer-intro {
-  margin-top: 30px;
-  padding: 0 20px;
-}
-
-.dealer-title {
-  font-size: 20px;
-  font-weight: 700;
-  color: #111;
-  margin-bottom: 8px;
-}
-
-.dealer-title .highlight {
-  color: #8ee600;
-}
-
-.dealer-subtitle {
-  font-size: 14px;
-  color: #777;
-}
-
-.dealerlist-card-list {
+.dealer-card-wrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 16px;
-  padding: 0 20px;
-  
+  width: 335px;
+  position: relative;
 }
 
 .dealer-card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  width: 335px;
+  width: 100%;
   height: 164px;
-  background-color: #ffffff;
   border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
   padding: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
   position: relative;
-  writing-mode: horizontal-tb !important;
+}
+
+.heart {
+  position: absolute; /* 절대 위치 */
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
 }
 
 .dealer-left {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex: 1;
+  width: 180px;
 }
 
 .dealer-top {
   display: flex;
   align-items: center;
   gap: 8px;
-  position: relative;
 }
 
 .profile {
@@ -63,6 +46,7 @@
   height: 36px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid #8ee600;
 }
 
 .name-rating {
@@ -89,24 +73,12 @@
   height: 12px;
 }
 
-.heart {
-  margin-left: auto;
-  width: 20px;
-  height: 20px;
-  cursor: pointer;
-}
-
-/* 차량 설명 */
 .info {
   font-size: 13px;
   margin-top: 8px;
-  white-space: normal;
-  overflow: visible;
-  text-overflow: initial;
   line-height: 1.4;
 }
 
-/* 가격 */
 .price {
   font-size: 20px;
   font-weight: bold;
@@ -123,26 +95,29 @@
 .dealer-right {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: flex-end;
-  justify-content: space-between;
-  margin-left: 16px;
   width: 120px;
-  writing-mode: horizontal-tb !important;
+  margin-left: 12px;
 }
-
 .car-image {
-  width: 120px;
-  height: 72px;
+  width: 108px;        /* 기존 120px → 약간 축소 */
+  height: 64px;        /* 기존 72px → 약간 축소 */
   object-fit: cover;
   border-radius: 8px;
-  background: #eee;
+  background-color: #eee;
+  margin-top: 12px;    /* 💡 하트와의 간격 확보 */
 }
-
-.detail {
+.dealer-detail-bottom {
+  margin-top: 8px;
   font-size: 13px;
   color: #333;
-  margin-top: 8px;
-  white-space: nowrap;
   text-align: right;
+  width: 100%;
   cursor: pointer;
+}
+
+.highlight {
+  color: #8ee600; /* 💚 라임색 */
+  font-weight: 700;
 }

@@ -1,6 +1,6 @@
 import React from 'react';
-import { useNavigate } from 'react-router-dom';
 import './style.css';
+import { useNavigate } from 'react-router-dom';
 
 interface DealerCardProps {
   id: number;
@@ -29,40 +29,43 @@ export default function DealerCard({
 }: DealerCardProps) {
   const navigate = useNavigate();
 
-  const handleDetailClick = () => {
-    navigate(`/detail?id=${id}`);
-  };
-
   return (
-    <div className="dealer-card">
-      <div className="dealer-left">
-        <div className="dealer-profile-row">
-          <img src={profile} alt="프로필" className="dealer-profile" />
-          <div className="dealer-info-text">
-            <div className="dealer-name">{name}</div>
-            <div className="dealer-rating">
-              <img src="/icons/star.svg" alt="별" className="star-icon" />
-              {rating.toFixed(1)} ({reviews} 후기)
+    <div className="dealer-card-wrapper">
+      <div className="dealer-card">
+        <img src="/icons/heart.svg" className="heart" alt="하트" />
+
+        <div className="dealer-left">
+          <div className="dealer-top">
+            <img src={profile} className="profile" alt="프로필" />
+            <div className="name-rating">
+              <div className="name">{name}</div>
+              <div className="rating">
+                <img src="/icons/star.svg" alt="별 아이콘" className="star-icon" />
+                {rating} ({reviews} 후기)
+              </div>
             </div>
           </div>
-          <img src="/icons/heart.svg" alt="하트" className="heart-icon" />
+
+          <div className="info">
+            <div>• {year} / {distance}</div>
+            <div>• {comment}</div>
+          </div>
+
+          <div className="price">
+            → {price.toLocaleString()}<span className="unit">만원</span>
+          </div>
         </div>
 
-        <div className="dealer-car-info">
-          <div>{year} / {distance}</div>
-          <div>{comment}</div>
-        </div>
-
-        <div className="dealer-price">
-          → <span>{price.toLocaleString()}<span className="unit">만원</span></span>
+        <div className="dealer-right">
+          <img src={image} className="car-image" alt="차량 이미지" />
         </div>
       </div>
 
-      <div className="dealer-right">
-        <img src={image} alt="차량 이미지" className="dealer-car-image" />
-        <div className="dealer-detail-button" onClick={handleDetailClick}>
-          자세히 보기 &gt;
-        </div>
+      <div
+        className="dealer-detail-bottom"
+        onClick={() => navigate(`/detail?id=${id}`)}
+      >
+        자세히 보기 &gt;
       </div>
     </div>
   );

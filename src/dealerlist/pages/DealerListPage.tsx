@@ -50,10 +50,10 @@ export default function DealerListPage() {
             {dealerList.map((dealer, index) => (
               <DealerCard
                 key={index}
-                id={dealer.id} // ✅ 차량 ID 정확히 넘기기
+                id={dealer.id}
                 name={dealer.dealerName}
-                rating={4.8} // 임시 고정값
-                reviews={0} // 임시 고정값
+                rating={4.8} // 임시 고정
+                reviews={0}  // 임시 고정
                 image={dealer.imagePaths[0]}
                 profile={dealer.dealerImagePath}
                 price={dealer.priceMax}
