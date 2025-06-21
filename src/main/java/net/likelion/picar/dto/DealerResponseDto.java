@@ -11,4 +11,5 @@ public class DealerResponseDto {
     private Long id;
     private String name;
     private String affiliation;
+    private String position;
 }
