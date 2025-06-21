@@ -44,7 +44,6 @@ const Layout = () => {
 
     // URL 쿼리에서 데이터 파싱
     const carId = searchParams.get('id');
-
     useEffect(() => {
         const fetchCarDetail = async () => {
             if (!carId) {
@@ -58,7 +57,6 @@ const Layout = () => {
                 setError(null);
                 
                 const result = await carAPI.getCarDetail(carId);
-                
                 if (result.success && result.data) {
                     setCarData(result.data);
                 } else {
@@ -79,34 +77,33 @@ const Layout = () => {
     const mapApiDataToProps = (apiData: any) => {
         const carInfo: CarBasicInfoProps["carInfo"] = {
             id: apiData.id,
-            model: apiData.brand,
-            subModel: apiData.model,
-            year: "2022", // 연식 - 추후 추가시 apiData.year로 변경
-            month: "08",  // 연식 - 추루 추가시 apiData.month로 변경
-            releaseDate: "2022", // 출시연도 - 추후 추가시 apiData.releaseDate로 변경
-            mileage: 35000, // 주행거리 - 추후 추가시 apiData.mileage로 변경
-            price: apiData.priceMax || apiData.priceMin || 0 // 정확한 가격 - 추후 추가시 apiData.price로 변경
+            brand: apiData.brand,
+            model: apiData.model,
+            releaseDate: apiData.releaseDate, // 연식
+            modelYear: apiData.modelYear, // 출시연도
+            mileage: apiData.mileage, // 주행거리
+            price: Math.round((apiData.priceMin + apiData.priceMax) / 2) // 가격
         };
 
         const carSpecs: CarSpecsProps["specs"] = {
-            transmission: "자동", // API에 없는 데이터
-            warranty: "소모품",
-            drivetrain: "후륜",
-            insuranceHistory: "0",
-            fuelType: apiData.fuelType || "가솔린",
-            accidentHistory: "무사고",
-            displacement: "1998",
-            power: "192",
-            fuelEfficiency: "14.5"
+            transmission: "자동", // API에 없는 데이터 - 변속기
+            warranty: "소모품", // API에 없는 데이터 - 제조사 보증
+            drivetrain: "후륜", // API에 없는 데이터 - 구동 방식(전륜 후륜 사륜) 
+            insuranceHistory: "0", // API에 없는 데이터 - 사고 횟수
+            fuelType: apiData.fuelType || "가솔린", // 유종
+            accidentHistory: "무사고", // API에 없는 데이터 - 사고 유무
+            displacement: apiData.engineDisplacement, // 배기량
+            power: "192", // API에 없는 데이터 - 마력 
+            fuelEfficiency: "14.5" // API에 없는 데이터 - 연비
         };
 
         const dealerInfo: DealerInfoProps["dealer"] = {
             id: apiData.id,
-            name: apiData.dealerName || "담당 딜러",
-            title: "부장", // - 백 추가시 apiData.title
-            company: apiData.dealerAffiliation || "딜러사",
-            description: "",
-            profileImage: dealerImg // - 백 추가시 apiData.image
+            name: apiData.dealerName || "담당 딜러", // 딜러 이름 
+            title: apiData.position, // 딜러 직급 
+            company: apiData.dealerAffiliation || "딜러사", // 딜러 회사
+            description: "", // 설명문
+            profileImage: apiData.dealerImg, // 딜러 사진
         };
 
         return { carInfo, carSpecs, dealerInfo };
@@ -164,11 +161,10 @@ const imgs: string[] = [
 
 const carInfoSample: CarBasicInfoProps["carInfo"] = {
   id: 1,
-  model: "Hyundai Sonata",
-  subModel: "Smart 2.0",
-  year: "2022",
-  month: "08",
-  releaseDate: "2022",
+  brand: "Hyundai Sonata",
+  model: "Smart 2.0",
+  releaseDate: "2022-08-17",
+  modelYear: "2022",
   mileage: 35000,
   price: 18900000
 };

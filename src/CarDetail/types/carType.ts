@@ -13,11 +13,10 @@ export interface CarImageGalleryProps {
 export interface CarBasicInfoProps {
   carInfo: {
     id: number;
+    brand: string;
     model: string;
-    subModel: string;
-    year: string;
-    month: string;
     releaseDate: string;
+    modelYear: string;
     mileage: number;
     price: number;
   }
