@@ -1,0 +1,48 @@
+/* NavBar 전체 컨테이너 */
+.dealerlist-navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 3.375rem;
+  z-index: 999;
+  box-sizing: border-box;
+  position: fixed;
+  background-color: #fff;
+  max-width: 375px;
+  width: 100%;
+}
+
+/* 왼쪽 영역: 뒤로가기 버튼 */
+.nav-left,
+.nav-right {
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 가운데 텍스트 */
+.nav-center {
+  flex-grow: 1;
+  text-align: center;
+
+  color: #111;
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 130%;
+  letter-spacing: -0.02813rem;
+}
+
+/* 아이콘 */
+.back-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+/* 중앙 텍스트 */
+.dealerlist-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: #111111;
+}

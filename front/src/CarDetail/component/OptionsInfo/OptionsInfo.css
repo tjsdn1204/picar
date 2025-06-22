@@ -1,0 +1,44 @@
+/* CarDetail/components/OptionsInfo/OptionsInfo.css */
+.options-info {
+    margin-left: 0.5rem;
+    margin-right: 0.5rem;
+
+    margin-bottom: 10rem;
+}
+
+.options-header {
+  display: flex;
+  align-items: center;
+  gap: 0.62rem;
+  margin-bottom: 1rem;
+}
+
+.options-title {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 130%;
+    letter-spacing: -0.025rem;
+}
+
+.options-count {
+    color: #95E700;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 130%; /* 1.625rem */
+    letter-spacing: -0.025rem;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option-item {
+    color: rgba(0, 0, 0, 0.50);
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5rem; /* 150% */
+    letter-spacing: -0.025rem;
+}

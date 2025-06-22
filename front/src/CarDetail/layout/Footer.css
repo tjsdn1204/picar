@@ -1,0 +1,108 @@
+.car-detail-footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  padding: 0.9375rem 1.25rem;
+  z-index: 100;
+  max-width: 375px;  /* Results 페이지와 동일 */
+  margin: 0 auto;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.car-detail-footer-price-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 0.94rem;
+}
+
+.car-detail-footer-price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 130%; /* 1.625rem */
+    letter-spacing: -0.025rem;
+
+    margin: 0;
+}
+
+.car-detail-footer-cost {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 1rem;
+    border: none;
+    background-color: white;
+
+    color: rgba(0, 0, 0, 0.50);
+    font-size: 0.75rem;
+    font-weight: 600;
+    line-height: 130%; /* 0.975rem */
+    letter-spacing: -0.015rem;
+
+    text-decoration-line: underline;
+    text-decoration-style: solid;
+
+    cursor: pointer;
+}
+
+.car-detail-footer-btn-section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.car-detail-footer-calling-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 10rem;
+    height: 3.0625rem;
+    padding: 0.75rem 1.875rem;
+
+    border-radius: 0.75rem;
+    border: none;
+    background: #95E700;
+
+    color: #FFF;
+    text-align: justify;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 130%; /* 1.3rem */
+    letter-spacing: -0.02rem;
+
+    cursor: pointer;
+}
+
+.car-detail-footer-chatting-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 10rem;
+    height: 3.0625rem;
+    padding: 0.75rem 1.875rem;
+
+    border-radius: 0.75rem;
+    border: none;
+    background: #2DC5F4;
+
+    color: #FFF;
+    text-align: justify;
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 130%; /* 1.3rem */
+    letter-spacing: -0.02rem;
+
+    cursor: pointer;
+}

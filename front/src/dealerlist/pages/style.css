@@ -1,0 +1,30 @@
+.dealerlist-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 가운데 정렬 */
+  box-sizing: border-box;
+  background-color: #fff;
+  padding: 0 1rem;
+  margin: 0 auto;
+  max-width: 375px;
+}
+
+.dealerlist-page-content {
+  width: 100%;
+  max-width: 375px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-sizing: border-box;
+
+  padding-top: 3rem;
+}
+
+
+.dealerlist-card-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* ✅ 이거 꼭 필요함 */
+  gap: 16px;
+  margin-top: 24px;
+}

@@ -1,0 +1,95 @@
+.dealer-layout-wrapper {
+  padding: 0 1rem;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 99;
+
+  width: 100%;
+  max-width: 375px;        /* 모바일 디자인 기준 */
+  height: 82px;
+  padding: 8px 16px 36px 16px;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background: #fff;
+  border-top: 1.2px solid #e0e0e0;
+  border-left: 1.2px solid #e0e0e0;
+  border-right: 1.2px solid #e0e0e0;
+  border-radius: 12px 12px 0 0;
+  box-sizing: border-box;
+}
+
+.footer-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 12px;
+  color: #121212;
+}
+
+.footer-item img {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+}
+
+/* NavBar CSS */
+.nav-bar {
+  margin: 0 auto;
+  height: 54px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* 버튼 - 제목 - 빈공간 정렬 */
+}
+
+
+.back-buttons {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+
+  width: 1.75rem;
+  height: 1.75rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+
+
+.back-buttons img {
+  fill: none;
+  margin-left: -50%;
+  z-index: -100;
+}
+
+.nav-title {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  flex: 1;
+  margin-left: -24px; /* 버튼 너비만큼 왼쪽 보정 */
+}
+
+.nav-right-space {
+  width: 24px; /* 오른쪽 공백용 (버튼과 균형) */
+}
+
+@media (max-width: 768px) {
+    .dealer-layout-wrapper {
+        max-width: 100%;
+    }
+}

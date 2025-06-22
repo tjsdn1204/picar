@@ -1,0 +1,67 @@
+/* 카드 박스 */
+.lifestyle-input-guide {
+  display: flex;
+  width: 335px;
+  height: 108px;
+  padding: 12px 16px;
+  align-items: center;
+  gap: 40px;
+  flex-shrink: 0;
+  margin-bottom: 24px;
+
+  background: #f3f3f3;
+  border-radius: 12px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+/* 텍스트 영역 */
+.lifestyle-input-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* 상단 설명 문장 */
+.lifestyle-input-text p {
+  font-size: 12px;
+  font-weight: 500;
+  color: #121212;
+  margin: 0;
+}
+
+/* 하단 강조 문장 */
+.highlight-wrapper {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 4px;
+  font-size: 16px;
+  font-weight: 700;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.highlight-gradient {
+  background: linear-gradient(90deg, #95e700 0%, #2dbff4 100%);
+  background-clip: text;              /* ✅ 표준 속성 추가 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;                /* ✅ fallback */
+  display: inline-block;
+}
+
+/* 화살표 아이콘 */
+.arrow-icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 4px;
+  vertical-align: middle;
+}
+
+/* 우측 차량 이미지 */
+.lifestyle-car-image {
+  height: 80px;
+  object-fit: contain;
+}

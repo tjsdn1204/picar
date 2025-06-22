@@ -1,0 +1,44 @@
+import React from 'react';
+import { useNavigate } from 'react-router-dom';
+import './style.css';
+
+const Footer: React.FC = () => {
+  const navigate = useNavigate();
+
+  const onHomeClick = (): void => {
+    navigate("/");
+  }
+
+  const onRecommendClick = (): void => {
+    navigate("/survey");
+  }
+
+  return (
+    <footer className="bottom-footer">
+      <button className="footer-item" onClick={onHomeClick}>
+        <img src="/icons/Picar_Logo-01.svg" alt="홈" />
+        <span>홈</span>
+      </button>
+      <button className="footer-item">
+        <img src="/icons/search.svg" alt="검색" />
+        <span>검색</span>
+      </button>
+      <button className="footer-item ai-recommend-button" onClick={onRecommendClick}>
+        <div className="ai-button-bg">
+          <img src="/icons/AI_Chat.svg" alt="AI 추천" />
+          <span>AI 추천</span>
+        </div>
+      </button>
+      <button className="footer-item">
+        <img src="/icons/heart.svg" alt="찜" />
+        <span>찜</span>
+      </button>
+      <button className="footer-item">
+        <img src="/icons/profile.svg" alt="마이페이지" />
+        <span>마이페이지</span>
+      </button>
+    </footer>
+  );
+};
+
+export default Footer;

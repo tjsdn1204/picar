@@ -1,0 +1,127 @@
+.car-card-page {
+    margin-bottom: 0.5rem;
+}
+
+.car-card-container {
+    display: flex;
+    flex-direction: row;
+
+    background-color: #F3F3F3;
+    border-radius: 12px;
+    padding: 1.25rem 1rem;
+    min-height: 8rem;
+}
+
+.car-card-left-section {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.car-card-title-section {
+    margin-bottom: 0.75rem;
+}
+
+.car-card-brand {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: #505050;
+    letter-spacing: -2.5%;
+    margin-bottom: 0.25rem;
+}
+
+.car-card-model {
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 100%;
+    letter-spacing: -2.5%;
+    color: #333;
+    
+    word-break: keep-all; /* 단어 유지 */
+    overflow-wrap: break-word; /* 너무 긴 단어일 때만 쪼갠다 */
+}
+
+.car-card-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.car-card-image {
+    width: 100%;
+    max-width: 9.5rem;
+    height: 4.5rem;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.car-card-seperate-line {
+    width: 0.125rem;
+    background: #D9D9D9;
+    
+    margin: 0 1rem;
+    align-self: stretch; /* 교차 축으로 늘려 채워라 */ 
+}
+
+.car-card-info {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
+}
+
+.car-card-specs {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+}
+
+.car-card-specs li {
+    font-size: 0.875rem;
+    position: relative;
+    padding-left: 0.5rem;
+    
+    font-weight: 500;
+    line-height: 130%;
+    letter-spacing: -2%;
+
+    white-space: nowrap;
+}
+
+.car-card-specs li::before {
+    content: '•';
+    position: absolute;
+    left: -0.5rem;
+}
+
+.car-card-button-container {
+    margin-top: 0rem;
+}
+
+.car-card-details-button {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.5rem;
+    padding: 0.25rem 0;
+    
+    background: white;
+    border: none;
+    
+    cursor: pointer;
+    
+    font-size: 0.8125rem;
+    font-weight: 700;
+    line-height: 150%;
+    letter-spacing: -2.2%;
+}

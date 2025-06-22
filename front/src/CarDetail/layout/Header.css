@@ -1,0 +1,20 @@
+/* Header */
+.car-detail-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0;
+  background-color: white;
+  z-index: -100;
+}
+
+.car-detail-arrow-left {
+  cursor: pointer;
+  width: 1.75rem; /*28px*/
+  height: 1.75rem;
+}
+
+.car-detail-heart {
+    width: 1.75rem; /*28px*/
+    height: 1.75rem;
+}

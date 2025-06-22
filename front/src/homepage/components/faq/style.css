@@ -1,0 +1,75 @@
+.faq-wrapper {
+  padding: 20px 16px;
+}
+
+.faq-title {
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+.faq-item {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 14px 11px;
+  gap: 10px;
+  background-color: #ffffff;
+  width: 100%;
+  max-width: 360px;
+  border-radius: 8px;
+  box-sizing: border-box;
+  margin: 0 auto 12px auto;
+}
+
+/* 전체 질문 행 */
+.faq-question {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* 왼쪽 Q + 텍스트 */
+.faq-question-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Q 아이콘 텍스트 그라데이션 */
+.faq-q-gradient {
+  font-weight: 700;
+  font-size: 14px;
+  background: linear-gradient(135deg, #00ff00, #00c0ff); /* 예시 */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 질문 텍스트 */
+.faq-question-text {
+  font-size: 14px;
+  font-weight: 700;
+  color: #121212;
+}
+
+/* 오른쪽 화살표 */
+.faq-arrow {
+  font-size: 12px;
+  margin-left: 8px;
+  color: #000;
+}
+
+/* 답변 텍스트 */
+.faq-answer {
+  font-size: 13px;
+  font-weight: 400;
+  color: #121212;
+  text-align: left;
+  line-height: 1.6;
+  width: 100%;
+}

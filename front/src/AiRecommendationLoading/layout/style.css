@@ -1,0 +1,144 @@
+/* AI Loading Container */
+.ai-loading-container {
+    max-width: 375px;
+    min-height: 100vh;
+    background: 
+    linear-gradient(to bottom, 
+      rgba(0,0,0,0.2) 0%, 
+      transparent 20%, 
+      transparent 80%, 
+      rgba(0,0,0,0.2) 100%
+    );
+
+    display: flex;
+    flex-direction: column;
+
+    margin: 0 auto;
+}
+
+/* Main Content */
+.ai-loading-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Lines Animation */
+.ai-loading-lines {
+    width: 50%;
+}
+
+.ai-loading-lines.top1 {
+    margin-top: 20%;
+    margin-right: 35%;
+    animation: lineFloat 2s ease-in-out infinite;
+}
+
+.ai-loading-lines.top2 {
+    margin-left: 25%;
+    animation: lineFloat 2s ease-in-out infinite;
+}
+
+.ai-loading-lines.top3 {
+    margin-right: 10%;
+    animation: lineFloat 2s ease-in-out infinite;
+}
+
+.ai-loading-lines.bottom1 {
+    margin-right: 25%;
+    animation: lineFloat 2s ease-in-out infinite reverse;
+}
+
+.ai-loading-lines.bottom2 {
+    margin-left: 40%;
+    animation: lineFloat 2s ease-in-out infinite reverse;
+}
+
+.ai-loading-lines.bottom3 {
+    animation: lineFloat 2s ease-in-out infinite reverse;
+}
+
+.ai-loading-line-image {
+  width: 100%;
+  height: auto;
+}
+
+/* Car Animation */
+
+.ai-loading-car-wrapper {
+  animation: carBounce 1.5s ease-in-out infinite;
+}
+
+.ai-loading-car-image {
+  width: 16rem;
+  height: 16rem;
+  object-fit: contain;
+}
+
+/* Text Content */
+.ai-loading-text {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.ai-loading-title {
+  font-weight: 700;
+  font-size: 1.625rem; /*26px*/
+  line-height: 130%;
+  letter-spacing: -2.5%;
+
+  background: linear-gradient(90deg, #CBFF69 0%, #2DC5F4 100%);
+  background-clip: text;
+  color: transparent;
+
+  background-size: 200% 100%;
+    animation: gradientMove 5s ease-in-out infinite;
+}
+
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+.ai-loading-subtitle {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #505050;
+  line-height: 140%;
+  letter-spacing: -2.5%;
+}
+
+/* Animations */
+@keyframes carBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes lineFloat {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@media (max-width: 768px) {
+    .ai-loading-container {
+        max-width: 100%;
+  }
+}

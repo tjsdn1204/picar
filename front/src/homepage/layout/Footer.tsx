@@ -1,0 +1,52 @@
+import React from 'react';
+import './style.css';
+
+interface FooterProps {
+  navRef: React.RefObject<HTMLDivElement>;
+}
+
+const Footer: React.FC<FooterProps> = ({ navRef }) => {
+  const handleSearchClick = () => {
+    if (navRef.current) {
+      navRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleAiClick = () => {
+    window.location.href = '/survey';
+  };
+
+  return (
+    <footer className="bottom-footer">
+      <button className="footer-item">
+        <img src="/icons/Picar_Logo-01.svg" alt="홈" />
+        <span>홈</span>
+      </button>
+
+      <button className="footer-item" onClick={handleSearchClick}>
+        <img src="/icons/search.svg" alt="검색" />
+        <span>검색</span>
+      </button>
+
+      {/* ✅ 원형 그라디언트 스타일이 적용된 AI 추천 버튼 */}
+      <button className="footer-item ai-recommend-button" onClick={handleAiClick}>
+        <div className="ai-button-bg">
+          <img src="/icons/AI_Chat.svg" alt="AI 추천" />
+          <span>AI 추천</span>
+        </div>
+      </button>
+
+      <button className="footer-item">
+        <img src="/icons/heart.svg" alt="찜" />
+        <span>찜</span>
+      </button>
+
+      <button className="footer-item">
+        <img src="/icons/profile.svg" alt="마이페이지" />
+        <span>마이페이지</span>
+      </button>
+    </footer>
+  );
+};
+
+export default Footer;

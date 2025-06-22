@@ -1,0 +1,101 @@
+/* CarDetail/components/CarImageGallery/CarImageGallery.css */
+.car-image-gallery {
+  position: relative;
+}
+
+.main-image-container {
+  position: relative;
+  display: flex;
+
+  width: 100%;
+  height: 15.9375rem; /*255px*/
+}
+
+.main-car-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.image-number {
+  position: absolute;
+  right: 0.625rem;
+  bottom: 0.625rem;
+
+  width: 1.75rem; /*28px*/
+  height: 1.3125rem; /*21px*/
+  font-size: 0.625rem;
+  font-weight: 400;
+  letter-spacing: 0;
+  text-align: center;
+
+  color: white;
+
+  display:flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: #A9A9A9;
+  border-radius: 12px;
+}
+
+/* 썸네일 컨테이너 래퍼 */
+.thumbnail-wrapper {
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+/* 가로 스크롤 가능한 썸네일 컨테이너 */
+.thumbnail-container {
+  display: flex;
+  gap: 8px;
+  padding: 0 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+  
+  /* 스크롤바 숨기기 */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE, Edge */
+}
+
+/* 드래그 중일 때 커서 변경 */
+.thumbnail-container:active {
+  cursor: grabbing;
+}
+
+/* 웹킷 브라우저 스크롤바 숨기기 */
+.thumbnail-container::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbnail-btn {
+  position: relative;
+  width: 7.625rem; /*122px*/
+  height: 4.575rem; /*73.2px*/
+  border-radius: 12px;
+  overflow: hidden;
+  border: 3px solid transparent;
+  cursor: pointer;
+
+  flex-shrink: 0; /* 썸네일 크기 고정 */
+
+  padding: 0;           /* 기본 패딩 제거 */
+  margin: 0;            /* 기본 마진 제거 */
+  background: none;     /* 기본 배경 제거 */
+
+  display: flex;        /* 플렉스 컨테이너로 만들기 */
+  align-items: center;  /* 세로 중앙 정렬 */
+  justify-content: center; /* 가로 중앙 정렬 */
+}
+
+.thumbnail-btn.active {
+  border-color: #95E700;
+}
+
+.thumbnail-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
