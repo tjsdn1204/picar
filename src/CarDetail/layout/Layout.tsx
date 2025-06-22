@@ -148,7 +148,6 @@ const Layout = () => {
     
     return (
       <div className="car-detail">
-          {/* Header */}
           <Header goToPrevious={goToPrevious}/>
           <CarImageGallery images={carImgs}/>
           <VerifedBanner description="완전 무사고•검증된 딜러" />
