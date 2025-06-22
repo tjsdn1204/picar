@@ -9,8 +9,9 @@
 🦁 한양대학교 ERICA 멋쟁이사자처럼 13기 3팀 우리끼리 해커톤 프로젝트
 
 ## 1. 프로젝트 개요
- - Picar는 사용자의 라이프스타일과 운전 성향을 반영한 설문 데이터를 기반으로, 맞춤형 차량을 추천해주는 **AI 기반 차량 추천 서비스**입니다.
- - 자동차 시장에 어두운 사람이라도 쉽게 이해할 수 있으며, 동시에 신뢰할 수 있는 중고차 선택을 도와드립니다!
+🔺 Picar는 사용자의 라이프스타일과 운전 성향을 반영한 설문 데이터를 기반으로, 맞춤형 차량을 추천해주는 **AI 기반 차량 추천 서비스**입니다. <br/>
+🔺 자동차 시장에 어두운 사람이라도 쉽게 이해할 수 있으며, 동시에 신뢰할 수 있는 중고차 선택을 도와드립니다!
+<br />
 
 ## 2. 기술 스택
 
@@ -20,10 +21,10 @@
 | **🔧Backend** | [![Spring Boot](https://img.shields.io/badge/Spring%20Boot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white)](https://spring.io/projects/spring-boot)  [![MySQL](https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)](https://www.mysql.com/) ![RESTful API](https://img.shields.io/badge/RESTFul%20API-4B8BBE?style=for-the-badge&logo=cloudflare&logoColor=white) [![Postman](https://img.shields.io/badge/Postman-FF6C37?style=for-the-badge&logo=postman&logoColor=white)](https://www.postman.com/) |
 | **🤖External API** | [![GPT API](https://img.shields.io/badge/OpenAI%20GPT-412991?style=for-the-badge&logo=openai&logoColor=white)](https://platform.openai.com/) |
 | **🤝Collaboration** | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)  [![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.so/) |
-
 ## 3. 주요 기능 
 📌 **차량 및 딜러 상세 정보 제공** - 차량 사진, 제원, 이력, 딜러 등을 한눈에 확인할 수 있는 페이지 제공 <br>
 📌 **라이프 스타일 기반 AI 추천** - 몇가지 질문을 통한 사용자의 성향, 선호, 라이프 스타일 등을 반영한 AI 맞춤 추천 <br>
+<br />
 
 ## 4. 프로젝트 구조 및 실행 방법
 ### 프로젝트 구조
