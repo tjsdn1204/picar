@@ -93,6 +93,8 @@
     font-weight: 500;
     line-height: 130%;
     letter-spacing: -2%;
+
+    white-space: nowrap;
 }
 
 .car-card-specs li::before {

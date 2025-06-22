@@ -24,10 +24,18 @@ const CarSpecs: React.FC<CarSpecsProps> = ({ specs }) => {
         return `${intFuelEfficiency.toLocaleString()} km/L`;
     };
 
+    const formatFuelType = (fuelType: string): string => {
+      if (!fuelType.substring(0, 3).localeCompare("친환경")){
+        return fuelType.substring(0, 3) + "\n" + fuelType.substring(3);
+      } 
+
+      return fuelType;
+    }
+
   const specItems = [
     { label: "변속기", value: specs.transmission },
     { label: "구동방식", value: specs.drivetrain },
-    { label: "유종", value: specs.fuelType },
+    { label: "유종", value: formatFuelType(specs.fuelType) },
     { label: "배기량", value: formatdisplacement(specs.displacement) },
     { label: "출력", value: formatPower(specs.power) },
     { label: "연비", value: formatFuelEfficiency(specs.fuelEfficiency) },

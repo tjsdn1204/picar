@@ -10,6 +10,9 @@ const CarImageGallery: React.FC<CarImageGalleryProps> = ({ images }) => {
   const [isDrag, setIsDrag] = useState(false);
   const [start, setStart] = useState(0);
 
+  const [startPageX, setStartPageX] = useState(0);
+  const [endPageX, setEndPageX] = useState(0);
+
   const extendedImages: string[] = React.useMemo(() => {
     const extenedArray: string[] = [];
     for (let i = 0; i < 12; i++){
@@ -23,6 +26,7 @@ const CarImageGallery: React.FC<CarImageGalleryProps> = ({ images }) => {
     setIsDrag(true);
     if (scrollRef.current) {
       setStart(event.pageX + scrollRef.current.scrollLeft);
+      setStartPageX(event.pageX);
     }
   };
 
@@ -35,8 +39,15 @@ const CarImageGallery: React.FC<CarImageGalleryProps> = ({ images }) => {
   };
 
   const onMouseUp = (event) => {
+    setEndPageX(event.pageX);
     setIsDrag(false);
   };
+
+  const handleClick = (imgId: number) => {
+    if (startPageX - endPageX == 0) {
+      setSelectedImageIndex(imgId);
+    }
+  }
 
   // 마우스 휠 이벤트로 가로 스크롤 구현
   useEffect(() => {
@@ -82,7 +93,7 @@ const CarImageGallery: React.FC<CarImageGalleryProps> = ({ images }) => {
             <button
               key={index}
               className={`thumbnail-btn ${selectedImageIndex === index ? 'active' : ''}`}
-              onClick={isDrag ? () => {} : () => setSelectedImageIndex(index)}
+              onClick={isDrag ? () => {} : () => handleClick(index)}
                 >
               <img 
                 src={image} 

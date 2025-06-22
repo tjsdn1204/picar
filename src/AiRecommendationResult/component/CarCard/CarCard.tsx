@@ -7,7 +7,7 @@ import './CarCard.css';
 const CarCard: React.FC<CarCardProps> = ({ car, onViewDetails }) => {
   const {brand, model, releaseDate, displacement, fuelType, averageMaintenancePrice, image} = car;
 
-  const formatModel = (model: string) => {
+  const formatModel = (model: string): string => {
     return model.replace(/_/g, ' ');
   }
 

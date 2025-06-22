@@ -14,6 +14,9 @@ export default function CarCard({ id, image, title, price, onClick }: CarCardPro
   const handleClick = () => {
     onClick(id);
   }
+  const formatModel = (model: string ): string => {
+    return model.replace(/_/g, ' ');
+  }
 
   return (
     <div className="car-card" onClick={handleClick}>
@@ -21,8 +24,9 @@ export default function CarCard({ id, image, title, price, onClick }: CarCardPro
         <img src={image} alt={title} className="car-image" />
       </div>
       <div className="car-text">
-        <div className="car-titles">{title}</div>
-        <div className="car-price">{price.toLocaleString()} 만 원</div>
+        <div className="car-titles">{formatModel(title)}</div>
+        <div className="car-price">
+          <span className="car-price-bold">{price.toLocaleString()}</span> 만 원</div>
       </div>
     </div>
   );

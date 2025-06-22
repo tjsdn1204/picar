@@ -62,6 +62,8 @@
   font-family: 'Pretendard', sans-serif;
   flex-shrink: 0;
   justify-content: space-between;
+
+  cursor: pointer;
 }
 
 .dealer-image-wrapper {

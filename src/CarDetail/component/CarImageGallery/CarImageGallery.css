@@ -52,7 +52,6 @@
   padding: 0 1rem;
   overflow-x: auto;
   overflow-y: hidden;
-  scroll-behavior: smooth;
   cursor: grab;
   
   /* 스크롤바 숨기기 */

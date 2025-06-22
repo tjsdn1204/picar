@@ -1,91 +1,100 @@
 .dealer-profile-card {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 16px;
+
+  gap: 1.75rem;
+
   border-radius: 12px;
   background-color: #ffffff;
 
   width: 100%;
   max-width: 375px;
+  height: 9rem;
   box-sizing: border-box;
+
+  padding: 0;
+  padding-left: 1rem;
+  margin-top: 1.25rem;
 }
 
 .dealer-profile-img {
-  width: 104px;
-  height: 144px;
+  width: 7rem;
+  height: 9rem;
   border: 2px solid #95E700; /* 선택 컬러 */
-  border-radius: 8px;
+  border-radius: 0.75rem;
   object-fit: cover;
 }
 
 .dealer-info {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: flex-start;
-   background: #fff;
-  gap: 8px;
-  width: 193px;
+  background: #fff;
+
+  height: 100%;
 }
 
-.dealer-name {
-  font-size: 26px;
+.dealer-basic-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.dealer-name-position {
+  font-size: 1.3rem;
   font-weight: 700;
-  color: #000;
+  line-height: 130%; /* 2.1125rem */
+  letter-spacing: -0.04063rem;
 }
 
 .dealer-companys {
-  font-size: 16px;
-  text-align: left;
-  color: #000;
+  color: #505050;
+  font-size: 1rem;
   font-weight: 400;
+  line-height: 140%; /* 1.4rem */
+  letter-spacing: -0.025rem;
 }
 
 .dealer-score-label {
-  font-size: 16px;
-  color: #000000;
+  font-size: 1rem;
   font-weight: 700;
+  line-height: 140%; /* 1.4rem */
+  letter-spacing: -0.025rem;
 }
 
 .dealer-score {
-  font-size: 26px;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: #00b4ff;
+  line-height: 130%;
+  letter-spacing: -0.04063rem;
 }
 
 .score-main {
-  font-size: 24px;
-  font-weight: 700;
-  color: #00b4ff;
-}
-
-.score-divider {
-  font-size: 20px;
-  font-weight: 600;
-  color: #000;
+  display: inline-block;
+  color: #2DC5F4;
+  width: 44px;
+  text-align: end;
 }
 
 .score-sub {
-  font-size: 13px;
-  font-weight: 400;
-  color: #666;
+  font-size: 0.7rem;
+  font-weight: 700;
+  line-height: 130%; /* 0.975rem */
+  letter-spacing: -0.01875rem;
 }
+
 .car-card {
-  width: 120px;
-  background-color: white;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  scroll-snap-align: start;
-  flex-shrink: 0;
-   overflow-x: hidden;
+
+  width: 9rem;
 }
 
 .car-image-box {
   width: 100%;
-  height: 140px;
+  height: 5rem;
+  border-radius: 0.75rem;
+  overflow: hidden;
   background-color: #f2f2f2; /* 이미지 없을 때 대비 */
 }
 
@@ -100,43 +109,27 @@
 }
 
 .car-titles {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.375rem; /* 183.333% */
+
+  word-break: keep-all;
+  overflow-wrap: break-word;
+
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: 12px !important;
-  font-weight: 500;
-  color: #000;
-  line-height: 1.4;
-  height: 40px;
 }
-.car-price {
-  margin-top: 6px;
-  font-size: 16px;
+
+.car-price-bold {
+  font-size: 0.75rem;
   font-weight: 700;
-  color: #121212;
+  line-height: 1.375rem; /* 183.333% */
 }
 
-
-
-.car-list-slider {
-   display: flex;
-  overflow-x: auto;
-  padding-left: 18px;
-  padding-right: 18px;
-  scroll-padding-left: 18px;
-  scroll-padding-right: 18px;
-  gap: 12px;
-  width: 100%;
-  height: 200px;
-  justify-content: flex-start;
-  align-items: flex-end;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  margin-bottom: 24px;
-  scrollbar-width: none !important;        /* Firefox */
-  -ms-overflow-style: none !important;     /* IE 10+ */
+.car-price {
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.375rem;
 }
 
 .car-list-slider::-webkit-scrollbar {
@@ -147,46 +140,52 @@
 }
 
 .dealer-location {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 20px;
-  width: 335px;
-  padding: 0 20px;
-  box-sizing: border-box;
+  gap: 0.63rem;
 }
 
 .location-title {
-  font-size: 18px;
+  font-size: 1.25rem;
   font-weight: 700;
-  color: #000000;
+  line-height: 130%; /* 1.625rem */
+  letter-spacing: -0.025rem;
   margin: 0;
 }
 
 .location-address {
-  font-size: 14px;
+  font-size: 1rem;
   font-weight: 400;
-  color: #121212;
+  line-height: 130%; /* 1.3rem */
+  letter-spacing: -0.02rem;
   margin: 0;
 }
 
 /* 차량 슬라이더 전체 영역 */
 .car-slider-wrapper {
   width: 100%;
-  overflow-x: auto;
-  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.car-slider-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 130%; /* 1.625rem */
+  letter-spacing: -0.025rem;
 }
 
 /* 가로 스크롤 영역 */
-.car-slider-scroll {
+.car-list-slider {
   display: flex;
   flex-direction: row;
-  gap: 12px;
+  align-items: flex-start;
+  gap: 0.5rem;
   overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 0 16px;
-  box-sizing: border-box;
 }
 
 /* 각 차량 카드 감싸는 요소 */
@@ -195,30 +194,6 @@
   scroll-snap-align: start;
 }
 
-/* 차량 슬라이더 전체 영역 */
-.car-slider-wrapper {
-  width: 100%;
-  overflow-x: auto;
-  margin-top: 16px;
-}
-
-/* 가로 스크롤 영역 */
-.car-slider-scroll {
-  display: flex;
-  flex-direction: row;
-  gap: 12px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-  padding: 0 16px;
-  box-sizing: border-box;
-}
-
-/* 각 차량 카드 감싸는 요소 */
-.car-card-wrapper {
-  flex: 0 0 auto;
-  scroll-snap-align: start;
-}
 .dealer-name-line {
   display: flex;
   align-items: baseline;
