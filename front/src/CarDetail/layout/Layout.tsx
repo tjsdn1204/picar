@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import Header from "../layout/Header";
+import Header from "./Header";
 import CarImageGallery from "../component/CarImageGallery/CarImageGallery";
 import VerifedBanner from "../component/VerifedBanner/VerifiedBanner";
 import CarBasicInfo from "../component/CarBasicInfo/CarBasicInfo";

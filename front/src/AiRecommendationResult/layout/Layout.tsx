@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, useNavigate } from 'react-router-dom';
-import Header from '../layout/Header';
-import Footer from '../layout/Footer';
+import Header from './Header';
+import Footer from './Footer';
 import CarCard from '../component/CarCard/CarCard';
 import img from "../../assets/test/BMW_320d.png" // Test용 사진
 import AiRecommendationLoading from '../../AiRecommendationLoading/pages/AiRecommendationLoading';

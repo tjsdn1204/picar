@@ -8,7 +8,7 @@ import type { CarModelItem } from '../../global/api/Axios';
 
 import '../layout/style.css';
 import '../components/style.css';
-import '../pages/style.css';
+import './style.css';
 
 // 쿼리 파라미터 파싱용 커스텀 훅
 function useQuery() {

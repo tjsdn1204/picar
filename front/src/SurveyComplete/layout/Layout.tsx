@@ -1,4 +1,4 @@
-import Header from "../layout/Header"
+import Header from "./Header"
 import ProgressBar from '../components/progressBar/ProgressBar';
 import './style.css';
 
