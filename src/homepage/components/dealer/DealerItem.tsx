@@ -3,12 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import './style.css';
 
 export interface DealerItemProps {
-  id: string;
+  id: number;
   name: string;
   position: string;
   company: string;
   rating: number;
   imageUrl: string;
+  onClick: () => void;
 }
 
 const DealerItem: React.FC<DealerItemProps> = ({
@@ -18,15 +19,12 @@ const DealerItem: React.FC<DealerItemProps> = ({
   company,
   rating,
   imageUrl,
+  onClick,
 }) => {
   const navigate = useNavigate();
 
-  const handleClick = () => {
-    navigate(`/dealerdetail/${id}`);
-  };
-
   return (
-    <div className="dealer-card-vertical" onClick={handleClick}>
+    <div className="dealer-card-vertical" onClick={onClick}>
       <div className="dealer-image-wrapper">
         <img src={imageUrl} alt={`${name} 사진`} className="dealer-image-full" />
         <div className="dealer-rating-badge">
