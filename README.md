@@ -23,7 +23,7 @@
 | **🤝Collaboration** | [![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/)  [![Notion](https://img.shields.io/badge/Notion-000000?style=for-the-badge&logo=notion&logoColor=white)](https://www.notion.so/) |
 ## 3. 주요 기능 
 📌 **차량 및 딜러 상세 정보 제공** - 차량 사진, 제원, 이력, 딜러 등을 한눈에 확인할 수 있는 페이지 제공 <br>
-📌 **라이프 스타일 기반 AI 추천** - 몇가지 질문을 통한 사용자의 성향, 선호, 라이프 스타일 등을 반영한 AI 맞춤 추천 <br>
+📌 **라이프 스타일 기반 AI 추천** - OpenAI API를 활용하여 사용자 라이프스타일 질문을 통한 맞춤형 차량 추천 제공 <br>
 <br />
 
 ## 4. 프로젝트 구조 및 실행 방법
